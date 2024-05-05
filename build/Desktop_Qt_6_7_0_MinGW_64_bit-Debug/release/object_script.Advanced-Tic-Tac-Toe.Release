@@ -1,0 +1,11 @@
+release/main.o
+release/mainwindow.o
+release/mode_selector.o
+release/pvai.o
+release/pvp.o
+release/signup.o
+release/moc_mainwindow.o
+release/moc_mode_selector.o
+release/moc_pvai.o
+release/moc_pvp.o
+release/moc_signup.o
