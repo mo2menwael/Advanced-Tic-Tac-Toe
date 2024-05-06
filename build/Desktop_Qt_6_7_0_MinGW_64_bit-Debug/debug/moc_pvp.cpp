@@ -46,7 +46,7 @@ constexpr auto qt_meta_stringdata_CLASSpvpENDCLASS = QtMocHelpers::stringData(
     "on_seven_clicked",
     "on_eight_clicked",
     "on_nine_clicked",
-    "gameover",
+    "iswon",
     "init",
     "on_startt_clicked",
     "update"
@@ -129,7 +129,7 @@ Q_CONSTINIT const QMetaObject pvp::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_nine_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'gameover'
+        // method 'iswon'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'init'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -156,7 +156,7 @@ void pvp::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         case 6: _t->on_seven_clicked(); break;
         case 7: _t->on_eight_clicked(); break;
         case 8: _t->on_nine_clicked(); break;
-        case 9: { bool _r = _t->gameover();
+        case 9: { bool _r = _t->iswon();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 10: _t->init(); break;
         case 11: _t->on_startt_clicked(); break;

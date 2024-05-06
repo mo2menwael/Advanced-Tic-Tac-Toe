@@ -35,7 +35,7 @@ private slots:
 
     void on_nine_clicked();
 
-    bool gameover();
+    bool iswon();
 
     void init();
 

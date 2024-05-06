@@ -55,7 +55,7 @@ void pvp::update()
     board[2][0] = ui->seven->text(); board[2][1] = ui->eight->text(); board[2][2] = ui->nine->text();
 }
 
-bool pvp::gameover()
+bool pvp::iswon()
 {
     //checking the win for Simple Rows and Simple Column
     for(int j=0; j<3 ; j++)
@@ -71,6 +71,7 @@ bool pvp::gameover()
     return false;
 }
 
+
 void pvp::on_one_clicked()
 {
     if(ui->one->text()=="X" || ui->one->text()=="O")
@@ -85,10 +86,12 @@ void pvp::on_one_clicked()
     }
     k=i-1;
     update();
-    if(gameover() && (k%2 != 0))
+    if(iswon() && (k%2 != 0))
         QMessageBox::about(this," ","Player 1 Won");
-    else if(gameover() && (k%2 == 0))
+    else if(iswon() && (k%2 == 0))
         QMessageBox::about(this," ","Player 2 Won");
+    else if(!iswon() && i==10)
+        QMessageBox::about(this," ","Draw");
 }
 
 void pvp::on_two_clicked()
@@ -105,10 +108,12 @@ void pvp::on_two_clicked()
     }
     k=i-1;
     update();
-    if(gameover() && (k%2 != 0))
+    if(iswon() && (k%2 != 0))
         QMessageBox::about(this," ","Player 1 Won");
-    else if(gameover() && (k%2 == 0))
+    else if(iswon() && (k%2 == 0))
         QMessageBox::about(this," ","Player 2 Won");
+    else if(!iswon() && i==10)
+        QMessageBox::about(this," ","Draw");
 }
 
 
@@ -126,10 +131,12 @@ void pvp::on_three_clicked()
     }
     k=i-1;
     update();
-    if(gameover() && (k%2 != 0))
+    if(iswon() && (k%2 != 0))
         QMessageBox::about(this," ","Player 1 Won");
-    else if(gameover() && (k%2 == 0))
+    else if(iswon() && (k%2 == 0))
         QMessageBox::about(this," ","Player 2 Won");
+    else if(!iswon() && i==10)
+        QMessageBox::about(this," ","Draw");
 }
 
 
@@ -147,10 +154,12 @@ void pvp::on_four_clicked()
     }
     k=i-1;
     update();
-    if(gameover() && (k%2 != 0))
+    if(iswon() && (k%2 != 0))
         QMessageBox::about(this," ","Player 1 Won");
-    else if(gameover() && (k%2 == 0))
+    else if(iswon() && (k%2 == 0))
         QMessageBox::about(this," ","Player 2 Won");
+    else if(!iswon() && i==10)
+        QMessageBox::about(this," ","Draw");
 }
 
 
@@ -168,10 +177,12 @@ void pvp::on_five_clicked()
     }
     k=i-1;
     update();
-    if(gameover() && (k%2 != 0))
+    if(iswon() && (k%2 != 0))
         QMessageBox::about(this," ","Player 1 Won");
-    else if(gameover() && (k%2 == 0))
+    else if(iswon() && (k%2 == 0))
         QMessageBox::about(this," ","Player 2 Won");
+    else if(!iswon() && i==10)
+        QMessageBox::about(this," ","Draw");
 }
 
 
@@ -189,10 +200,12 @@ void pvp::on_six_clicked()
     }
     k=i-1;
     update();
-    if(gameover() && (k%2 != 0))
+    if(iswon() && (k%2 != 0))
         QMessageBox::about(this," ","Player 1 Won");
-    else if(gameover() && (k%2 == 0))
+    else if(iswon() && (k%2 == 0))
         QMessageBox::about(this," ","Player 2 Won");
+    else if(!iswon() && i==10)
+        QMessageBox::about(this," ","Draw");
 }
 
 
@@ -210,10 +223,12 @@ void pvp::on_seven_clicked()
     }
     k=i-1;
     update();
-    if(gameover() && (k%2 != 0))
+    if(iswon() && (k%2 != 0))
         QMessageBox::about(this," ","Player 1 Won");
-    else if(gameover() && (k%2 == 0))
+    else if(iswon() && (k%2 == 0))
         QMessageBox::about(this," ","Player 2 Won");
+    else if(!iswon() && i==10)
+        QMessageBox::about(this," ","Draw");
 }
 
 
@@ -231,10 +246,12 @@ void pvp::on_eight_clicked()
     }
     k=i-1;
     update();
-    if(gameover() && (k%2 != 0))
+    if(iswon() && (k%2 != 0))
         QMessageBox::about(this," ","Player 1 Won");
-    else if(gameover() && (k%2 == 0))
+    else if(iswon() && (k%2 == 0))
         QMessageBox::about(this," ","Player 2 Won");
+    else if(!iswon() && i==10)
+        QMessageBox::about(this," ","Draw");
 }
 
 
@@ -252,10 +269,12 @@ void pvp::on_nine_clicked()
     }
     k=i-1;
     update();
-    if(gameover() && (k%2 != 0))
+    if(iswon() && (k%2 != 0))
         QMessageBox::about(this," ","Player 1 Won");
-    else if(gameover() && (k%2 == 0))
+    else if(iswon() && (k%2 == 0))
         QMessageBox::about(this," ","Player 2 Won");
+    else if(!iswon() && i==10)
+        QMessageBox::about(this," ","Draw");
 }
 
 
