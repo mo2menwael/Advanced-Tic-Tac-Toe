@@ -51,9 +51,15 @@ private slots:
 
     void computer_turn_medium();
 
-    void computer_turn_hard();
+    void move(int r,int c, const QString turn);
 
-    void move(int r,int c);
+    bool isMovesLeft();
+
+    int evaluate();
+
+    int minimax(int depth, bool isMax, int alpha, int beta);
+
+    std::pair<int, int> findBestMove();
 
 private:
     Ui::pvai *ui;
