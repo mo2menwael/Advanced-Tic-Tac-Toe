@@ -235,6 +235,9 @@ public:
         startt = new QPushButton(pvp);
         startt->setObjectName("startt");
         startt->setGeometry(QRect(70, 500, 101, 29));
+        QFont font3;
+        font3.setBold(false);
+        startt->setFont(font3);
 
         retranslateUi(pvp);
 

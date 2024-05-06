@@ -14,6 +14,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -46,6 +47,10 @@ public:
     QFrame *line_11;
     QFrame *line_12;
     QFrame *line;
+    QLabel *difficulty;
+    QPushButton *easy;
+    QPushButton *medium;
+    QPushButton *hard;
 
     void setupUi(QDialog *pvai)
     {
@@ -217,6 +222,19 @@ public:
 
         gridLayout->addWidget(line, 1, 0, 1, 1);
 
+        difficulty = new QLabel(pvai);
+        difficulty->setObjectName("difficulty");
+        difficulty->setGeometry(QRect(50, 70, 121, 20));
+        difficulty->setAlignment(Qt::AlignCenter);
+        easy = new QPushButton(pvai);
+        easy->setObjectName("easy");
+        easy->setGeometry(QRect(60, 120, 93, 29));
+        medium = new QPushButton(pvai);
+        medium->setObjectName("medium");
+        medium->setGeometry(QRect(60, 180, 93, 29));
+        hard = new QPushButton(pvai);
+        hard->setObjectName("hard");
+        hard->setGeometry(QRect(60, 240, 93, 29));
 
         retranslateUi(pvai);
 
@@ -235,6 +253,10 @@ public:
         seven->setText(QString());
         four->setText(QString());
         five->setText(QString());
+        difficulty->setText(QCoreApplication::translate("pvai", "Choose Difficulty", nullptr));
+        easy->setText(QCoreApplication::translate("pvai", "Easy", nullptr));
+        medium->setText(QCoreApplication::translate("pvai", "Medium", nullptr));
+        hard->setText(QCoreApplication::translate("pvai", "Hard", nullptr));
     } // retranslateUi
 
 };
