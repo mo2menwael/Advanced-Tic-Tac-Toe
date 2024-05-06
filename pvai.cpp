@@ -364,7 +364,7 @@ void pvai::on_one_clicked()
     }
     m=l-1;
     update();
-    if(iswon() && (m%2 == 0))
+    if(iswon())
         QMessageBox::about(this," ","Player Won");
     else if(!iswon() && l!=10 && mode==1)
         computer_turn_easy();
@@ -396,7 +396,7 @@ void pvai::on_two_clicked()
     }
     m=l-1;
     update();
-    if(iswon() && (m%2 == 0))
+    if(iswon())
         QMessageBox::about(this," ","Player Won");
     else if(!iswon() && l!=10 && mode==1)
         computer_turn_easy();
@@ -428,7 +428,7 @@ void pvai::on_three_clicked()
     }
     m=l-1;
     update();
-    if(iswon() && (m%2 == 0))
+    if(iswon())
         QMessageBox::about(this," ","Player Won");
     else if(!iswon() && l!=10 && mode==1)
         computer_turn_easy();
@@ -460,7 +460,7 @@ void pvai::on_four_clicked()
     }
     m=l-1;
     update();
-    if(iswon() && (m%2 == 0))
+    if(iswon())
         QMessageBox::about(this," ","Player Won");
     else if(!iswon() && l!=10 && mode==1)
         computer_turn_easy();
@@ -492,7 +492,7 @@ void pvai::on_five_clicked()
     }
     m=l-1;
     update();
-    if(iswon() && (m%2 == 0))
+    if(iswon())
         QMessageBox::about(this," ","Player Won");
     else if(!iswon() && l!=10 && mode==1)
         computer_turn_easy();
@@ -524,7 +524,7 @@ void pvai::on_six_clicked()
     }
     m=l-1;
     update();
-    if(iswon() && (m%2 == 0))
+    if(iswon())
         QMessageBox::about(this," ","Player Won");
     else if(!iswon() && l!=10 && mode==1)
         computer_turn_easy();
@@ -556,7 +556,7 @@ void pvai::on_seven_clicked()
     }
     m=l-1;
     update();
-    if(iswon() && (m%2 == 0))
+    if(iswon())
         QMessageBox::about(this," ","Player Won");
     else if(!iswon() && l!=10 && mode==1)
         computer_turn_easy();
@@ -588,7 +588,7 @@ void pvai::on_eight_clicked()
     }
     m=l-1;
     update();
-    if(iswon() && (m%2 == 0))
+    if(iswon())
         QMessageBox::about(this," ","Player Won");
     else if(!iswon() && l!=10 && mode==1)
         computer_turn_easy();
@@ -620,7 +620,7 @@ void pvai::on_nine_clicked()
     }
     m=l-1;
     update();
-    if(iswon() && (m%2 == 0))
+    if(iswon())
         QMessageBox::about(this," ","Player Won");
     else if(!iswon() && l!=10 && mode==1)
         computer_turn_easy();
@@ -655,7 +655,7 @@ void pvai::on_medium_clicked()
     mode=2;
     init();
     update();
-    computer_turn_medium();
+    //computer_turn_medium();
 }
 
 
