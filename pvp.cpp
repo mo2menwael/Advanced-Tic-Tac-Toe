@@ -282,5 +282,6 @@ void pvp::on_startt_clicked()
 {
     init();
     update();
+    ui->startt->setText("Restart Game");
 }
 
