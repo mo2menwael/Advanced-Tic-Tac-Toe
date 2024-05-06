@@ -85,6 +85,9 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(eight->sizePolicy().hasHeightForWidth());
         eight->setSizePolicy(sizePolicy);
+        QFont font1;
+        font1.setPointSize(30);
+        eight->setFont(font1);
 
         gridLayout->addWidget(eight, 4, 2, 1, 1);
 
@@ -99,6 +102,7 @@ public:
         six->setObjectName("six");
         sizePolicy.setHeightForWidth(six->sizePolicy().hasHeightForWidth());
         six->setSizePolicy(sizePolicy);
+        six->setFont(font1);
 
         gridLayout->addWidget(six, 2, 4, 1, 1);
 
@@ -106,6 +110,7 @@ public:
         nine->setObjectName("nine");
         sizePolicy.setHeightForWidth(nine->sizePolicy().hasHeightForWidth());
         nine->setSizePolicy(sizePolicy);
+        nine->setFont(font1);
 
         gridLayout->addWidget(nine, 4, 4, 1, 1);
 
@@ -113,6 +118,7 @@ public:
         three->setObjectName("three");
         sizePolicy.setHeightForWidth(three->sizePolicy().hasHeightForWidth());
         three->setSizePolicy(sizePolicy);
+        three->setFont(font1);
 
         gridLayout->addWidget(three, 0, 4, 1, 1);
 
@@ -120,6 +126,7 @@ public:
         one->setObjectName("one");
         sizePolicy.setHeightForWidth(one->sizePolicy().hasHeightForWidth());
         one->setSizePolicy(sizePolicy);
+        one->setFont(font1);
 
         gridLayout->addWidget(one, 0, 0, 1, 1);
 
@@ -134,6 +141,7 @@ public:
         two->setObjectName("two");
         sizePolicy.setHeightForWidth(two->sizePolicy().hasHeightForWidth());
         two->setSizePolicy(sizePolicy);
+        two->setFont(font1);
 
         gridLayout->addWidget(two, 0, 2, 1, 1);
 
@@ -162,6 +170,7 @@ public:
         seven->setObjectName("seven");
         sizePolicy.setHeightForWidth(seven->sizePolicy().hasHeightForWidth());
         seven->setSizePolicy(sizePolicy);
+        seven->setFont(font1);
 
         gridLayout->addWidget(seven, 4, 0, 1, 1);
 
@@ -169,6 +178,7 @@ public:
         four->setObjectName("four");
         sizePolicy.setHeightForWidth(four->sizePolicy().hasHeightForWidth());
         four->setSizePolicy(sizePolicy);
+        four->setFont(font1);
 
         gridLayout->addWidget(four, 2, 0, 1, 1);
 
@@ -176,6 +186,7 @@ public:
         five->setObjectName("five");
         sizePolicy.setHeightForWidth(five->sizePolicy().hasHeightForWidth());
         five->setSizePolicy(sizePolicy);
+        five->setFont(font1);
 
         gridLayout->addWidget(five, 2, 2, 1, 1);
 
