@@ -16,6 +16,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -51,6 +52,13 @@ public:
     QPushButton *easy;
     QPushButton *medium;
     QPushButton *hard;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
+    QWidget *layoutWidget_2;
+    QVBoxLayout *verticalLayout;
+    QLabel *label;
+    QLabel *label_3;
+    QLabel *label_2;
 
     void setupUi(QDialog *pvai)
     {
@@ -235,17 +243,47 @@ public:
 
         difficulty = new QLabel(pvai);
         difficulty->setObjectName("difficulty");
-        difficulty->setGeometry(QRect(50, 70, 121, 20));
+        difficulty->setGeometry(QRect(50, 180, 121, 20));
         difficulty->setAlignment(Qt::AlignCenter);
         easy = new QPushButton(pvai);
         easy->setObjectName("easy");
-        easy->setGeometry(QRect(60, 120, 93, 29));
+        easy->setGeometry(QRect(60, 230, 93, 29));
         medium = new QPushButton(pvai);
         medium->setObjectName("medium");
-        medium->setGeometry(QRect(60, 180, 93, 29));
+        medium->setGeometry(QRect(60, 290, 93, 29));
         hard = new QPushButton(pvai);
         hard->setObjectName("hard");
-        hard->setGeometry(QRect(60, 240, 93, 29));
+        hard->setGeometry(QRect(60, 350, 93, 29));
+        pushButton = new QPushButton(pvai);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(40, 440, 151, 29));
+        pushButton_2 = new QPushButton(pvai);
+        pushButton_2->setObjectName("pushButton_2");
+        pushButton_2->setGeometry(QRect(40, 490, 151, 29));
+        layoutWidget_2 = new QWidget(pvai);
+        layoutWidget_2->setObjectName("layoutWidget_2");
+        layoutWidget_2->setGeometry(QRect(40, 70, 131, 76));
+        verticalLayout = new QVBoxLayout(layoutWidget_2);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(layoutWidget_2);
+        label->setObjectName("label");
+        label->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label);
+
+        label_3 = new QLabel(layoutWidget_2);
+        label_3->setObjectName("label_3");
+        label_3->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_3);
+
+        label_2 = new QLabel(layoutWidget_2);
+        label_2->setObjectName("label_2");
+        label_2->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_2);
+
 
         retranslateUi(pvai);
 
@@ -268,6 +306,11 @@ public:
         easy->setText(QCoreApplication::translate("pvai", "Easy", nullptr));
         medium->setText(QCoreApplication::translate("pvai", "Medium", nullptr));
         hard->setText(QCoreApplication::translate("pvai", "Hard", nullptr));
+        pushButton->setText(QCoreApplication::translate("pvai", "Restart", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("pvai", "Exit to Main Menu", nullptr));
+        label->setText(QCoreApplication::translate("pvai", "Username", nullptr));
+        label_3->setText(QCoreApplication::translate("pvai", "Vs", nullptr));
+        label_2->setText(QCoreApplication::translate("pvai", "Ai(Diff)", nullptr));
     } // retranslateUi
 
 };

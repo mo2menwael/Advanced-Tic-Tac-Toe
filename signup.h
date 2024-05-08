@@ -1,22 +1,58 @@
 #ifndef SIGNUP_H
 #define SIGNUP_H
 
+#include <QMainWindow>
+#include "mode_selector.h"
+#include <QtSql>
+#include <QtDebug>
+#include <QFileInfo>
 #include <QDialog>
 
 namespace Ui {
-class signup;
+class SignUp;
 }
 
-class signup : public QDialog
+class SignUp : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit signup(QWidget *parent = nullptr);
-    ~signup();
+    QSqlDatabase mydb;
+
+    void connClose()
+    {
+        mydb.close();
+        mydb.removeDatabase(QSqlDatabase::defaultConnection);
+    }
+
+    bool connOpen()
+    {
+        mydb=QSqlDatabase::addDatabase("QSQLITE");
+        mydb.setDatabaseName("C:/SqLite/TicTacToe_Project.db");
+
+        if(!mydb.open()){
+            qDebug()<<("none");
+            return false;
+        }
+
+        else{
+            qDebug()<<("DataBaseIsOpened");
+            return true;
+        }
+    }
+
+
+
+public:
+    explicit SignUp(QWidget *parent = nullptr);
+    ~SignUp();
+
+
+private slots:
+    void on_Register_clicked();
 
 private:
-    Ui::signup *ui;
+    Ui::SignUp *ui;
 };
 
 #endif // SIGNUP_H

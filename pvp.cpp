@@ -1,5 +1,7 @@
 #include "pvp.h"
 #include "ui_pvp.h"
+#include "mainwindow.h"
+#include "./ui_mainwindow.h"
 #include <qmessagebox.h>
 #include <random>
 #include <QtWidgets>
@@ -10,6 +12,9 @@ pvp::pvp(QWidget *parent)
     , ui(new Ui::pvp)
 {
     ui->setupUi(this);
+    // Display the global variable p1 in a QLabel
+    ui->p1->setText(player1);
+    ui->p2->setText(player2);
 }
 
 pvp::~pvp()

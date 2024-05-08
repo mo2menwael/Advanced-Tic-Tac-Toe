@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 
 #include <QApplication>
+QString player1;
+QString player2;
 
 int main(int argc, char *argv[])
 {

@@ -3,9 +3,11 @@
 
 #include <QMainWindow>
 #include "mode_selector.h"
+#include "signup.h"
 #include <QtSql>
 #include <QtDebug>
 #include <QFileInfo>
+#include <QString>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -40,6 +42,7 @@ public:
             return true;
         }
     }
+
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -53,5 +56,10 @@ private slots:
 private:
     Ui::MainWindow *ui;
     mode_selector *modeselector;
+    SignUp *sign_up;
 };
+
+extern QString player1;
+extern QString player2;
+
 #endif // MAINWINDOW_H

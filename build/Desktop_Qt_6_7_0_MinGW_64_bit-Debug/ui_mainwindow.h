@@ -37,6 +37,7 @@ public:
     QLabel *label;
     QLabel *label_4;
     QLabel *label_6;
+    QLabel *label_5;
     QStatusBar *statusbar;
     QMenuBar *menubar;
 
@@ -110,7 +111,10 @@ public:
 
         label_6 = new QLabel(centralwidget);
         label_6->setObjectName("label_6");
-        label_6->setGeometry(QRect(330, 410, 101, 20));
+        label_6->setGeometry(QRect(250, 440, 291, 20));
+        label_5 = new QLabel(centralwidget);
+        label_5->setObjectName("label_5");
+        label_5->setGeometry(QRect(270, 390, 221, 20));
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -134,7 +138,8 @@ public:
         SignIn_Button->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "Tic Tac Toe", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Please enter your login credentials", nullptr));
-        label_6->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        label_6->setText(QString());
+        label_5->setText(QString());
     } // retranslateUi
 
 };

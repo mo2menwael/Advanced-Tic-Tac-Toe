@@ -1,5 +1,7 @@
 #include "mode_selector.h"
 #include "ui_mode_selector.h"
+#include "mainwindow.h"
+#include "./ui_mainwindow.h"
 
 mode_selector::mode_selector(QWidget *parent)
     : QDialog(parent)
@@ -25,6 +27,8 @@ void mode_selector::on_PVP_clicked()
     ui->SecondName->show();
     ui->SecondBox->show();
     ui->start_button->show();
+    player1=ui->FirstBox->text();
+    player2=ui->SecondBox->text();
 }
 
 
