@@ -32,25 +32,23 @@ string random_O_X() {
     uniform_int_distribution<> dis(0, 1);
     return (dis(gen) == 0) ? "O" : "X";
 }
-
-string player1_turn = random_O_X();
-const QString p1_turn = QString::fromStdString(player1_turn);
+QString p1_turn = QString::fromStdString(random_O_X());
 
 string second_player_turn() {
     string turn_2;
-    if(player1_turn == "O")
+    if(p1_turn == "O")
         turn_2 = "X";
     else
         turn_2 = "O";
     return turn_2;
 }
+QString p2_turn = QString::fromStdString(second_player_turn());
 
-string player2_turn = second_player_turn();
-const QString p2_turn = QString::fromStdString(player2_turn);
 int k,i;
-
 void pvp::init()
 {
+    p1_turn = QString::fromStdString(random_O_X());
+    p2_turn = QString::fromStdString(second_player_turn());
     ui->one->setText(" ");              ui->two->setText("  ");              ui->three->setText("   ");
     ui->four->setText("    ");          ui->five->setText("     ");          ui->six->setText("      ");
     ui->seven->setText("       ");      ui->eight->setText("        ");      ui->nine->setText("         ");

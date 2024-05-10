@@ -21,14 +21,15 @@ pvai::~pvai()
     delete ui;
 }
 
+int l,mode;
+
 string random_X_O() {
     random_device rd;
     mt19937 gen(rd());
     uniform_int_distribution<> dis(0, 1);
     return (dis(gen) == 0) ? "O" : "X";
 }
-
-const QString player_turn = QString::fromStdString(random_X_O());
+QString player_turn = QString::fromStdString(random_X_O());
 
 string ai__turn() {
     string turn_2;
@@ -38,12 +39,12 @@ string ai__turn() {
         turn_2 = "O";
     return turn_2;
 }
-
-const QString ai_turn = QString::fromStdString(ai__turn());
-int l,mode;
+QString ai_turn = QString::fromStdString(ai__turn());
 
 void pvai::init()
 {
+    player_turn = QString::fromStdString(random_X_O());
+    ai_turn = QString::fromStdString(ai__turn());
     ui->one->setText(" ");              ui->two->setText("  ");              ui->three->setText("   ");
     ui->four->setText("    ");          ui->five->setText("     ");          ui->six->setText("      ");
     ui->seven->setText("       ");      ui->eight->setText("        ");      ui->nine->setText("         ");
