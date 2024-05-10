@@ -11,6 +11,9 @@ pvai::pvai(QWidget *parent)
 {
     ui->setupUi(this);
     ui->username->setText(userlabel);
+    ui->one->hide();    ui->two->hide();    ui->three->hide();
+    ui->four->hide();   ui->five->hide();   ui->six->hide();
+    ui->seven->hide();  ui->eight->hide();  ui->nine->hide();
 }
 
 pvai::~pvai()
@@ -648,6 +651,9 @@ void pvai::on_easy_clicked()
 {
     mode=1;
     ui->diff->setText("Ai (Easy)");
+    ui->one->show();    ui->two->show();    ui->three->show();
+    ui->four->show();   ui->five->show();   ui->six->show();
+    ui->seven->show();  ui->eight->show();  ui->nine->show();
     init();
     update();
     //computer_turn_easy(); //first turn is ai
@@ -658,6 +664,9 @@ void pvai::on_medium_clicked()
 {
     mode=2;
     ui->diff->setText("Ai (Medium)");
+    ui->one->show();    ui->two->show();    ui->three->show();
+    ui->four->show();   ui->five->show();   ui->six->show();
+    ui->seven->show();  ui->eight->show();  ui->nine->show();
     init();
     update();
     //computer_turn_medium();   //first turn is ai
@@ -668,6 +677,9 @@ void pvai::on_hard_clicked()
 {
     mode=3;
     ui->diff->setText("Ai (Hard)");
+    ui->one->show();    ui->two->show();    ui->three->show();
+    ui->four->show();   ui->five->show();   ui->six->show();
+    ui->seven->show();  ui->eight->show();  ui->nine->show();
     init();
     update();
     //l++;

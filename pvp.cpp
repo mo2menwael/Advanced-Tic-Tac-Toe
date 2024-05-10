@@ -15,6 +15,10 @@ pvp::pvp(QWidget *parent)
     // Display the global variable p1 in a QLabel
     ui->p1->setText(player1);
     ui->p2->setText(player2);
+
+    ui->one->hide();    ui->two->hide();    ui->three->hide();
+    ui->four->hide();   ui->five->hide();   ui->six->hide();
+    ui->seven->hide();  ui->eight->hide();  ui->nine->hide();
 }
 
 pvp::~pvp()
@@ -285,6 +289,9 @@ void pvp::on_nine_clicked()
 
 void pvp::on_startt_clicked()
 {
+    ui->one->show();    ui->two->show();    ui->three->show();
+    ui->four->show();   ui->five->show();   ui->six->show();
+    ui->seven->show();  ui->eight->show();  ui->nine->show();
     init();
     update();
     ui->startt->setText("Restart Game");

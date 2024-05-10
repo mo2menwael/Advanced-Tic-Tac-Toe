@@ -246,13 +246,13 @@ public:
         difficulty->setAlignment(Qt::AlignCenter);
         easy = new QPushButton(pvai);
         easy->setObjectName("easy");
-        easy->setGeometry(QRect(50, 250, 93, 29));
+        easy->setGeometry(QRect(60, 250, 81, 29));
         medium = new QPushButton(pvai);
         medium->setObjectName("medium");
-        medium->setGeometry(QRect(50, 310, 93, 29));
+        medium->setGeometry(QRect(60, 310, 81, 29));
         hard = new QPushButton(pvai);
         hard->setObjectName("hard");
-        hard->setGeometry(QRect(50, 370, 93, 29));
+        hard->setGeometry(QRect(60, 370, 81, 29));
         main_menu = new QPushButton(pvai);
         main_menu->setObjectName("main_menu");
         main_menu->setGeometry(QRect(30, 490, 151, 29));
