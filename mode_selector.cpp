@@ -27,8 +27,6 @@ void mode_selector::on_PVP_clicked()
     ui->SecondName->show();
     ui->SecondBox->show();
     ui->start_button->show();
-    player1=ui->FirstBox->text();
-    player2=ui->SecondBox->text();
 }
 
 
@@ -42,6 +40,8 @@ void mode_selector::on_PVAI_clicked()
 
 void mode_selector::on_start_button_clicked()
 {
+    player1=ui->FirstBox->text();
+    player2=ui->SecondBox->text();
     hide();
     pvp_ = new pvp();
     pvp_->show();
