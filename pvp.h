@@ -43,6 +43,8 @@ private slots:
 
     void update();
 
+    void on_main_menu_clicked();
+
 private:
     Ui::pvp *ui;
 };

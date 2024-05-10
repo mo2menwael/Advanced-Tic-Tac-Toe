@@ -57,9 +57,11 @@ private:
     Ui::MainWindow *ui;
     mode_selector *modeselector;
     SignUp *sign_up;
+    pvai *pvai_;
 };
 
 extern QString player1;
 extern QString player2;
+extern QString userlabel;
 
 #endif // MAINWINDOW_H

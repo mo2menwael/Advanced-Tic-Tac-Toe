@@ -1,5 +1,7 @@
 #include "pvai.h"
 #include "ui_pvai.h"
+#include "mainwindow.h"
+#include "mode_selector.h"
 #include <random>
 #include <Qmessagebox>
 using namespace std;
@@ -8,6 +10,7 @@ pvai::pvai(QWidget *parent)
     , ui(new Ui::pvai)
 {
     ui->setupUi(this);
+    ui->username->setText(userlabel);
 }
 
 pvai::~pvai()
@@ -644,28 +647,40 @@ void pvai::on_nine_clicked()
 void pvai::on_easy_clicked()
 {
     mode=1;
+    ui->diff->setText("Ai (Easy)");
     init();
     update();
-    computer_turn_easy();
+    //computer_turn_easy(); //first turn is ai
 }
 
 
 void pvai::on_medium_clicked()
 {
     mode=2;
+    ui->diff->setText("Ai (Medium)");
     init();
     update();
-    //computer_turn_medium();
+    //computer_turn_medium();   //first turn is ai
 }
 
 
 void pvai::on_hard_clicked()
 {
     mode=3;
+    ui->diff->setText("Ai (Hard)");
     init();
     update();
     //l++;
     //bestMove = findBestMove();
-    //move(bestMove.first,bestMove.second,ai_turn);
+    //move(bestMove.first,bestMove.second,ai_turn); //first turn is ai
+}
+
+
+void pvai::on_main_menu_clicked()
+{
+    this->hide();
+    mode_selector mode;
+    mode.setModal(true);
+    mode.exec();
 }
 

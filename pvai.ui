@@ -300,8 +300,8 @@
   <widget class="QLabel" name="difficulty">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>180</y>
+     <x>40</x>
+     <y>200</y>
      <width>121</width>
      <height>20</height>
     </rect>
@@ -316,8 +316,8 @@
   <widget class="QPushButton" name="easy">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>230</y>
+     <x>50</x>
+     <y>250</y>
      <width>93</width>
      <height>29</height>
     </rect>
@@ -329,8 +329,8 @@
   <widget class="QPushButton" name="medium">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>290</y>
+     <x>50</x>
+     <y>310</y>
      <width>93</width>
      <height>29</height>
     </rect>
@@ -342,8 +342,8 @@
   <widget class="QPushButton" name="hard">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>350</y>
+     <x>50</x>
+     <y>370</y>
      <width>93</width>
      <height>29</height>
     </rect>
@@ -352,23 +352,10 @@
     <string>Hard</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="main_menu">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>440</y>
-     <width>151</width>
-     <height>29</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Restart</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
+     <x>30</x>
      <y>490</y>
      <width>151</width>
      <height>29</height>
@@ -389,7 +376,7 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="username">
       <property name="text">
        <string>Username</string>
       </property>
@@ -399,7 +386,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="VS">
       <property name="text">
        <string>Vs</string>
       </property>
@@ -409,7 +396,7 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="diff">
       <property name="text">
        <string>Ai(Diff)</string>
       </property>

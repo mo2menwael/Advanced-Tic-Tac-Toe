@@ -28,7 +28,7 @@ public:
     QWidget *centralwidget;
     QLabel *label_2;
     QLabel *label_3;
-    QLineEdit *UsernameEmail;
+    QLineEdit *username;
     QLineEdit *Password;
     QPushButton *SignUp_Button;
     QPushButton *SignIn_Button;
@@ -50,7 +50,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(200, 222, 131, 20));
+        label_2->setGeometry(QRect(190, 222, 141, 20));
         QFont font;
         font.setFamilies({QString::fromUtf8("Calibri")});
         font.setPointSize(11);
@@ -62,14 +62,14 @@ public:
         label_3->setGeometry(QRect(220, 264, 81, 20));
         label_3->setFont(font);
         label_3->setAlignment(Qt::AlignCenter);
-        UsernameEmail = new QLineEdit(centralwidget);
-        UsernameEmail->setObjectName("UsernameEmail");
-        UsernameEmail->setGeometry(QRect(340, 220, 231, 26));
+        username = new QLineEdit(centralwidget);
+        username->setObjectName("username");
+        username->setGeometry(QRect(340, 220, 231, 26));
         QFont font1;
         font1.setFamilies({QString::fromUtf8("Calibri")});
         font1.setPointSize(11);
-        UsernameEmail->setFont(font1);
-        UsernameEmail->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        username->setFont(font1);
+        username->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         Password = new QLineEdit(centralwidget);
         Password->setObjectName("Password");
         Password->setGeometry(QRect(340, 260, 231, 26));
@@ -132,7 +132,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Tic Tac Toe", nullptr));
-        label_2->setText(QCoreApplication::translate("MainWindow", "Username/Email :", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "Username :", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Password :", nullptr));
         SignUp_Button->setText(QCoreApplication::translate("MainWindow", "Sign Up", nullptr));
         SignIn_Button->setText(QCoreApplication::translate("MainWindow", "Login", nullptr));

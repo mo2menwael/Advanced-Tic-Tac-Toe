@@ -51,7 +51,7 @@ public:
     QLabel *p1;
     QLabel *p2;
     QLabel *label_3;
-    QPushButton *pushButton_2;
+    QPushButton *main_menu;
 
     void setupUi(QDialog *pvp)
     {
@@ -257,9 +257,9 @@ public:
         label_3->setObjectName("label_3");
         label_3->setGeometry(QRect(90, 110, 63, 20));
         label_3->setAlignment(Qt::AlignCenter);
-        pushButton_2 = new QPushButton(pvp);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(50, 490, 151, 29));
+        main_menu = new QPushButton(pvp);
+        main_menu->setObjectName("main_menu");
+        main_menu->setGeometry(QRect(50, 490, 151, 29));
 
         retranslateUi(pvp);
 
@@ -282,7 +282,7 @@ public:
         p1->setText(QCoreApplication::translate("pvp", "TextLabel", nullptr));
         p2->setText(QCoreApplication::translate("pvp", "TextLabel", nullptr));
         label_3->setText(QCoreApplication::translate("pvp", "VS", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("pvp", "Exit to Main Menu", nullptr));
+        main_menu->setText(QCoreApplication::translate("pvp", "Exit to Main Menu", nullptr));
     } // retranslateUi
 
 };

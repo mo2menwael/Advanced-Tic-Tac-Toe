@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     else
         ui->label_5->setText("DataBaseIsOpened");
     // Initialize the text fields with empty strings
-    ui->UsernameEmail->setText("");
+    ui->username->setText("");
     ui->Password->setText("");
 }
 
@@ -24,11 +24,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
+QString userlabel;
 void MainWindow::on_SignIn_Button_clicked()
 {
     QString username,password;
-    username=ui->UsernameEmail->text();
+    username=ui->username->text();
+    userlabel=ui->username->text();
     password=ui->Password->text();
 
     // Hash the entered password using QCryptographicHash
@@ -73,6 +74,5 @@ void MainWindow::on_SignUp_Button_clicked()
     SignUp signup;
     signup.setModal(true);
     signup.exec();
-
 }
 

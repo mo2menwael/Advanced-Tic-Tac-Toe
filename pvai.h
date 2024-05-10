@@ -61,6 +61,8 @@ private slots:
 
     std::pair<int, int> findBestMove();
 
+    void on_main_menu_clicked();
+
 private:
     Ui::pvai *ui;
 };

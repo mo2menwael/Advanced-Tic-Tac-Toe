@@ -290,3 +290,12 @@ void pvp::on_startt_clicked()
     ui->startt->setText("Restart Game");
 }
 
+
+void pvp::on_main_menu_clicked()
+{
+    this->hide();
+    mode_selector mode;
+    mode.setModal(true);
+    mode.exec();
+}
+

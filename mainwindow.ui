@@ -17,9 +17,9 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>190</x>
       <y>222</y>
-      <width>131</width>
+      <width>141</width>
       <height>20</height>
      </rect>
     </property>
@@ -31,7 +31,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Username/Email :</string>
+     <string>Username :</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -60,7 +60,7 @@
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLineEdit" name="UsernameEmail">
+   <widget class="QLineEdit" name="username">
     <property name="geometry">
      <rect>
       <x>340</x>
