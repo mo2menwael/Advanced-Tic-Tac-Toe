@@ -133,7 +133,7 @@ void pvai::computer_turn_medium()
         for (int j = 0; j < 3; j++) {
             if (board[i][j] != "X" && board[i][j] != "O") {
                 QString temp = board[i][j];
-                board[i][j] = "X";
+                move(i,j,player_turn);
                 if (iswon()) {
                     move(i,j,ai_turn); // Block the opponent's winning move
                     l++;
