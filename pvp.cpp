@@ -96,9 +96,9 @@ void pvp::on_one_clicked()
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ","Player 1 Won");
+        QMessageBox::about(this," ",player1+" Won");
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ","Player 2 Won");
+        QMessageBox::about(this," ",player2+" Won");
     else if(!iswon() && i==10)
         QMessageBox::about(this," ","Draw");
 }
@@ -118,9 +118,9 @@ void pvp::on_two_clicked()
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ","Player 1 Won");
+        QMessageBox::about(this," ",player1+" Won");
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ","Player 2 Won");
+        QMessageBox::about(this," ",player2+" Won");
     else if(!iswon() && i==10)
         QMessageBox::about(this," ","Draw");
 }
@@ -141,9 +141,9 @@ void pvp::on_three_clicked()
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ","Player 1 Won");
+        QMessageBox::about(this," ",player1+" Won");
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ","Player 2 Won");
+        QMessageBox::about(this," ",player2+" Won");
     else if(!iswon() && i==10)
         QMessageBox::about(this," ","Draw");
 }
@@ -164,9 +164,9 @@ void pvp::on_four_clicked()
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ","Player 1 Won");
+        QMessageBox::about(this," ",player1+" Won");
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ","Player 2 Won");
+        QMessageBox::about(this," ",player2+" Won");
     else if(!iswon() && i==10)
         QMessageBox::about(this," ","Draw");
 }
@@ -187,9 +187,9 @@ void pvp::on_five_clicked()
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ","Player 1 Won");
+        QMessageBox::about(this," ",player1+" Won");
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ","Player 2 Won");
+        QMessageBox::about(this," ",player2+" Won");
     else if(!iswon() && i==10)
         QMessageBox::about(this," ","Draw");
 }
@@ -210,9 +210,9 @@ void pvp::on_six_clicked()
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ","Player 1 Won");
+        QMessageBox::about(this," ",player1+" Won");
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ","Player 2 Won");
+        QMessageBox::about(this," ",player2+" Won");
     else if(!iswon() && i==10)
         QMessageBox::about(this," ","Draw");
 }
@@ -233,9 +233,9 @@ void pvp::on_seven_clicked()
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ","Player 1 Won");
+        QMessageBox::about(this," ",player1+" Won");
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ","Player 2 Won");
+        QMessageBox::about(this," ",player2+" Won");
     else if(!iswon() && i==10)
         QMessageBox::about(this," ","Draw");
 }
@@ -256,9 +256,9 @@ void pvp::on_eight_clicked()
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ","Player 1 Won");
+        QMessageBox::about(this," ",player1+" Won");
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ","Player 2 Won");
+        QMessageBox::about(this," ",player2+" Won");
     else if(!iswon() && i==10)
         QMessageBox::about(this," ","Draw");
 }
@@ -279,9 +279,9 @@ void pvp::on_nine_clicked()
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ","Player 1 Won");
+        QMessageBox::about(this," ",player1+" Won");
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ","Player 2 Won");
+        QMessageBox::about(this," ",player2+" Won");
     else if(!iswon() && i==10)
         QMessageBox::about(this," ","Draw");
 }
