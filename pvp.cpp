@@ -15,7 +15,7 @@ pvp::pvp(QWidget *parent)
     // Display the global variable p1 in a QLabel
     ui->p1->setText(player1);
     ui->p2->setText(player2);
-
+    ui->turntext->hide();
     ui->one->hide();    ui->two->hide();    ui->three->hide();
     ui->four->hide();   ui->five->hide();   ui->six->hide();
     ui->seven->hide();  ui->eight->hide();  ui->nine->hide();
@@ -86,19 +86,25 @@ void pvp::on_one_clicked()
     else
     {
         if(i%2 != 0)
+        {
             ui->one->setText(p1_turn);
+            ui->turntext->setText(player2+"'s turn");
+        }
         else
+        {
             ui->one->setText(p2_turn);
+            ui->turntext->setText(player1+"'s turn");
+        }
         i++;
     }
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ",player1+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ",player2+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
     else if(!iswon() && i==10)
-        QMessageBox::about(this," ","Draw");
+        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
 }
 
 void pvp::on_two_clicked()
@@ -108,19 +114,25 @@ void pvp::on_two_clicked()
     else
     {
         if(i%2 != 0)
+        {
             ui->two->setText(p1_turn);
+            ui->turntext->setText(player2+"'s turn");
+        }
         else
+        {
             ui->two->setText(p2_turn);
+            ui->turntext->setText(player1+"'s turn");
+        }
         i++;
     }
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ",player1+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ",player2+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
     else if(!iswon() && i==10)
-        QMessageBox::about(this," ","Draw");
+        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
 }
 
 
@@ -131,19 +143,25 @@ void pvp::on_three_clicked()
     else
     {
         if(i%2 != 0)
+        {
             ui->three->setText(p1_turn);
+            ui->turntext->setText(player2+"'s turn");
+        }
         else
+        {
             ui->three->setText(p2_turn);
+            ui->turntext->setText(player1+"'s turn");
+        }
         i++;
     }
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ",player1+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ",player2+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
     else if(!iswon() && i==10)
-        QMessageBox::about(this," ","Draw");
+        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
 }
 
 
@@ -154,19 +172,25 @@ void pvp::on_four_clicked()
     else
     {
         if(i%2 != 0)
+        {
             ui->four->setText(p1_turn);
+            ui->turntext->setText(player2+"'s turn");
+        }
         else
+        {
             ui->four->setText(p2_turn);
+            ui->turntext->setText(player1+"'s turn");
+        }
         i++;
     }
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ",player1+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ",player2+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
     else if(!iswon() && i==10)
-        QMessageBox::about(this," ","Draw");
+        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
 }
 
 
@@ -177,19 +201,25 @@ void pvp::on_five_clicked()
     else
     {
         if(i%2 != 0)
+        {
             ui->five->setText(p1_turn);
+            ui->turntext->setText(player2+"'s turn");
+        }
         else
+        {
             ui->five->setText(p2_turn);
+            ui->turntext->setText(player1+"'s turn");
+        }
         i++;
     }
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ",player1+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ",player2+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
     else if(!iswon() && i==10)
-        QMessageBox::about(this," ","Draw");
+        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
 }
 
 
@@ -200,19 +230,25 @@ void pvp::on_six_clicked()
     else
     {
         if(i%2 != 0)
+        {
             ui->six->setText(p1_turn);
+            ui->turntext->setText(player2+"'s turn");
+        }
         else
+        {
             ui->six->setText(p2_turn);
+            ui->turntext->setText(player1+"'s turn");
+        }
         i++;
     }
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ",player1+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ",player2+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
     else if(!iswon() && i==10)
-        QMessageBox::about(this," ","Draw");
+        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
 }
 
 
@@ -223,19 +259,25 @@ void pvp::on_seven_clicked()
     else
     {
         if(i%2 != 0)
+        {
             ui->seven->setText(p1_turn);
+            ui->turntext->setText(player2+"'s turn");
+        }
         else
+        {
             ui->seven->setText(p2_turn);
+            ui->turntext->setText(player1+"'s turn");
+        }
         i++;
     }
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ",player1+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ",player2+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
     else if(!iswon() && i==10)
-        QMessageBox::about(this," ","Draw");
+        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
 }
 
 
@@ -246,19 +288,25 @@ void pvp::on_eight_clicked()
     else
     {
         if(i%2 != 0)
+        {
             ui->eight->setText(p1_turn);
+            ui->turntext->setText(player2+"'s turn");
+        }
         else
+        {
             ui->eight->setText(p2_turn);
+            ui->turntext->setText(player1+"'s turn");
+        }
         i++;
     }
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ",player1+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ",player2+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
     else if(!iswon() && i==10)
-        QMessageBox::about(this," ","Draw");
+        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
 }
 
 
@@ -269,19 +317,25 @@ void pvp::on_nine_clicked()
     else
     {
         if(i%2 != 0)
+        {
             ui->nine->setText(p1_turn);
+            ui->turntext->setText(player2+"'s turn");
+        }
         else
+        {
             ui->nine->setText(p2_turn);
+            ui->turntext->setText(player1+"'s turn");
+        }
         i++;
     }
     k=i-1;
     update();
     if(iswon() && (k%2 != 0))
-        QMessageBox::about(this," ",player1+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
     else if(iswon() && (k%2 == 0))
-        QMessageBox::about(this," ",player2+" Won");
+        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
     else if(!iswon() && i==10)
-        QMessageBox::about(this," ","Draw");
+        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
 }
 
 
@@ -292,6 +346,8 @@ void pvp::on_startt_clicked()
     ui->seven->show();  ui->eight->show();  ui->nine->show();
     init();
     update();
+    ui->turntext->setText(player1+"'s turn");
+    ui->turntext->show();
     ui->startt->setText("Restart Game");
 }
 

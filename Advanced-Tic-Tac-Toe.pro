@@ -34,3 +34,12 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+# Add Google Test include directory
+#INCLUDEPATH += $$PWD/googletest/googletest/include
+
+# Add Google Test library directory
+#LIBS += -L$$PWD/googletest/build/lib -lgtest -lgtest_main
+
+# Add test sources
+SOURCES += tests/test_tic_tac_toe.cpp

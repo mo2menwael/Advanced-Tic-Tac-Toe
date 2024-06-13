@@ -36,8 +36,9 @@ namespace {
 struct qt_meta_stringdata_CLASSpvpENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSpvpENDCLASS = QtMocHelpers::stringData(
     "pvp",
-    "on_one_clicked",
+    "update",
     "",
+    "on_one_clicked",
     "on_two_clicked",
     "on_three_clicked",
     "on_four_clicked",
@@ -49,7 +50,6 @@ constexpr auto qt_meta_stringdata_CLASSpvpENDCLASS = QtMocHelpers::stringData(
     "iswon",
     "init",
     "on_startt_clicked",
-    "update",
     "on_main_menu_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -96,8 +96,8 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSpvpENDCLASS[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Bool,
     QMetaType::Void,
+    QMetaType::Bool,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -114,6 +114,8 @@ Q_CONSTINIT const QMetaObject pvp::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSpvpENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<pvp, std::true_type>,
+        // method 'update'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_one_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_two_clicked'
@@ -138,8 +140,6 @@ Q_CONSTINIT const QMetaObject pvp::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_startt_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'update'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_main_menu_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
@@ -152,20 +152,20 @@ void pvp::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **
         auto *_t = static_cast<pvp *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_one_clicked(); break;
-        case 1: _t->on_two_clicked(); break;
-        case 2: _t->on_three_clicked(); break;
-        case 3: _t->on_four_clicked(); break;
-        case 4: _t->on_five_clicked(); break;
-        case 5: _t->on_six_clicked(); break;
-        case 6: _t->on_seven_clicked(); break;
-        case 7: _t->on_eight_clicked(); break;
-        case 8: _t->on_nine_clicked(); break;
-        case 9: { bool _r = _t->iswon();
+        case 0: _t->update(); break;
+        case 1: _t->on_one_clicked(); break;
+        case 2: _t->on_two_clicked(); break;
+        case 3: _t->on_three_clicked(); break;
+        case 4: _t->on_four_clicked(); break;
+        case 5: _t->on_five_clicked(); break;
+        case 6: _t->on_six_clicked(); break;
+        case 7: _t->on_seven_clicked(); break;
+        case 8: _t->on_eight_clicked(); break;
+        case 9: _t->on_nine_clicked(); break;
+        case 10: { bool _r = _t->iswon();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 10: _t->init(); break;
-        case 11: _t->on_startt_clicked(); break;
-        case 12: _t->update(); break;
+        case 11: _t->init(); break;
+        case 12: _t->on_startt_clicked(); break;
         case 13: _t->on_main_menu_clicked(); break;
         default: ;
         }

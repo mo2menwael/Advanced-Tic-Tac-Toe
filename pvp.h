@@ -17,6 +17,8 @@ public:
     QString board[3][3];
 
 private slots:
+    void update();
+
     void on_one_clicked();
 
     void on_two_clicked();
@@ -40,8 +42,6 @@ private slots:
     void init();
 
     void on_startt_clicked();
-
-    void update();
 
     void on_main_menu_clicked();
 

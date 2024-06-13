@@ -4,6 +4,7 @@ release/mode_selector.o
 release/pvai.o
 release/pvp.o
 release/signup.o
+release/test_tic_tac_toe.o
 release/moc_mainwindow.o
 release/moc_mode_selector.o
 release/moc_pvai.o

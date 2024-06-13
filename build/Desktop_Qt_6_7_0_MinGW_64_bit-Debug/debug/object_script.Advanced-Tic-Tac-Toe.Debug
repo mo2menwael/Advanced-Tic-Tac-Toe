@@ -4,6 +4,7 @@ debug/mode_selector.o
 debug/pvai.o
 debug/pvp.o
 debug/signup.o
+debug/test_tic_tac_toe.o
 debug/moc_mainwindow.o
 debug/moc_mode_selector.o
 debug/moc_pvai.o
