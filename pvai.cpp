@@ -14,6 +14,7 @@ pvai::pvai(QWidget *parent)
     ui->one->hide();    ui->two->hide();    ui->three->hide();
     ui->four->hide();   ui->five->hide();   ui->six->hide();
     ui->seven->hide();  ui->eight->hide();  ui->nine->hide();
+    setupConnections();
 }
 
 pvai::~pvai()
@@ -21,7 +22,7 @@ pvai::~pvai()
     delete ui;
 }
 
-int l,mode;
+int l,mode,m;
 
 string random_X_O() {
     random_device rd;
@@ -48,7 +49,7 @@ void pvai::init()
     ui->one->setText(" ");              ui->two->setText("  ");              ui->three->setText("   ");
     ui->four->setText("    ");          ui->five->setText("     ");          ui->six->setText("      ");
     ui->seven->setText("       ");      ui->eight->setText("        ");      ui->nine->setText("         ");
-    l=1;
+    l=1; m=1;
 }
 
 void pvai::update()
@@ -350,33 +351,32 @@ pair<int, int> pvai::findBestMove()
             }
         }
     }
-
     return bestMove;
 }
 
 pair<int, int> bestMove;
 
-void pvai::on_one_clicked()
+void pvai::handleButtonClick(QPushButton* button)
 {
-    if(ui->one->text()=="X" || ui->one->text()=="O")
+    if(button->text()=="X" || button->text()=="O")
         QMessageBox::warning(this," ","Already occupied. Please choose another box.");
     else
     {
-        ui->one->setText(player_turn);
-        l++;
+        button->setText(player_turn);
+        l++; m++;
     }
     update();
     if(iswon())
         QMessageBox::about(this," ","You Won");
-    else if(!iswon() && l!=10 && mode==1)
-        computer_turn_easy();
-    else if(!iswon() && l!=10 && mode==2)
-        computer_turn_medium();
-    else if(!iswon() && l!=10 && mode==3)
+    else if(!iswon() && l!=10 && mode==1 && m%2==0){
+        computer_turn_easy();   m++;}
+    else if(!iswon() && l!=10 && mode==2 && m%2==0){
+        computer_turn_medium(); m++;}
+    else if(!iswon() && l!=10 && mode==3 && m%2==0)
     {
         bestMove = findBestMove();
         move(bestMove.first,bestMove.second,ai_turn);
-        l++;
+        l++;    m++;
         if(iswon())
             QMessageBox::about(this," ","Ai Won");
         else if(!iswon() && l==10)
@@ -386,254 +386,19 @@ void pvai::on_one_clicked()
         QMessageBox::about(this," ","Draw");
 }
 
-
-void pvai::on_two_clicked()
+// Connect button clicks to the consolidated function
+void pvai::setupConnections()
 {
-    if(ui->two->text()=="X" || ui->two->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        ui->two->setText(player_turn);
-        l++;
-    }
-    update();
-    if(iswon())
-        QMessageBox::about(this," ","You Won");
-    else if(!iswon() && l!=10 && mode==1)
-        computer_turn_easy();
-    else if(!iswon() && l!=10 && mode==2)
-        computer_turn_medium();
-    else if(!iswon() && l!=10 && mode==3)
-    {
-        bestMove = findBestMove();
-        move(bestMove.first,bestMove.second,ai_turn);
-        l++;
-        if(iswon())
-            QMessageBox::about(this," ","Ai Won");
-        else if(!iswon() && l==10)
-            QMessageBox::about(this," ","Draw");
-    }
-    else if(!iswon() && l==10)
-        QMessageBox::about(this," ","Draw");
+    connect(ui->one, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->one); });
+    connect(ui->two, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->two); });
+    connect(ui->three, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->three); });
+    connect(ui->four, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->four); });
+    connect(ui->five, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->five); });
+    connect(ui->six, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->six); });
+    connect(ui->seven, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->seven); });
+    connect(ui->eight, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->eight); });
+    connect(ui->nine, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->nine); });
 }
-
-
-void pvai::on_three_clicked()
-{
-    if(ui->three->text()=="X" || ui->three->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        ui->three->setText(player_turn);
-        l++;
-    }
-    update();
-    if(iswon())
-        QMessageBox::about(this," ","You Won");
-    else if(!iswon() && l!=10 && mode==1)
-        computer_turn_easy();
-    else if(!iswon() && l!=10 && mode==2)
-        computer_turn_medium();
-    else if(!iswon() && l!=10 && mode==3)
-    {
-        bestMove = findBestMove();
-        move(bestMove.first,bestMove.second,ai_turn);
-        l++;
-        if(iswon())
-            QMessageBox::about(this," ","Ai Won");
-        else if(!iswon() && l==10)
-            QMessageBox::about(this," ","Draw");
-    }
-    else if(!iswon() && l==10)
-        QMessageBox::about(this," ","Draw");
-}
-
-
-void pvai::on_four_clicked()
-{
-    if(ui->four->text()=="X" || ui->four->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        ui->four->setText(player_turn);
-        l++;
-    }
-    update();
-    if(iswon())
-        QMessageBox::about(this," ","You Won");
-    else if(!iswon() && l!=10 && mode==1)
-        computer_turn_easy();
-    else if(!iswon() && l!=10 && mode==2)
-        computer_turn_medium();
-    else if(!iswon() && l!=10 && mode==3)
-    {
-        bestMove = findBestMove();
-        move(bestMove.first,bestMove.second,ai_turn);
-        l++;
-        if(iswon())
-            QMessageBox::about(this," ","Ai Won");
-        else if(!iswon() && l==10)
-            QMessageBox::about(this," ","Draw");
-    }
-    else if(!iswon() && l==10)
-        QMessageBox::about(this," ","Draw");
-}
-
-
-void pvai::on_five_clicked()
-{
-    if(ui->five->text()=="X" || ui->five->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        ui->five->setText(player_turn);
-        l++;
-    }
-    update();
-    if(iswon())
-        QMessageBox::about(this," ","You Won");
-    else if(!iswon() && l!=10 && mode==1)
-        computer_turn_easy();
-    else if(!iswon() && l!=10 && mode==2)
-        computer_turn_medium();
-    else if(!iswon() && l!=10 && mode==3)
-    {
-        bestMove = findBestMove();
-        move(bestMove.first,bestMove.second,ai_turn);
-        l++;
-        if(iswon())
-            QMessageBox::about(this," ","Ai Won");
-        else if(!iswon() && l==10)
-            QMessageBox::about(this," ","Draw");
-    }
-    else if(!iswon() && l==10)
-        QMessageBox::about(this," ","Draw");
-}
-
-
-void pvai::on_six_clicked()
-{
-    if(ui->six->text()=="X" || ui->six->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        ui->six->setText(player_turn);
-        l++;
-    }
-    update();
-    if(iswon())
-        QMessageBox::about(this," ","You Won");
-    else if(!iswon() && l!=10 && mode==1)
-        computer_turn_easy();
-    else if(!iswon() && l!=10 && mode==2)
-        computer_turn_medium();
-    else if(!iswon() && l!=10 && mode==3)
-    {
-        bestMove = findBestMove();
-        move(bestMove.first,bestMove.second,ai_turn);
-        l++;
-        if(iswon())
-            QMessageBox::about(this," ","Ai Won");
-        else if(!iswon() && l==10)
-            QMessageBox::about(this," ","Draw");
-    }
-    else if(!iswon() && l==10)
-        QMessageBox::about(this," ","Draw");
-}
-
-
-void pvai::on_seven_clicked()
-{
-    if(ui->seven->text()=="X" || ui->seven->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        ui->seven->setText(player_turn);
-        l++;
-    }
-    update();
-    if(iswon())
-        QMessageBox::about(this," ","You Won");
-    else if(!iswon() && l!=10 && mode==1)
-        computer_turn_easy();
-    else if(!iswon() && l!=10 && mode==2)
-        computer_turn_medium();
-    else if(!iswon() && l!=10 && mode==3)
-    {
-        bestMove = findBestMove();
-        move(bestMove.first,bestMove.second,ai_turn);
-        l++;
-        if(iswon())
-            QMessageBox::about(this," ","Ai Won");
-        else if(!iswon() && l==10)
-            QMessageBox::about(this," ","Draw");
-    }
-    else if(!iswon() && l==10)
-        QMessageBox::about(this," ","Draw");
-}
-
-
-void pvai::on_eight_clicked()
-{
-    if(ui->eight->text()=="X" || ui->eight->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        ui->eight->setText(player_turn);
-        l++;
-    }
-    update();
-    if(iswon())
-        QMessageBox::about(this," ","You Won");
-    else if(!iswon() && l!=10 && mode==1)
-        computer_turn_easy();
-    else if(!iswon() && l!=10 && mode==2)
-        computer_turn_medium();
-    else if(!iswon() && l!=10 && mode==3)
-    {
-        bestMove = findBestMove();
-        move(bestMove.first,bestMove.second,ai_turn);
-        l++;
-        if(iswon())
-            QMessageBox::about(this," ","Ai Won");
-        else if(!iswon() && l==10)
-            QMessageBox::about(this," ","Draw");
-    }
-    else if(!iswon() && l==10)
-        QMessageBox::about(this," ","Draw");
-}
-
-
-void pvai::on_nine_clicked()
-{
-    if(ui->nine->text()=="X" || ui->nine->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        ui->nine->setText(player_turn);
-        l++;
-    }
-    update();
-    if(iswon())
-        QMessageBox::about(this," ","You Won");
-    else if(!iswon() && l!=10 && mode==1)
-        computer_turn_easy();
-    else if(!iswon() && l!=10 && mode==2)
-        computer_turn_medium();
-    else if(!iswon() && l!=10 && mode==3)
-    {
-        bestMove = findBestMove();
-        move(bestMove.first,bestMove.second,ai_turn);
-        l++;
-        if(iswon())
-            QMessageBox::about(this," ","Ai Won");
-        else if(!iswon() && l==10)
-            QMessageBox::about(this," ","Draw");
-    }
-    else if(!iswon() && l==10)
-        QMessageBox::about(this," ","Draw");
-}
-
 
 void pvai::on_easy_clicked()
 {

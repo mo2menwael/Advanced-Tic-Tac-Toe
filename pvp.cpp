@@ -1,7 +1,6 @@
 #include "pvp.h"
 #include "ui_pvp.h"
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
 #include <qmessagebox.h>
 #include <random>
 #include <QtWidgets>
@@ -19,6 +18,7 @@ pvp::pvp(QWidget *parent)
     ui->one->hide();    ui->two->hide();    ui->three->hide();
     ui->four->hide();   ui->five->hide();   ui->six->hide();
     ui->seven->hide();  ui->eight->hide();  ui->nine->hide();
+    setupConnections();
 }
 
 pvp::~pvp()
@@ -79,265 +79,46 @@ bool pvp::iswon()
 }
 
 
-void pvp::on_one_clicked()
+void pvp::handleButtonClick(QPushButton* button)
 {
-    if(ui->one->text()=="X" || ui->one->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        if(i%2 != 0)
-        {
-            ui->one->setText(p1_turn);
-            ui->turntext->setText(player2+"'s turn");
-        }
-        else
-        {
-            ui->one->setText(p2_turn);
-            ui->turntext->setText(player1+"'s turn");
+    if(button->text() == "X" || button->text() == "O") {
+        QMessageBox::warning(this, " ", "Already occupied. Please choose another box.");
+    } else {
+        if(i % 2 != 0) {
+            button->setText(p1_turn);
+            ui->turntext->setText(player2 + "'s turn");
+        } else {
+            button->setText(p2_turn);
+            ui->turntext->setText(player1 + "'s turn");
         }
         i++;
     }
-    k=i-1;
+    k = i - 1;
     update();
-    if(iswon() && (k%2 != 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
-    else if(iswon() && (k%2 == 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
-    else if(!iswon() && i==10)
-        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
-}
-
-void pvp::on_two_clicked()
-{
-    if(ui->two->text()=="X" || ui->two->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        if(i%2 != 0)
-        {
-            ui->two->setText(p1_turn);
-            ui->turntext->setText(player2+"'s turn");
-        }
-        else
-        {
-            ui->two->setText(p2_turn);
-            ui->turntext->setText(player1+"'s turn");
-        }
-        i++;
+    if(iswon() && (k % 2 != 0)) {
+        ui->turntext->hide();
+        QMessageBox::about(this, " ", player1 + " Won");
+    } else if(iswon() && (k % 2 == 0)) {
+        ui->turntext->hide();
+        QMessageBox::about(this, " ", player2 + " Won");
+    } else if(!iswon() && i == 10) {
+        ui->turntext->hide();
+        QMessageBox::about(this, " ", "Draw");
     }
-    k=i-1;
-    update();
-    if(iswon() && (k%2 != 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
-    else if(iswon() && (k%2 == 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
-    else if(!iswon() && i==10)
-        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
 }
 
-
-void pvp::on_three_clicked()
+void pvp::setupConnections()
 {
-    if(ui->three->text()=="X" || ui->three->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        if(i%2 != 0)
-        {
-            ui->three->setText(p1_turn);
-            ui->turntext->setText(player2+"'s turn");
-        }
-        else
-        {
-            ui->three->setText(p2_turn);
-            ui->turntext->setText(player1+"'s turn");
-        }
-        i++;
-    }
-    k=i-1;
-    update();
-    if(iswon() && (k%2 != 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
-    else if(iswon() && (k%2 == 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
-    else if(!iswon() && i==10)
-        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
+    connect(ui->one, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->one); });
+    connect(ui->two, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->two); });
+    connect(ui->three, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->three); });
+    connect(ui->four, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->four); });
+    connect(ui->five, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->five); });
+    connect(ui->six, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->six); });
+    connect(ui->seven, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->seven); });
+    connect(ui->eight, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->eight); });
+    connect(ui->nine, &QPushButton::clicked, this, [this]() { handleButtonClick(ui->nine); });
 }
-
-
-void pvp::on_four_clicked()
-{
-    if(ui->four->text()=="X" || ui->four->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        if(i%2 != 0)
-        {
-            ui->four->setText(p1_turn);
-            ui->turntext->setText(player2+"'s turn");
-        }
-        else
-        {
-            ui->four->setText(p2_turn);
-            ui->turntext->setText(player1+"'s turn");
-        }
-        i++;
-    }
-    k=i-1;
-    update();
-    if(iswon() && (k%2 != 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
-    else if(iswon() && (k%2 == 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
-    else if(!iswon() && i==10)
-        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
-}
-
-
-void pvp::on_five_clicked()
-{
-    if(ui->five->text()=="X" || ui->five->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        if(i%2 != 0)
-        {
-            ui->five->setText(p1_turn);
-            ui->turntext->setText(player2+"'s turn");
-        }
-        else
-        {
-            ui->five->setText(p2_turn);
-            ui->turntext->setText(player1+"'s turn");
-        }
-        i++;
-    }
-    k=i-1;
-    update();
-    if(iswon() && (k%2 != 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
-    else if(iswon() && (k%2 == 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
-    else if(!iswon() && i==10)
-        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
-}
-
-
-void pvp::on_six_clicked()
-{
-    if(ui->six->text()=="X" || ui->six->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        if(i%2 != 0)
-        {
-            ui->six->setText(p1_turn);
-            ui->turntext->setText(player2+"'s turn");
-        }
-        else
-        {
-            ui->six->setText(p2_turn);
-            ui->turntext->setText(player1+"'s turn");
-        }
-        i++;
-    }
-    k=i-1;
-    update();
-    if(iswon() && (k%2 != 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
-    else if(iswon() && (k%2 == 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
-    else if(!iswon() && i==10)
-        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
-}
-
-
-void pvp::on_seven_clicked()
-{
-    if(ui->seven->text()=="X" || ui->seven->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        if(i%2 != 0)
-        {
-            ui->seven->setText(p1_turn);
-            ui->turntext->setText(player2+"'s turn");
-        }
-        else
-        {
-            ui->seven->setText(p2_turn);
-            ui->turntext->setText(player1+"'s turn");
-        }
-        i++;
-    }
-    k=i-1;
-    update();
-    if(iswon() && (k%2 != 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
-    else if(iswon() && (k%2 == 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
-    else if(!iswon() && i==10)
-        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
-}
-
-
-void pvp::on_eight_clicked()
-{
-    if(ui->eight->text()=="X" || ui->eight->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        if(i%2 != 0)
-        {
-            ui->eight->setText(p1_turn);
-            ui->turntext->setText(player2+"'s turn");
-        }
-        else
-        {
-            ui->eight->setText(p2_turn);
-            ui->turntext->setText(player1+"'s turn");
-        }
-        i++;
-    }
-    k=i-1;
-    update();
-    if(iswon() && (k%2 != 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
-    else if(iswon() && (k%2 == 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
-    else if(!iswon() && i==10)
-        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
-}
-
-
-void pvp::on_nine_clicked()
-{
-    if(ui->nine->text()=="X" || ui->nine->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else
-    {
-        if(i%2 != 0)
-        {
-            ui->nine->setText(p1_turn);
-            ui->turntext->setText(player2+"'s turn");
-        }
-        else
-        {
-            ui->nine->setText(p2_turn);
-            ui->turntext->setText(player1+"'s turn");
-        }
-        i++;
-    }
-    k=i-1;
-    update();
-    if(iswon() && (k%2 != 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player1+" Won");}
-    else if(iswon() && (k%2 == 0))
-        {ui->turntext->hide();  QMessageBox::about(this," ",player2+" Won");}
-    else if(!iswon() && i==10)
-        {ui->turntext->hide();  QMessageBox::about(this," ","Draw");}
-}
-
 
 void pvp::on_startt_clicked()
 {

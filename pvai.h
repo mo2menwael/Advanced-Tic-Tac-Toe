@@ -17,23 +17,9 @@ public:
     QString board[3][3];
 
 private slots:
-    void on_one_clicked();
+    void handleButtonClick(QPushButton* button);
 
-    void on_two_clicked();
-
-    void on_three_clicked();
-
-    void on_four_clicked();
-
-    void on_five_clicked();
-
-    void on_six_clicked();
-
-    void on_seven_clicked();
-
-    void on_eight_clicked();
-
-    void on_nine_clicked();
+    void setupConnections();
 
     void on_easy_clicked();
 
