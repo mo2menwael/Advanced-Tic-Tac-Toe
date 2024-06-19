@@ -143,6 +143,14 @@ bool pvp::iswon()
     return false;
 }
 
+bool pvp::isdraw()
+{
+    if(!iswon() && i==10)
+        return true;
+
+    return false;
+}
+
 void pvp::handleButtonClick(QPushButton* button) {
     if (button->text() == "X" || button->text() == "O") {
         QMessageBox::warning(this, " ", "Already occupied. Please choose another box.");
@@ -184,7 +192,7 @@ void pvp::handleButtonClick(QPushButton* button) {
         result_2="win";
         save_state();
         saveIntoMemory();
-    } else if (!iswon() && i == 10) {
+    } else if (isdraw()) {
         ui->turntext->hide();
         QMessageBox::about(this, " ", "Draw");
         winCount_1 = 0;loseCount_1 = 0; drawCount_1 = 1;

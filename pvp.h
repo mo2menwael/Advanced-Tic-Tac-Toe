@@ -55,6 +55,8 @@ private slots:
 
     bool iswon();
 
+    bool isdraw();
+
     void init();
 
     void on_startt_clicked();

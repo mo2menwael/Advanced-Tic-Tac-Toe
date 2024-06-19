@@ -60,6 +60,8 @@ private slots:
 
     bool iswon();
 
+    bool isdraw();
+
     void init();
 
     void update();

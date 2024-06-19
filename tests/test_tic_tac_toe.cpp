@@ -1,34 +1,89 @@
-/*#include <gtest/gtest.h>
+#include <gtest/gtest.h>
+#include "test_tic_tac_toe.h"
 #include <QApplication>
 
-QString board[3][3]={{0}};
-
-bool iswon()
-{
-    //checking the win for Simple Rows and Simple Column
-    for(int j=0; j<3 ; j++)
-        if(((board[j][0] == board[j][1]) && (board[j][0] == board[j][2] ))||
-            ((board[0][j] == board[1][j]) && (board[0][j] == board[2][j])))
-            return true;
-
-    //checking the win for both diagonal
-    if(((board[0][0] == board[2][2]) && (board[1][1] == board[2][2] ))||
-        ((board[0][2] == board[1][1]) && (board[0][2] == board[2][0])))
-        return true;
-
-    return false;
+// Test case for checking the initialization of the board
+TEST(TicTacToeTest, InitializeBoard) {
+    TicTacToe game;
+    int m = 1;
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            EXPECT_EQ(game.getBoardValue(i, j), '0' + (m++));
+        }
+    }
 }
 
-// Test case to check Win condition
-TEST(TicTacToeTest, WinCondition) {
-    board[0][0]="X";
-    board[0][1]="X";
-    board[0][2]="X";
-    EXPECT_TRUE(iswon());
+// Test case for checking a valid move
+TEST(TicTacToeTest, MakeValidMove) {
+    TicTacToe game;
+    EXPECT_EQ(game.makeMove(2, 1, 'O'), "Valid move");
+    EXPECT_EQ(game.getBoardValue(2, 1), 'O');
+}
+
+// Test case for checking a invalid move
+TEST(TicTacToeTest, MakeInvalidMove) {
+    TicTacToe game;
+    game.makeMove(1, 2, 'X');
+    EXPECT_EQ(game.makeMove(1, 2, 'X'), "Invalid move");
+}
+
+// Test case to check if the game does not allow moves after a win
+TEST(TicTacToeTest, NoMoveAfterWin) {
+    TicTacToe game;
+    game.makeMove(0, 0, 'X');
+    game.makeMove(0, 1, 'X');
+    game.makeMove(0, 2, 'X');
+
+    EXPECT_EQ(game.makeMove(1, 1, 'O'),"Invalid move");
+}
+
+// Test case for checking a horizontal win
+TEST(TicTacToeTest, CheckHorizontalWin) {
+    TicTacToe game;
+    game.makeMove(0, 0, 'X');
+    game.makeMove(0, 1, 'X');
+    game.makeMove(0, 2, 'X');
+    EXPECT_TRUE(game.checkWin());
+}
+
+// Test case for checking a vertical win
+TEST(TicTacToeTest, CheckVerticalWin) {
+    TicTacToe game;
+    game.makeMove(0, 1, 'X');
+    game.makeMove(1, 1, 'X');
+    game.makeMove(2, 1, 'X');
+    EXPECT_TRUE(game.checkWin());
+}
+
+// Test case for checking a diagonal win
+TEST(TicTacToeTest, CheckDiagonalWin) {
+    TicTacToe game;
+    game.makeMove(0, 0, 'O');
+    game.makeMove(1, 1, 'O');
+    game.makeMove(2, 2, 'O');
+    EXPECT_TRUE(game.checkWin());
+}
+
+// Test case for checking a lose
+TEST(TicTacToeTest, CheckLose) {
+    TicTacToe game;
+    game.makeMove(0, 0, 'O');
+    game.makeMove(0, 1, 'O');
+    game.makeMove(2, 2, 'O');
+    EXPECT_FALSE(game.checkWin());
+}
+
+// Test case for checking a draw
+TEST(TicTacToeTest, CheckDraw) {
+    TicTacToe game;
+    game.makeMove(0, 0, 'X');   game.makeMove(0, 1, 'X');   game.makeMove(0, 2, 'O');
+    game.makeMove(1, 0, 'O');   game.makeMove(1, 1, 'O');   game.makeMove(1, 2, 'X');
+    game.makeMove(2, 0, 'X');   game.makeMove(2, 1, 'O');   game.makeMove(2, 2, 'O');
+    EXPECT_TRUE(game.checkDraw());
 }
 
 // Add main function to run all tests
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
+int main() {
+    ::testing::InitGoogleTest();
     return RUN_ALL_TESTS();
-}*/
+}

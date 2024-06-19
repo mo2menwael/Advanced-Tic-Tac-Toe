@@ -104,7 +104,7 @@ void pvai::init()
     ui->one->setText(" ");              ui->two->setText("  ");              ui->three->setText("   ");
     ui->four->setText("    ");          ui->five->setText("     ");          ui->six->setText("      ");
     ui->seven->setText("       ");      ui->eight->setText("        ");      ui->nine->setText("         ");
-    l=1; m=1;
+    l=1; //m=1;
 }
 
 void pvai::update()
@@ -153,6 +153,14 @@ bool pvai::iswon()
     return false;
 }
 
+bool pvai::isdraw()
+{
+    if(!iswon() && l==10)
+        return true;
+
+    return false;
+}
+
 int row,column;
 void pvai::computer_turn_easy()
 {
@@ -171,7 +179,7 @@ void pvai::computer_turn_easy()
         save_state();
         saveIntoMemory();
     }
-    else if(!iswon() && l==10)
+    else if(isdraw())
     {
         QMessageBox::about(this," ","Draw");
         loseCount=0; winCount = 0; drawCount = 1;
@@ -199,7 +207,7 @@ void pvai::computer_turn_medium()
                         save_state();
                         saveIntoMemory();
                     }
-                    else if(!iswon() && l==10)
+                    else if(isdraw())
                     {
                         QMessageBox::about(this," ","Draw");
                         loseCount=0;  winCount = 0; drawCount = 1;
@@ -230,7 +238,7 @@ void pvai::computer_turn_medium()
                         save_state();
                         saveIntoMemory();
                     }
-                    else if(!iswon() && l==10)
+                    else if(isdraw())
                     {
                         QMessageBox::about(this," ","Draw");
                         loseCount=0;winCount = 0; drawCount = 1;
@@ -260,7 +268,7 @@ void pvai::computer_turn_medium()
         save_state();
         saveIntoMemory();
     }
-    else if(!iswon() && l==10)
+    else if(isdraw())
     {
         QMessageBox::about(this," ","Draw");
         loseCount=0; winCount = 0; drawCount = 1;
@@ -494,7 +502,7 @@ void pvai::handleButtonClick(QPushButton* button)
             save_state();
             saveIntoMemory();
         }
-        else if(!iswon() && l==10)
+        else if(isdraw())
         {
             QMessageBox::about(this," ","Draw");
             loseCount=0; winCount = 0; drawCount = 1;
@@ -503,7 +511,7 @@ void pvai::handleButtonClick(QPushButton* button)
             saveIntoMemory();
         }
     }
-    else if(!iswon() && l==10)
+    else if(isdraw())
     {
         QMessageBox::about(this," ","Draw");
         loseCount=0; winCount = 0; drawCount = 1;

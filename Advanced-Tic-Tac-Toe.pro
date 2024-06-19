@@ -16,7 +16,8 @@ SOURCES += \
     mode_selector.cpp \
     pvai.cpp \
     pvp.cpp \
-    signup.cpp
+    signup.cpp \
+    tests/test_tic_tac_toe.cpp
 
 HEADERS += \
     display.h \
@@ -25,7 +26,8 @@ HEADERS += \
     mode_selector.h \
     pvai.h \
     pvp.h \
-    signup.h
+    signup.h \
+    tests/test_tic_tac_toe.h
 
 FORMS += \
     display.ui \
@@ -42,10 +44,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 # Add Google Test include directory
-#INCLUDEPATH += $$PWD/googletest/googletest/include
+INCLUDEPATH += $$PWD/googletest/googletest/include
 
 # Add Google Test library directory
-#LIBS += -L$$PWD/googletest/build/lib -lgtest -lgtest_main
-
-# Add test sources
-SOURCES += tests/test_tic_tac_toe.cpp
+LIBS += -L$$PWD/googletest/build/lib -lgtest -lgtest_main
