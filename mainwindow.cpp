@@ -3,6 +3,12 @@
 #include "mode_selector.h"
 #include "signup.h"
 #include <QCryptographicHash>
+#include "ui_mode_selector.h"
+#include <qmessagebox.h>
+#include <random>
+#include <QtWidgets>
+#include <Qmessagebox>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -10,10 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    if(!connOpen())
-        ui->label_5->setText("none");
-    else
-        ui->label_5->setText("DataBaseIsOpened");
+
     // Initialize the text fields with empty strings
     ui->username->setText("");
     ui->Password->setText("");
@@ -55,6 +58,7 @@ void MainWindow::on_SignIn_Button_clicked()
         }
         if(count==1){
             ui->label_6->setText("username and password is correct");
+            currentUsername = username;
             connClose();
             this->hide();
             mode_selector modeselector;

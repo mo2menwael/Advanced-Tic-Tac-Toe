@@ -48,9 +48,6 @@ public:
     QFrame *line_12;
     QFrame *line;
     QPushButton *startt;
-    QLabel *p1;
-    QLabel *p2;
-    QLabel *label_3;
     QPushButton *main_menu;
     QLabel *turntext;
 
@@ -244,26 +241,12 @@ public:
         QFont font3;
         font3.setBold(false);
         startt->setFont(font3);
-        p1 = new QLabel(pvp);
-        p1->setObjectName("p1");
-        p1->setGeometry(QRect(70, 80, 111, 31));
-        p1->setScaledContents(true);
-        p1->setAlignment(Qt::AlignCenter);
-        p2 = new QLabel(pvp);
-        p2->setObjectName("p2");
-        p2->setGeometry(QRect(70, 130, 111, 31));
-        p2->setScaledContents(true);
-        p2->setAlignment(Qt::AlignCenter);
-        label_3 = new QLabel(pvp);
-        label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(90, 110, 63, 20));
-        label_3->setAlignment(Qt::AlignCenter);
         main_menu = new QPushButton(pvp);
         main_menu->setObjectName("main_menu");
-        main_menu->setGeometry(QRect(50, 490, 151, 29));
+        main_menu->setGeometry(QRect(70, 490, 101, 29));
         turntext = new QLabel(pvp);
         turntext->setObjectName("turntext");
-        turntext->setGeometry(QRect(30, 300, 191, 20));
+        turntext->setGeometry(QRect(30, 150, 191, 20));
         QFont font4;
         font4.setPointSize(10);
         font4.setBold(true);
@@ -288,10 +271,7 @@ public:
         four->setText(QString());
         five->setText(QString());
         startt->setText(QCoreApplication::translate("pvp", "Start Game", nullptr));
-        p1->setText(QCoreApplication::translate("pvp", "TextLabel", nullptr));
-        p2->setText(QCoreApplication::translate("pvp", "TextLabel", nullptr));
-        label_3->setText(QCoreApplication::translate("pvp", "VS", nullptr));
-        main_menu->setText(QCoreApplication::translate("pvp", "Exit to Main Menu", nullptr));
+        main_menu->setText(QCoreApplication::translate("pvp", "Main Menu", nullptr));
         turntext->setText(QCoreApplication::translate("pvp", "TextLabel", nullptr));
     } // retranslateUi
 

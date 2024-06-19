@@ -29,11 +29,11 @@ public:
     QVBoxLayout *verticalLayout;
     QLabel *label;
     QLabel *label_4;
-    QLabel *FirstName;
-    QLineEdit *FirstBox;
     QLineEdit *SecondBox;
     QLabel *SecondName;
     QPushButton *start_button;
+    QPushButton *history;
+    QPushButton *main_menu;
 
     void setupUi(QDialog *mode_selector)
     {
@@ -42,10 +42,10 @@ public:
         mode_selector->resize(789, 600);
         PVP = new QPushButton(mode_selector);
         PVP->setObjectName("PVP");
-        PVP->setGeometry(QRect(280, 190, 211, 41));
+        PVP->setGeometry(QRect(290, 230, 181, 141));
         PVAI = new QPushButton(mode_selector);
         PVAI->setObjectName("PVAI");
-        PVAI->setGeometry(QRect(280, 260, 211, 41));
+        PVAI->setGeometry(QRect(530, 230, 191, 141));
         layoutWidget = new QWidget(mode_selector);
         layoutWidget->setObjectName("layoutWidget");
         layoutWidget->setGeometry(QRect(240, 60, 290, 86));
@@ -74,26 +74,26 @@ public:
 
         verticalLayout->addWidget(label_4);
 
-        FirstName = new QLabel(mode_selector);
-        FirstName->setObjectName("FirstName");
-        FirstName->setGeometry(QRect(250, 350, 81, 20));
-        FirstBox = new QLineEdit(mode_selector);
-        FirstBox->setObjectName("FirstBox");
-        FirstBox->setGeometry(QRect(360, 350, 171, 26));
         SecondBox = new QLineEdit(mode_selector);
         SecondBox->setObjectName("SecondBox");
-        SecondBox->setGeometry(QRect(360, 400, 171, 26));
+        SecondBox->setGeometry(QRect(380, 400, 91, 26));
         SecondName = new QLabel(mode_selector);
         SecondName->setObjectName("SecondName");
-        SecondName->setGeometry(QRect(240, 400, 101, 20));
+        SecondName->setGeometry(QRect(280, 400, 101, 20));
         start_button = new QPushButton(mode_selector);
         start_button->setObjectName("start_button");
-        start_button->setGeometry(QRect(310, 460, 151, 41));
+        start_button->setGeometry(QRect(310, 470, 151, 41));
         QFont font2;
         font2.setFamilies({QString::fromUtf8("Calibri")});
         font2.setPointSize(13);
         font2.setBold(true);
         start_button->setFont(font2);
+        history = new QPushButton(mode_selector);
+        history->setObjectName("history");
+        history->setGeometry(QRect(40, 230, 181, 141));
+        main_menu = new QPushButton(mode_selector);
+        main_menu->setObjectName("main_menu");
+        main_menu->setGeometry(QRect(310, 530, 151, 41));
 
         retranslateUi(mode_selector);
 
@@ -107,9 +107,10 @@ public:
         PVAI->setText(QCoreApplication::translate("mode_selector", "Player Vs AI", nullptr));
         label->setText(QCoreApplication::translate("mode_selector", "Tic Tac Toe", nullptr));
         label_4->setText(QCoreApplication::translate("mode_selector", "Choose mode", nullptr));
-        FirstName->setText(QCoreApplication::translate("mode_selector", "First Name :", nullptr));
-        SecondName->setText(QCoreApplication::translate("mode_selector", "Second Name:", nullptr));
+        SecondName->setText(QCoreApplication::translate("mode_selector", "Second Player", nullptr));
         start_button->setText(QCoreApplication::translate("mode_selector", "START", nullptr));
+        history->setText(QCoreApplication::translate("mode_selector", "history", nullptr));
+        main_menu->setText(QCoreApplication::translate("mode_selector", "Exit", nullptr));
     } // retranslateUi
 
 };

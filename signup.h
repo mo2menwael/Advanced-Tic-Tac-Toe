@@ -28,7 +28,7 @@ public:
     bool connOpen()
     {
         mydb=QSqlDatabase::addDatabase("QSQLITE");
-        mydb.setDatabaseName("C:/SqLite/TicTacToe_Project.db");
+        mydb.setDatabaseName("C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/SqLite/TicTacToe_Project.db");
 
         if(!mydb.open()){
             qDebug()<<("none");

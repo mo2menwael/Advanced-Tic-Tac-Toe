@@ -94,6 +94,9 @@
       <pointsize>11</pointsize>
      </font>
     </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
     <property name="alignment">
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
     </property>
@@ -204,7 +207,7 @@
      <x>0</x>
      <y>0</y>
      <width>789</width>
-     <height>26</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

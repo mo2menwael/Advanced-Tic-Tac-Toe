@@ -2,6 +2,9 @@
 #define PVP_H
 
 #include <QDialog>
+#include <QtSql>
+#include <QtDebug>
+#include <QFileInfo>
 
 namespace Ui {
 class pvp;
@@ -16,6 +19,33 @@ public:
     ~pvp();
     QString board[3][3];
 
+public:
+    QSqlDatabase mydb;
+
+    void connClose()
+    {
+        mydb.close();
+        mydb.removeDatabase(QSqlDatabase::defaultConnection);
+    }
+
+    bool connOpen()
+    {
+        mydb=QSqlDatabase::addDatabase("QSQLITE");
+        mydb.setDatabaseName("C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/SqLite/TicTacToe_Project.db");
+
+        if(!mydb.open()){
+            qDebug()<<("none");
+            return false;
+        }
+
+        else{
+            qDebug()<<("DataBaseIsOpened");
+            return true;
+        }
+    }
+
+
+
 private slots:
     void update();
 
@@ -28,6 +58,10 @@ private slots:
     void init();
 
     void on_startt_clicked();
+
+    void save_state();
+
+    void saveIntoMemory();
 
     void on_main_menu_clicked();
 

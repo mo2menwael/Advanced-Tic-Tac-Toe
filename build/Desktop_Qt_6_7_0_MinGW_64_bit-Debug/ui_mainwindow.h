@@ -74,6 +74,7 @@ public:
         Password->setObjectName("Password");
         Password->setGeometry(QRect(340, 260, 231, 26));
         Password->setFont(font1);
+        Password->setEchoMode(QLineEdit::Password);
         Password->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         SignUp_Button = new QPushButton(centralwidget);
         SignUp_Button->setObjectName("SignUp_Button");
@@ -121,7 +122,7 @@ public:
         MainWindow->setStatusBar(statusbar);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 789, 26));
+        menubar->setGeometry(QRect(0, 0, 789, 25));
         MainWindow->setMenuBar(menubar);
 
         retranslateUi(MainWindow);

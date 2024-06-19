@@ -16,10 +16,10 @@
   <widget class="QPushButton" name="PVP">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>190</y>
-     <width>211</width>
-     <height>41</height>
+     <x>290</x>
+     <y>230</y>
+     <width>181</width>
+     <height>141</height>
     </rect>
    </property>
    <property name="text">
@@ -29,10 +29,10 @@
   <widget class="QPushButton" name="PVAI">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>260</y>
-     <width>211</width>
-     <height>41</height>
+     <x>530</x>
+     <y>230</y>
+     <width>191</width>
+     <height>141</height>
     </rect>
    </property>
    <property name="text">
@@ -85,35 +85,12 @@
     </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="FirstName">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>350</y>
-     <width>81</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>First Name :</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="FirstBox">
-   <property name="geometry">
-    <rect>
-     <x>360</x>
-     <y>350</y>
-     <width>171</width>
-     <height>26</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="SecondBox">
    <property name="geometry">
     <rect>
-     <x>360</x>
+     <x>380</x>
      <y>400</y>
-     <width>171</width>
+     <width>91</width>
      <height>26</height>
     </rect>
    </property>
@@ -121,21 +98,21 @@
   <widget class="QLabel" name="SecondName">
    <property name="geometry">
     <rect>
-     <x>240</x>
+     <x>280</x>
      <y>400</y>
      <width>101</width>
      <height>20</height>
     </rect>
    </property>
    <property name="text">
-    <string>Second Name:</string>
+    <string>Second Player</string>
    </property>
   </widget>
   <widget class="QPushButton" name="start_button">
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>460</y>
+     <y>470</y>
      <width>151</width>
      <height>41</height>
     </rect>
@@ -149,6 +126,32 @@
    </property>
    <property name="text">
     <string>START</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="history">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>230</y>
+     <width>181</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>history</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="main_menu">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>530</y>
+     <width>151</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Exit</string>
    </property>
   </widget>
  </widget>

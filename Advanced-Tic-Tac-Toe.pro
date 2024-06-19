@@ -9,6 +9,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    display.cpp \
+    history.cpp \
     main.cpp \
     mainwindow.cpp \
     mode_selector.cpp \
@@ -17,6 +19,8 @@ SOURCES += \
     signup.cpp
 
 HEADERS += \
+    display.h \
+    history.h \
     mainwindow.h \
     mode_selector.h \
     pvai.h \
@@ -24,6 +28,8 @@ HEADERS += \
     signup.h
 
 FORMS += \
+    display.ui \
+    history.ui \
     mainwindow.ui \
     mode_selector.ui \
     pvai.ui \

@@ -2,6 +2,11 @@
 #define PVAI_H
 
 #include <QDialog>
+#include <QtSql>
+#include <QtDebug>
+#include <QFileInfo>
+#include <QList>
+#include <QPushButton>
 
 namespace Ui {
 class pvai;
@@ -15,6 +20,32 @@ public:
     explicit pvai(QWidget *parent = nullptr);
     ~pvai();
     QString board[3][3];
+
+public:
+    QSqlDatabase mydb;
+
+    void connClose()
+    {
+        mydb.close();
+        mydb.removeDatabase(QSqlDatabase::defaultConnection);
+    }
+
+    bool connOpen()
+    {
+        mydb=QSqlDatabase::addDatabase("QSQLITE");
+        mydb.setDatabaseName("C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/SqLite/TicTacToe_Project.db");
+
+        if(!mydb.open()){
+            qDebug()<<("none");
+            return false;
+        }
+
+        else{
+            qDebug()<<("DataBaseIsOpened");
+            return true;
+        }
+    }
+
 
 private slots:
     void handleButtonClick(QPushButton* button);
@@ -47,7 +78,11 @@ private slots:
 
     std::pair<int, int> findBestMove();
 
+    void save_state();
+
     void on_main_menu_clicked();
+
+    void saveIntoMemory();
 
 private:
     Ui::pvai *ui;

@@ -4,10 +4,17 @@
 #include <QMainWindow>
 #include "mode_selector.h"
 #include "signup.h"
+#include "display.h"
 #include <QtSql>
 #include <QtDebug>
 #include <QFileInfo>
 #include <QString>
+#include <QPushButton>
+
+
+extern  QString currentUsername;
+extern  QString othertUsername;
+extern QString userlabel;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -30,7 +37,7 @@ public:
     bool connOpen()
     {
         mydb=QSqlDatabase::addDatabase("QSQLITE");
-        mydb.setDatabaseName("C:/SqLite/TicTacToe_Project.db");
+        mydb.setDatabaseName("C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/SqLite/TicTacToe_Project.db");
 
         if(!mydb.open()){
             qDebug()<<("none");
@@ -58,10 +65,7 @@ private:
     mode_selector *modeselector;
     SignUp *sign_up;
     pvai *pvai_;
+    history *history_;
+    display *display_;
 };
-
-extern QString player1;
-extern QString player2;
-extern QString userlabel;
-
 #endif // MAINWINDOW_H

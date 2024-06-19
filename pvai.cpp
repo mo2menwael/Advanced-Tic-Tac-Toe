@@ -4,7 +4,13 @@
 #include "mode_selector.h"
 #include <random>
 #include <Qmessagebox>
+
 using namespace std;
+
+extern QString currentUsername;
+QString Level;
+QString state;
+
 pvai::pvai(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::pvai)
@@ -23,6 +29,55 @@ pvai::~pvai()
 }
 
 int l,mode,m;
+int winCount = 0;
+int loseCount =0;
+int drawCount = 0;
+
+void pvai::save_state()
+{
+    if(!connOpen()){
+        qDebug() << "Failed to open the database";
+        return;
+    }
+
+    QSqlQuery qry;
+    qry.prepare("UPDATE data SET win =win+:winCount, draw =draw+:drawCount, lose = lose + :loseCount WHERE Username = :currentUsername");
+
+    qry.bindValue(":winCount", winCount);
+    qry.bindValue(":drawCount", drawCount);
+    qry.bindValue(":loseCount", loseCount);
+    qry.bindValue(":currentUsername", currentUsername);
+
+    if(qry.exec()){
+        qDebug() << "Data updated successfully for username:" << currentUsername;
+    } else {
+        qDebug() << "Error updating data:" << qry.lastError().text();
+    }
+
+    connClose(); // Close the database connection when done
+}
+
+
+void pvai::saveIntoMemory()
+{
+    if(!connOpen()){
+        qDebug() << "Failed to open the database";
+        return;
+    }
+
+    QSqlQuery qry;
+    QDate gamePlayedDate = QDate::currentDate();
+    QString Current_date = gamePlayedDate.toString("dd-MM-yyyy");
+    qry.prepare("insert into player_" + currentUsername + " (game_level,result,game_played_date,move00,move01,move02,move10,move11,move12,move20,move21,move22) values ('"+Level+"','"+state+"','"+Current_date+"','"+board[0][0]+"','"+board[0][1]+"','"+board[0][2]+"','"+board[1][0]+"','"+board[1][1]+"','"+board[1][2]+"','"+board[2][0]+"','"+board[2][1]+"','"+board[2][2]+"')");
+
+    if(qry.exec()){
+        qDebug() << "Data updated successfully for username:" << currentUsername;
+    } else {
+        qDebug() << "Error updating data:" << qry.lastError().text();
+    }
+
+    connClose(); // Close the database connection when done
+}
 
 string random_X_O() {
     random_device rd;
@@ -109,9 +164,21 @@ void pvai::computer_turn_easy()
     move(row,column,ai_turn);
     l++;
     if(iswon())
+    {
         QMessageBox::about(this," ","Ai Won");
+        loseCount=1; winCount = 0; drawCount = 0;
+        state="lose";
+        save_state();
+        saveIntoMemory();
+    }
     else if(!iswon() && l==10)
+    {
         QMessageBox::about(this," ","Draw");
+        loseCount=0; winCount = 0; drawCount = 1;
+         state="draw";
+        save_state();
+        saveIntoMemory();
+    }
 }
 
 void pvai::computer_turn_medium()
@@ -125,9 +192,21 @@ void pvai::computer_turn_medium()
                 if (iswon()) {
                     l++;
                     if(iswon())
+                    {
                         QMessageBox::about(this," ","Ai Won");
+                        loseCount=1; winCount = 0; drawCount = 0;
+                         state="lose";
+                        save_state();
+                        saveIntoMemory();
+                    }
                     else if(!iswon() && l==10)
+                    {
                         QMessageBox::about(this," ","Draw");
+                        loseCount=0;  winCount = 0; drawCount = 1;
+                         state="draw";
+                        save_state();
+                        saveIntoMemory();
+                    }
                     return;
                 }
                 move(i,j,temp); // Undo the move
@@ -144,9 +223,21 @@ void pvai::computer_turn_medium()
                     move(i,j,ai_turn); // Block the opponent's winning move
                     l++;
                     if(iswon())
+                    {
                         QMessageBox::about(this," ","Ai Won");
+                        loseCount=1; winCount = 0; drawCount = 0;
+                         state="lose";
+                        save_state();
+                        saveIntoMemory();
+                    }
                     else if(!iswon() && l==10)
+                    {
                         QMessageBox::about(this," ","Draw");
+                        loseCount=0;winCount = 0; drawCount = 1;
+                         state="draw";
+                        save_state();
+                        saveIntoMemory();
+                    }
                     return;
                 }
                 move(i,j,temp); // Undo the move
@@ -162,9 +253,21 @@ void pvai::computer_turn_medium()
     move(row,column,ai_turn);
     l++;
     if(iswon())
+    {
         QMessageBox::about(this," ","Ai Won");
+        loseCount=1; winCount = 0; drawCount = 0;
+         state="lose";
+        save_state();
+        saveIntoMemory();
+    }
     else if(!iswon() && l==10)
+    {
         QMessageBox::about(this," ","Draw");
+        loseCount=0; winCount = 0; drawCount = 1;
+         state="draw";
+        save_state();
+        saveIntoMemory();
+    }
 }
 
 // Function to check if any player has won
@@ -367,7 +470,13 @@ void pvai::handleButtonClick(QPushButton* button)
     }
     update();
     if(iswon())
+    {
         QMessageBox::about(this," ","You Won");
+        loseCount=0; winCount = 1; drawCount = 0;
+         state="win";
+        save_state();
+        saveIntoMemory();
+    }
     else if(!iswon() && l!=10 && mode==1 && m%2==0){
         computer_turn_easy();   m++;}
     else if(!iswon() && l!=10 && mode==2 && m%2==0){
@@ -378,12 +487,30 @@ void pvai::handleButtonClick(QPushButton* button)
         move(bestMove.first,bestMove.second,ai_turn);
         l++;    m++;
         if(iswon())
+        {
             QMessageBox::about(this," ","Ai Won");
+            loseCount=1; winCount = 0; drawCount = 0;
+             state="lose";
+            save_state();
+            saveIntoMemory();
+        }
         else if(!iswon() && l==10)
+        {
             QMessageBox::about(this," ","Draw");
+            loseCount=0; winCount = 0; drawCount = 1;
+             state="draw";
+            save_state();
+            saveIntoMemory();
+        }
     }
     else if(!iswon() && l==10)
+    {
         QMessageBox::about(this," ","Draw");
+        loseCount=0; winCount = 0; drawCount = 1;
+         state="draw";
+        save_state();
+        saveIntoMemory();
+    }
 }
 
 // Connect button clicks to the consolidated function
@@ -402,6 +529,7 @@ void pvai::setupConnections()
 
 void pvai::on_easy_clicked()
 {
+    Level = "AI_Easy";
     mode=1;
     ui->diff->setText("Ai (Easy)");
     ui->one->show();    ui->two->show();    ui->three->show();
@@ -415,6 +543,7 @@ void pvai::on_easy_clicked()
 
 void pvai::on_medium_clicked()
 {
+    Level = "AI_Medium";
     mode=2;
     ui->diff->setText("Ai (Medium)");
     ui->one->show();    ui->two->show();    ui->three->show();
@@ -428,6 +557,7 @@ void pvai::on_medium_clicked()
 
 void pvai::on_hard_clicked()
 {
+    Level = "AI_Hard";
     mode=3;
     ui->diff->setText("Ai (Hard)");
     ui->one->show();    ui->two->show();    ui->three->show();

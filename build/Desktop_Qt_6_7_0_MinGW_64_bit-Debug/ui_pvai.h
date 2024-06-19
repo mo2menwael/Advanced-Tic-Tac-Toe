@@ -24,6 +24,16 @@ QT_BEGIN_NAMESPACE
 class Ui_pvai
 {
 public:
+    QLabel *difficulty;
+    QPushButton *easy;
+    QPushButton *medium;
+    QPushButton *hard;
+    QPushButton *main_menu;
+    QWidget *layoutWidget_2;
+    QVBoxLayout *verticalLayout;
+    QLabel *username;
+    QLabel *VS;
+    QLabel *diff;
     QFrame *frame1;
     QWidget *layoutWidget;
     QGridLayout *gridLayout;
@@ -48,25 +58,55 @@ public:
     QFrame *line_11;
     QFrame *line_12;
     QFrame *line;
-    QLabel *difficulty;
-    QPushButton *easy;
-    QPushButton *medium;
-    QPushButton *hard;
-    QPushButton *main_menu;
-    QWidget *layoutWidget_2;
-    QVBoxLayout *verticalLayout;
-    QLabel *username;
-    QLabel *VS;
-    QLabel *diff;
 
     void setupUi(QDialog *pvai)
     {
         if (pvai->objectName().isEmpty())
             pvai->setObjectName("pvai");
         pvai->resize(789, 600);
+        difficulty = new QLabel(pvai);
+        difficulty->setObjectName("difficulty");
+        difficulty->setGeometry(QRect(40, 200, 121, 20));
+        difficulty->setAlignment(Qt::AlignCenter);
+        easy = new QPushButton(pvai);
+        easy->setObjectName("easy");
+        easy->setGeometry(QRect(60, 250, 81, 29));
+        medium = new QPushButton(pvai);
+        medium->setObjectName("medium");
+        medium->setGeometry(QRect(60, 310, 81, 29));
+        hard = new QPushButton(pvai);
+        hard->setObjectName("hard");
+        hard->setGeometry(QRect(60, 370, 81, 29));
+        main_menu = new QPushButton(pvai);
+        main_menu->setObjectName("main_menu");
+        main_menu->setGeometry(QRect(30, 490, 151, 29));
+        layoutWidget_2 = new QWidget(pvai);
+        layoutWidget_2->setObjectName("layoutWidget_2");
+        layoutWidget_2->setGeometry(QRect(40, 70, 131, 76));
+        verticalLayout = new QVBoxLayout(layoutWidget_2);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        username = new QLabel(layoutWidget_2);
+        username->setObjectName("username");
+        username->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(username);
+
+        VS = new QLabel(layoutWidget_2);
+        VS->setObjectName("VS");
+        VS->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(VS);
+
+        diff = new QLabel(layoutWidget_2);
+        diff->setObjectName("diff");
+        diff->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(diff);
+
         frame1 = new QFrame(pvai);
         frame1->setObjectName("frame1");
-        frame1->setGeometry(QRect(210, 20, 571, 541));
+        frame1->setGeometry(QRect(190, 10, 571, 541));
         frame1->setFrameShape(QFrame::StyledPanel);
         frame1->setFrameShadow(QFrame::Raised);
         layoutWidget = new QWidget(frame1);
@@ -240,46 +280,6 @@ public:
 
         gridLayout->addWidget(line, 1, 0, 1, 1);
 
-        difficulty = new QLabel(pvai);
-        difficulty->setObjectName("difficulty");
-        difficulty->setGeometry(QRect(40, 200, 121, 20));
-        difficulty->setAlignment(Qt::AlignCenter);
-        easy = new QPushButton(pvai);
-        easy->setObjectName("easy");
-        easy->setGeometry(QRect(60, 250, 81, 29));
-        medium = new QPushButton(pvai);
-        medium->setObjectName("medium");
-        medium->setGeometry(QRect(60, 310, 81, 29));
-        hard = new QPushButton(pvai);
-        hard->setObjectName("hard");
-        hard->setGeometry(QRect(60, 370, 81, 29));
-        main_menu = new QPushButton(pvai);
-        main_menu->setObjectName("main_menu");
-        main_menu->setGeometry(QRect(30, 490, 151, 29));
-        layoutWidget_2 = new QWidget(pvai);
-        layoutWidget_2->setObjectName("layoutWidget_2");
-        layoutWidget_2->setGeometry(QRect(40, 70, 131, 76));
-        verticalLayout = new QVBoxLayout(layoutWidget_2);
-        verticalLayout->setObjectName("verticalLayout");
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        username = new QLabel(layoutWidget_2);
-        username->setObjectName("username");
-        username->setAlignment(Qt::AlignCenter);
-
-        verticalLayout->addWidget(username);
-
-        VS = new QLabel(layoutWidget_2);
-        VS->setObjectName("VS");
-        VS->setAlignment(Qt::AlignCenter);
-
-        verticalLayout->addWidget(VS);
-
-        diff = new QLabel(layoutWidget_2);
-        diff->setObjectName("diff");
-        diff->setAlignment(Qt::AlignCenter);
-
-        verticalLayout->addWidget(diff);
-
 
         retranslateUi(pvai);
 
@@ -289,6 +289,14 @@ public:
     void retranslateUi(QDialog *pvai)
     {
         pvai->setWindowTitle(QCoreApplication::translate("pvai", "Player VS AI", nullptr));
+        difficulty->setText(QCoreApplication::translate("pvai", "Choose Difficulty", nullptr));
+        easy->setText(QCoreApplication::translate("pvai", "Easy", nullptr));
+        medium->setText(QCoreApplication::translate("pvai", "Medium", nullptr));
+        hard->setText(QCoreApplication::translate("pvai", "Hard", nullptr));
+        main_menu->setText(QCoreApplication::translate("pvai", "Main Menu", nullptr));
+        username->setText(QCoreApplication::translate("pvai", "Username", nullptr));
+        VS->setText(QCoreApplication::translate("pvai", "Vs", nullptr));
+        diff->setText(QCoreApplication::translate("pvai", "Ai(Diff)", nullptr));
         eight->setText(QString());
         six->setText(QString());
         nine->setText(QString());
@@ -298,14 +306,6 @@ public:
         seven->setText(QString());
         four->setText(QString());
         five->setText(QString());
-        difficulty->setText(QCoreApplication::translate("pvai", "Choose Difficulty", nullptr));
-        easy->setText(QCoreApplication::translate("pvai", "Easy", nullptr));
-        medium->setText(QCoreApplication::translate("pvai", "Medium", nullptr));
-        hard->setText(QCoreApplication::translate("pvai", "Hard", nullptr));
-        main_menu->setText(QCoreApplication::translate("pvai", "Exit to Main Menu", nullptr));
-        username->setText(QCoreApplication::translate("pvai", "Username", nullptr));
-        VS->setText(QCoreApplication::translate("pvai", "Vs", nullptr));
-        diff->setText(QCoreApplication::translate("pvai", "Ai(Diff)", nullptr));
     } // retranslateUi
 
 };
