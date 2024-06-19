@@ -50,6 +50,9 @@ public:
     QPushButton *startt;
     QPushButton *main_menu;
     QLabel *turntext;
+    QLabel *p1label;
+    QLabel *p2label;
+    QLabel *VSlabel;
 
     void setupUi(QDialog *pvp)
     {
@@ -246,12 +249,24 @@ public:
         main_menu->setGeometry(QRect(70, 490, 101, 29));
         turntext = new QLabel(pvp);
         turntext->setObjectName("turntext");
-        turntext->setGeometry(QRect(30, 150, 191, 20));
+        turntext->setGeometry(QRect(30, 210, 191, 20));
         QFont font4;
         font4.setPointSize(10);
         font4.setBold(true);
         turntext->setFont(font4);
         turntext->setAlignment(Qt::AlignCenter);
+        p1label = new QLabel(pvp);
+        p1label->setObjectName("p1label");
+        p1label->setGeometry(QRect(80, 60, 91, 20));
+        p1label->setAlignment(Qt::AlignCenter);
+        p2label = new QLabel(pvp);
+        p2label->setObjectName("p2label");
+        p2label->setGeometry(QRect(80, 120, 91, 20));
+        p2label->setAlignment(Qt::AlignCenter);
+        VSlabel = new QLabel(pvp);
+        VSlabel->setObjectName("VSlabel");
+        VSlabel->setGeometry(QRect(100, 90, 51, 20));
+        VSlabel->setAlignment(Qt::AlignCenter);
 
         retranslateUi(pvp);
 
@@ -273,6 +288,9 @@ public:
         startt->setText(QCoreApplication::translate("pvp", "Start Game", nullptr));
         main_menu->setText(QCoreApplication::translate("pvp", "Main Menu", nullptr));
         turntext->setText(QCoreApplication::translate("pvp", "TextLabel", nullptr));
+        p1label->setText(QCoreApplication::translate("pvp", "TextLabel", nullptr));
+        p2label->setText(QCoreApplication::translate("pvp", "TextLabel", nullptr));
+        VSlabel->setText(QCoreApplication::translate("pvp", "VS", nullptr));
     } // retranslateUi
 
 };

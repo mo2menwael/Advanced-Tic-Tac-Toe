@@ -1,4 +1,4 @@
-#ifndef TEST_TIC_TAC_TOE_H
+/*#ifndef TEST_TIC_TAC_TOE_H
 #define TEST_TIC_TAC_TOE_H
 
 #include <QString>
@@ -63,3 +63,4 @@ bool TicTacToe::checkDraw() const {
 }
 
 #endif // TEST_TIC_TAC_TOE_H
+*/

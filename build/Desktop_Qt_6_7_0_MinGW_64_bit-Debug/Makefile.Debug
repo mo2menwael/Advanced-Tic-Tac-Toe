@@ -16,10 +16,10 @@ CXX           = g++
 DEFINES       = -DUNICODE -D_UNICODE -DWIN32 -DMINGW_HAS_SECURE_API=1 -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SQL_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -fno-keep-inline-dllexport -g -Wall -Wextra -Wextra $(DEFINES)
 CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++1z -Wall -Wextra -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I../../../Advanced-Tic-Tac-Toe -I. -I../../googletest/googletest/include -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -Idebug -I. -I/include -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ 
+INCPATH       = -I../../../Advanced-Tic-Tac-Toe -I. -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -Idebug -I. -I/include -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
-LIBS        =        -LC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/googletest/build/lib -lgtest -lgtest_main C:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a C:/Qt/6.7.0/mingw_64/lib/libQt6Gui.a C:/Qt/6.7.0/mingw_64/lib/libQt6Sql.a C:/Qt/6.7.0/mingw_64/lib/libQt6Core.a -lmingw32 C:/Qt/6.7.0/mingw_64/lib/libQt6EntryPoint.a -lshell32  
+LIBS        =        C:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a C:/Qt/6.7.0/mingw_64/lib/libQt6Gui.a C:/Qt/6.7.0/mingw_64/lib/libQt6Sql.a C:/Qt/6.7.0/mingw_64/lib/libQt6Core.a -lmingw32 C:/Qt/6.7.0/mingw_64/lib/libQt6EntryPoint.a -lshell32  
 QMAKE         = C:/Qt/6.7.0/mingw_64/bin/qmake.exe
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -517,7 +517,7 @@ debug/moc_display.cpp: ../../display.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QFrame \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/googletest/googletest/include -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../display.h -o debug/moc_display.cpp
+	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../display.h -o debug/moc_display.cpp
 
 debug/moc_history.cpp: ../../history.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
@@ -889,7 +889,7 @@ debug/moc_history.cpp: ../../history.h \
 		../../display.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/googletest/googletest/include -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../history.h -o debug/moc_history.cpp
+	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../history.h -o debug/moc_history.cpp
 
 debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
@@ -1271,7 +1271,7 @@ debug/moc_mainwindow.cpp: ../../mainwindow.h \
 		../../signup.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/googletest/googletest/include -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../mainwindow.h -o debug/moc_mainwindow.cpp
+	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../mainwindow.h -o debug/moc_mainwindow.cpp
 
 debug/moc_mode_selector.cpp: ../../mode_selector.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
@@ -1649,7 +1649,7 @@ debug/moc_mode_selector.cpp: ../../mode_selector.h \
 		../../display.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/googletest/googletest/include -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../mode_selector.h -o debug/moc_mode_selector.cpp
+	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../mode_selector.h -o debug/moc_mode_selector.cpp
 
 debug/moc_pvai.cpp: ../../pvai.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
@@ -2011,7 +2011,7 @@ debug/moc_pvai.cpp: ../../pvai.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/googletest/googletest/include -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../pvai.h -o debug/moc_pvai.cpp
+	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../pvai.h -o debug/moc_pvai.cpp
 
 debug/moc_pvp.cpp: ../../pvp.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
@@ -2370,7 +2370,7 @@ debug/moc_pvp.cpp: ../../pvp.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QFileInfo \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/googletest/googletest/include -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../pvp.h -o debug/moc_pvp.cpp
+	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../pvp.h -o debug/moc_pvp.cpp
 
 debug/moc_signup.cpp: ../../signup.h \
 		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
@@ -2751,7 +2751,7 @@ debug/moc_signup.cpp: ../../signup.h \
 		../../display.h \
 		debug/moc_predefs.h \
 		C:/Qt/6.7.0/mingw_64/bin/moc.exe
-	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/googletest/googletest/include -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../signup.h -o debug/moc_signup.cpp
+	'C:\Qt\6.7.0\mingw_64\bin\moc.exe' $(DEFINES) --include C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug/moc_predefs.h -IC:/Qt/6.7.0/mingw_64/mkspecs/win32-g++ -IC:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe -IC:/Qt/6.7.0/mingw_64/include -IC:/Qt/6.7.0/mingw_64/include/QtWidgets -IC:/Qt/6.7.0/mingw_64/include/QtGui -IC:/Qt/6.7.0/mingw_64/include/QtSql -IC:/Qt/6.7.0/mingw_64/include/QtCore -I. -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include ../../signup.h -o debug/moc_signup.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -6853,189 +6853,7 @@ debug/signup.o: ../../signup.cpp ../../signup.h \
 		C:/Qt/6.7.0/mingw_64/include/QtCore/QCryptographicHash
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/signup.o ../../signup.cpp
 
-debug/test_tic_tac_toe.o: ../../tests/test_tic_tac_toe.cpp ../../googletest/googletest/include/gtest/gtest.h \
-		../../googletest/googletest/include/gtest/gtest-assertion-result.h \
-		../../googletest/googletest/include/gtest/gtest-message.h \
-		../../googletest/googletest/include/gtest/internal/gtest-port.h \
-		../../googletest/googletest/include/gtest/internal/custom/gtest-port.h \
-		../../googletest/googletest/include/gtest/internal/gtest-port-arch.h \
-		../../googletest/googletest/include/gtest/gtest-death-test.h \
-		../../googletest/googletest/include/gtest/internal/gtest-death-test-internal.h \
-		../../googletest/googletest/include/gtest/gtest-matchers.h \
-		../../googletest/googletest/include/gtest/gtest-printers.h \
-		../../googletest/googletest/include/gtest/internal/gtest-internal.h \
-		../../googletest/googletest/include/gtest/internal/gtest-filepath.h \
-		../../googletest/googletest/include/gtest/internal/gtest-string.h \
-		../../googletest/googletest/include/gtest/internal/gtest-type-util.h \
-		../../googletest/googletest/include/gtest/internal/custom/gtest-printers.h \
-		../../googletest/googletest/include/gtest/gtest-param-test.h \
-		../../googletest/googletest/include/gtest/internal/gtest-param-util.h \
-		../../googletest/googletest/include/gtest/gtest-test-part.h \
-		../../googletest/googletest/include/gtest/gtest-typed-test.h \
-		../../googletest/googletest/include/gtest/gtest_pred_impl.h \
-		../../googletest/googletest/include/gtest/gtest_prod.h \
-		../../tests/test_tic_tac_toe.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/QString \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qstring.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qchar.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qglobal.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtversionchecks.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtconfiginclude.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qconfig.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtcore-config.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtconfigmacros.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtcoreexports.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qcompilerdetection.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qsystemdetection.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qprocessordetection.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtdeprecationmarkers.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qassert.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtnoop.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtypes.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtversion.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtclasshelpermacros.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtypeinfo.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qcontainerfwd.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qsysinfo.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qlogging.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qflags.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qcompare_impl.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qatomic.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qbasicatomic.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qatomic_cxx11.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qgenericatomic.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qyieldcpu.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qconstructormacros.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qdarwinhelpers.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qexceptionhandling.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qforeach.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qttypetraits.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qfunctionpointer.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qglobalstatic.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qmalloc.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qminmax.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qnumeric.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qoverload.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qswap.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtresource.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qttranslation.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qversiontagging.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qstringview.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qbytearray.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qrefcount.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qnamespace.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtmetamacros.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qarraydata.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qpair.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qarraydatapointer.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qarraydataops.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qcontainertools_impl.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qxptype_traits.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/q20functional.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/q20memory.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qbytearrayview.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qstringfwd.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/q20type_traits.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qstringliteral.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qstringalgorithms.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qlatin1stringview.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qanystringview.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qutf8stringview.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qstringtokenizer.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qstringbuilder.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qstringconverter.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qstringconverter_base.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qapplication.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qtguiglobal.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qtgui-config.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qtguiexports.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
-		C:/Qt/6.7.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qcoreapplication.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qcoreevent.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qobjectdefs.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qfunctionaltools_impl.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qdeadlinetimer.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qelapsedtimer.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qmetatype.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qcompare.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qcomparehelpers.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qdatastream.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qscopedpointer.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qiodevicebase.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qfloat16.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qhashfunctions.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qmath.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qalgorithms.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qiterable.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qmetacontainer.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qcontainerinfo.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtaggedpointer.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qscopeguard.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qeventloop.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qobject.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qlist.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qiterator.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qbytearraylist.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qstringlist.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qstringmatcher.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qobject_impl.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qbindingstorage.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qnativeinterface.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qdebug.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtextstream.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qcontiguouscache.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qsharedpointer.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qshareddata.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qmap.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qshareddata_impl.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qset.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qhash.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qvarlengtharray.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qfuture.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qfutureinterface.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qmutex.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qtsan_impl.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qresultstore.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qfuture_impl.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qthreadpool.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qthread.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qrunnable.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qexception.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qpromise.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qvariant.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/q23utility.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qwindowdefs.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qpoint.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qsize.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qmargins.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qcursor.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qbitmap.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qpixmap.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qpaintdevice.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qrect.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qcolor.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qrgb.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qrgba64.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qimage.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qpixelformat.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qtransform.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qpolygon.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qregion.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qline.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qinputmethod.h \
-		C:/Qt/6.7.0/mingw_64/include/QtCore/qlocale.h \
-		C:/Qt/6.7.0/mingw_64/include/QtGui/qguiapplication_platform.h
+debug/test_tic_tac_toe.o: ../../tests/test_tic_tac_toe.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug/test_tic_tac_toe.o ../../tests/test_tic_tac_toe.cpp
 
 debug/moc_display.o: debug/moc_display.cpp 

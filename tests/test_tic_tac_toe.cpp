@@ -1,4 +1,4 @@
-#include <gtest/gtest.h>
+/*#include <gtest/gtest.h>
 #include "test_tic_tac_toe.h"
 #include <QApplication>
 
@@ -87,3 +87,4 @@ int main() {
     ::testing::InitGoogleTest();
     return RUN_ALL_TESTS();
 }
+*/

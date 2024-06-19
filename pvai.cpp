@@ -104,7 +104,7 @@ void pvai::init()
     ui->one->setText(" ");              ui->two->setText("  ");              ui->three->setText("   ");
     ui->four->setText("    ");          ui->five->setText("     ");          ui->six->setText("      ");
     ui->seven->setText("       ");      ui->eight->setText("        ");      ui->nine->setText("         ");
-    l=1; //m=1;
+    l=1; m=1;
 }
 
 void pvai::update()
@@ -471,53 +471,55 @@ void pvai::handleButtonClick(QPushButton* button)
 {
     if(button->text()=="X" || button->text()=="O")
         QMessageBox::warning(this," ","Already occupied. Please choose another box.");
+    else if(iswon() || isdraw())
+        QMessageBox::warning(this," ","Game finished.");
     else
     {
         button->setText(player_turn);
         l++; m++;
-    }
-    update();
-    if(iswon())
-    {
-        QMessageBox::about(this," ","You Won");
-        loseCount=0; winCount = 1; drawCount = 0;
-         state="win";
-        save_state();
-        saveIntoMemory();
-    }
-    else if(!iswon() && l!=10 && mode==1 && m%2==0){
-        computer_turn_easy();   m++;}
-    else if(!iswon() && l!=10 && mode==2 && m%2==0){
-        computer_turn_medium(); m++;}
-    else if(!iswon() && l!=10 && mode==3 && m%2==0)
-    {
-        bestMove = findBestMove();
-        move(bestMove.first,bestMove.second,ai_turn);
-        l++;    m++;
+        update();
         if(iswon())
         {
-            QMessageBox::about(this," ","Ai Won");
-            loseCount=1; winCount = 0; drawCount = 0;
-             state="lose";
+            QMessageBox::about(this," ","You Won");
+            loseCount=0; winCount = 1; drawCount = 0;
+            state="win";
             save_state();
             saveIntoMemory();
+        }
+        else if(!iswon() && l!=10 && mode==1 && m%2==0){
+            computer_turn_easy();   m++;}
+        else if(!iswon() && l!=10 && mode==2 && m%2==0){
+            computer_turn_medium(); m++;}
+        else if(!iswon() && l!=10 && mode==3 && m%2==0)
+        {
+            bestMove = findBestMove();
+            move(bestMove.first,bestMove.second,ai_turn);
+            l++;    m++;
+            if(iswon())
+            {
+                QMessageBox::about(this," ","Ai Won");
+                loseCount=1; winCount = 0; drawCount = 0;
+                state="lose";
+                save_state();
+                saveIntoMemory();
+            }
+            else if(isdraw())
+            {
+                QMessageBox::about(this," ","Draw");
+                loseCount=0; winCount = 0; drawCount = 1;
+                state="draw";
+                save_state();
+                saveIntoMemory();
+            }
         }
         else if(isdraw())
         {
             QMessageBox::about(this," ","Draw");
             loseCount=0; winCount = 0; drawCount = 1;
-             state="draw";
+            state="draw";
             save_state();
             saveIntoMemory();
         }
-    }
-    else if(isdraw())
-    {
-        QMessageBox::about(this," ","Draw");
-        loseCount=0; winCount = 0; drawCount = 1;
-         state="draw";
-        save_state();
-        saveIntoMemory();
     }
 }
 

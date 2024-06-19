@@ -17,7 +17,6 @@ QString result_1;
 QString result_2;
 
 
-//std::queue<QString> movesQueue;
 QString movesArray[9]; // Array to hold up to 9 moves
 int moveCount = 0; // Counter to keep track of the number of moves made
 
@@ -29,6 +28,7 @@ pvp::pvp(QWidget *parent)
     ui->setupUi(this);
     // Display the global variable p1 in a QLabel
     ui->turntext->hide();
+    ui->p1label->setText(currentUsername);     ui->p2label->setText(othertUsername);
     ui->one->hide();    ui->two->hide();    ui->three->hide();
     ui->four->hide();   ui->five->hide();   ui->six->hide();
     ui->seven->hide();  ui->eight->hide();  ui->nine->hide();
@@ -154,7 +154,11 @@ bool pvp::isdraw()
 void pvp::handleButtonClick(QPushButton* button) {
     if (button->text() == "X" || button->text() == "O") {
         QMessageBox::warning(this, " ", "Already occupied. Please choose another box.");
-    } else {
+    }
+    else if(iswon() || isdraw())
+        QMessageBox::warning(this," ","Game finished.");
+    else
+    {
         QString currentPlayer = (i % 2 != 0) ? p1_turn : p2_turn;
         button->setText(currentPlayer);
         ui->turntext->setText((i % 2 != 0) ? othertUsername + "'s turn" : currentUsername + "'s turn");
@@ -171,36 +175,36 @@ void pvp::handleButtonClick(QPushButton* button) {
         else if (button == ui->nine) { board[2][2] = currentPlayer; }
 
         i++;
-    }
-    k = i - 1;
-    update();
-    if (iswon() && (k % 2 != 0)) {
-        ui->turntext->hide();
-        QMessageBox::about(this, " ", currentUsername + " Won");
-        winCount_1 = 1;loseCount_1 = 0;drawCount_1 = 0;
-        loseCount_2 = 1; winCount_2 = 0; drawCount_2 = 0;
-        result_1="win";
-        result_2="lose";
-        save_state();
-        saveIntoMemory();
-    } else if (iswon() && (k % 2 == 0)) {
-        ui->turntext->hide();
-        QMessageBox::about(this, " ", othertUsername + " Won");
-        winCount_1 = 0; loseCount_1 = 1;drawCount_1 = 0;
-        loseCount_2 = 0; winCount_2 = 1; drawCount_2 = 0;
-        result_1="lose";
-        result_2="win";
-        save_state();
-        saveIntoMemory();
-    } else if (isdraw()) {
-        ui->turntext->hide();
-        QMessageBox::about(this, " ", "Draw");
-        winCount_1 = 0;loseCount_1 = 0; drawCount_1 = 1;
-        loseCount_2 = 0; winCount_2 = 0;drawCount_2 = 1;
-        result_1="draw";
-        result_2="draw";
-        save_state();
-        saveIntoMemory();
+        k = i - 1;
+        update();
+        if (iswon() && (k % 2 != 0)) {
+            ui->turntext->hide();
+            QMessageBox::about(this, " ", currentUsername + " Won");
+            winCount_1 = 1;loseCount_1 = 0;drawCount_1 = 0;
+            loseCount_2 = 1; winCount_2 = 0; drawCount_2 = 0;
+            result_1="win";
+            result_2="lose";
+            save_state();
+            saveIntoMemory();
+        } else if (iswon() && (k % 2 == 0)) {
+            ui->turntext->hide();
+            QMessageBox::about(this, " ", othertUsername + " Won");
+            winCount_1 = 0; loseCount_1 = 1;drawCount_1 = 0;
+            loseCount_2 = 0; winCount_2 = 1; drawCount_2 = 0;
+            result_1="lose";
+            result_2="win";
+            save_state();
+            saveIntoMemory();
+        } else if (isdraw()) {
+            ui->turntext->hide();
+            QMessageBox::about(this, " ", "Draw");
+            winCount_1 = 0;loseCount_1 = 0; drawCount_1 = 1;
+            loseCount_2 = 0; winCount_2 = 0;drawCount_2 = 1;
+            result_1="draw";
+            result_2="draw";
+            save_state();
+            saveIntoMemory();
+        }
     }
 }
 

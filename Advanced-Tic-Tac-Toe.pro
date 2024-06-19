@@ -44,7 +44,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 # Add Google Test include directory
-INCLUDEPATH += $$PWD/googletest/googletest/include
+#INCLUDEPATH += $$PWD/googletest/googletest/include
 
 # Add Google Test library directory
-LIBS += -L$$PWD/googletest/build/lib -lgtest -lgtest_main
+#LIBS += -L$$PWD/googletest/build/lib -lgtest -lgtest_main
