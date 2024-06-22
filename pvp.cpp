@@ -152,11 +152,10 @@ bool pvp::isdraw()
 }
 
 void pvp::handleButtonClick(QPushButton* button) {
-    if (button->text() == "X" || button->text() == "O") {
-        QMessageBox::warning(this, " ", "Already occupied. Please choose another box.");
-    }
-    else if(iswon() || isdraw())
+    if(iswon() || isdraw())
         QMessageBox::warning(this," ","Game finished.");
+    else if (button->text() == "X" || button->text() == "O")
+        QMessageBox::warning(this, " ", "Already occupied. Please choose another box.");
     else
     {
         QString currentPlayer = (i % 2 != 0) ? p1_turn : p2_turn;

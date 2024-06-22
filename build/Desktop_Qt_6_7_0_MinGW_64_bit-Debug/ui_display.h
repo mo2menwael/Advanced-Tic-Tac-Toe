@@ -48,6 +48,8 @@ public:
     QLabel *one_3;
     QPushButton *main_menu;
     QPushButton *back_to_history;
+    QPushButton *doButton;
+    QPushButton *undoButton;
 
     void setupUi(QWidget *display)
     {
@@ -57,20 +59,17 @@ public:
         display->resize(879, 682);
         frame1 = new QFrame(display);
         frame1->setObjectName("frame1");
-        frame1->setGeometry(QRect(20, 50, 661, 541));
+        frame1->setGeometry(QRect(20, 50, 571, 541));
         frame1->setFrameShape(QFrame::StyledPanel);
         frame1->setFrameShadow(QFrame::Raised);
         layoutWidget_4 = new QWidget(frame1);
         layoutWidget_4->setObjectName("layoutWidget_4");
-        layoutWidget_4->setGeometry(QRect(10, 10, 645, 521));
+        layoutWidget_4->setGeometry(QRect(10, 10, 551, 521));
         gridLayout_4 = new QGridLayout(layoutWidget_4);
         gridLayout_4->setObjectName("gridLayout_4");
         gridLayout_4->setContentsMargins(0, 0, 0, 0);
         seven_3 = new QLabel(layoutWidget_4);
         seven_3->setObjectName("seven_3");
-        QFont font;
-        font.setPointSize(30);
-        seven_3->setFont(font);
         seven_3->setAlignment(Qt::AlignCenter);
 
         gridLayout_4->addWidget(seven_3, 4, 0, 1, 1);
@@ -91,7 +90,6 @@ public:
 
         three_3 = new QLabel(layoutWidget_4);
         three_3->setObjectName("three_3");
-        three_3->setFont(font);
         three_3->setAlignment(Qt::AlignCenter);
 
         gridLayout_4->addWidget(three_3, 0, 4, 1, 1);
@@ -112,9 +110,9 @@ public:
 
         line_37 = new QFrame(layoutWidget_4);
         line_37->setObjectName("line_37");
-        QFont font1;
-        font1.setBold(true);
-        line_37->setFont(font1);
+        QFont font;
+        font.setBold(true);
+        line_37->setFont(font);
         line_37->setFrameShape(QFrame::Shape::HLine);
         line_37->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -143,7 +141,6 @@ public:
 
         four_3 = new QLabel(layoutWidget_4);
         four_3->setObjectName("four_3");
-        four_3->setFont(font);
         four_3->setAlignment(Qt::AlignCenter);
 
         gridLayout_4->addWidget(four_3, 2, 0, 1, 1);
@@ -157,7 +154,7 @@ public:
 
         line_44 = new QFrame(layoutWidget_4);
         line_44->setObjectName("line_44");
-        line_44->setFont(font1);
+        line_44->setFont(font);
         line_44->setFrameShape(QFrame::Shape::HLine);
         line_44->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -172,14 +169,12 @@ public:
 
         five_3 = new QLabel(layoutWidget_4);
         five_3->setObjectName("five_3");
-        five_3->setFont(font);
         five_3->setAlignment(Qt::AlignCenter);
 
         gridLayout_4->addWidget(five_3, 2, 2, 1, 1);
 
         nine_3 = new QLabel(layoutWidget_4);
         nine_3->setObjectName("nine_3");
-        nine_3->setFont(font);
         nine_3->setAlignment(Qt::AlignCenter);
 
         gridLayout_4->addWidget(nine_3, 4, 4, 1, 1);
@@ -193,28 +188,24 @@ public:
 
         two_3 = new QLabel(layoutWidget_4);
         two_3->setObjectName("two_3");
-        two_3->setFont(font);
         two_3->setAlignment(Qt::AlignCenter);
 
         gridLayout_4->addWidget(two_3, 0, 2, 1, 1);
 
         eight_3 = new QLabel(layoutWidget_4);
         eight_3->setObjectName("eight_3");
-        eight_3->setFont(font);
         eight_3->setAlignment(Qt::AlignCenter);
 
         gridLayout_4->addWidget(eight_3, 4, 2, 1, 1);
 
         six_3 = new QLabel(layoutWidget_4);
         six_3->setObjectName("six_3");
-        six_3->setFont(font);
         six_3->setAlignment(Qt::AlignCenter);
 
         gridLayout_4->addWidget(six_3, 2, 4, 1, 1);
 
         one_3 = new QLabel(layoutWidget_4);
         one_3->setObjectName("one_3");
-        one_3->setFont(font);
         one_3->setAutoFillBackground(false);
         one_3->setScaledContents(true);
         one_3->setAlignment(Qt::AlignCenter);
@@ -223,10 +214,16 @@ public:
 
         main_menu = new QPushButton(display);
         main_menu->setObjectName("main_menu");
-        main_menu->setGeometry(QRect(710, 140, 131, 29));
+        main_menu->setGeometry(QRect(670, 100, 131, 29));
         back_to_history = new QPushButton(display);
         back_to_history->setObjectName("back_to_history");
-        back_to_history->setGeometry(QRect(710, 190, 131, 29));
+        back_to_history->setGeometry(QRect(670, 150, 131, 29));
+        doButton = new QPushButton(display);
+        doButton->setObjectName("doButton");
+        doButton->setGeometry(QRect(690, 210, 83, 29));
+        undoButton = new QPushButton(display);
+        undoButton->setObjectName("undoButton");
+        undoButton->setGeometry(QRect(680, 270, 83, 29));
 
         retranslateUi(display);
 
@@ -247,6 +244,8 @@ public:
         one_3->setText(QString());
         main_menu->setText(QCoreApplication::translate("display", " Main Menu", nullptr));
         back_to_history->setText(QCoreApplication::translate("display", "Back ", nullptr));
+        doButton->setText(QCoreApplication::translate("display", "do", nullptr));
+        undoButton->setText(QCoreApplication::translate("display", "undo", nullptr));
     } // retranslateUi
 
 };

@@ -469,10 +469,10 @@ pair<int, int> bestMove;
 
 void pvai::handleButtonClick(QPushButton* button)
 {
-    if(button->text()=="X" || button->text()=="O")
-        QMessageBox::warning(this," ","Already occupied. Please choose another box.");
-    else if(iswon() || isdraw())
+    if(iswon() || isdraw())
         QMessageBox::warning(this," ","Game finished.");
+    else if (button->text() == "X" || button->text() == "O")
+        QMessageBox::warning(this, " ", "Already occupied. Please choose another box.");
     else
     {
         button->setText(player_turn);

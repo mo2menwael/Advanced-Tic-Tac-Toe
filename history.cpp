@@ -78,28 +78,7 @@ history::history(QWidget *parent) :
     createLabels(lastGameId,ui->scrollArea);
 
 }
-/*QString history::getPlayerLevel(int gameId) {
-    QString gameLevel; // Variable to store game level
-    if(!connOpen()){
-        qDebug() << "Failed to open the database";
-        return "failed";
-    }
-    // Assuming you have a database connection and a query object
-    QSqlQuery query;
-    QString queryString = "SELECT game_level FROM player_" + currentUsername + " WHERE id = :gameId";
-    query.prepare(queryString);
-    query.bindValue(":gameId", gameId);
 
-    if (query.exec() && query.next()) {
-        gameLevel = query.value(0).toString(); // Retrieve game_level as a QString
-    } else {
-        gameLevel = "Unknown"; // Handle error or default case
-    }
-    connClose();
-
-    return gameLevel;
-}
-*/
 std::array<QString, 3> history::getresult(int gameId){
 
     //QString gameresult; // Variable to store game level

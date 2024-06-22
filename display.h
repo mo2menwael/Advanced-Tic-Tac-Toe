@@ -1,4 +1,3 @@
-// displaygamedialog.h
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
@@ -10,7 +9,9 @@
 #include <QLabel>
 #include <QScrollArea>
 #include <QFrame>
-
+#include <QPushButton>
+#include <QPair>
+#include <QList>
 
 namespace Ui {
 class display;
@@ -21,7 +22,7 @@ class display : public QDialog
     Q_OBJECT
 
 public:
-   explicit display(int gameId, QWidget *parent = nullptr);
+    explicit display(int gameId, QWidget *parent = nullptr);
     ~display();
 
 public:
@@ -35,30 +36,35 @@ public:
 
     bool connOpen()
     {
-        mydb=QSqlDatabase::addDatabase("QSQLITE");
+        mydb = QSqlDatabase::addDatabase("QSQLITE");
         mydb.setDatabaseName("C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/SqLite/TicTacToe_Project.db");
 
-        if(!mydb.open()){
-            qDebug()<<("none");
+        if (!mydb.open()) {
+            qDebug() << "Database connection failed.";
             return false;
-        }
-
-        else{
-            qDebug()<<("DataBaseIsOpened");
+        } else {
+            qDebug() << "Database connection opened successfully.";
             return true;
         }
     }
 
 private slots:
-    void displayAllMoves(int gameId);
+    void loadMoves(int gameId);
+    void displayCurrentMove();
+    void clearBoard();
+    void on_doButton_clicked();
+    void on_undoButton_clicked();
 
     void on_main_menu_clicked();
-
     void on_back_to_history_clicked();
 
 private:
-    Ui::display *ui;  // UI object pointer
-    // Declare other member variables as needed
+    Ui::display *ui;
+    QList<QPair<int, QPair<int, QString>>> moves;  // List to store moves and their order
+    int currentMoveIndex;
+    bool movesDisplayed; // Flag to track if moves have been displayed
+private:
+    QStringList labelNames = {"one_3", "two_3", "three_3", "four_3", "five_3", "six_3", "seven_3", "eight_3", "nine_3"};
 };
 
-#endif // DISPLAYGAMEDIALOG_H
+#endif // DISPLAY_H
