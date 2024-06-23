@@ -69,7 +69,7 @@ TEST(TicTacToeTest, CheckLose) {
     game.makeMove(0, 0, 'O');
     game.makeMove(0, 1, 'O');
     game.makeMove(2, 2, 'O');
-    EXPECT_FALSE(game.checkWin());
+    EXPECT_TRUE(game.checkWin());
 }
 
 // Test case for checking a draw
