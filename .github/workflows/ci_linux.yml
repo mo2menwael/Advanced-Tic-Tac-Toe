@@ -13,19 +13,21 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y g++ cmake make libgtest-dev
+        sudo apt-get install -y g++ cmake make
 
     - name: Build Google Test
       run: |
-        cd /usr/src/gtest
-        sudo cmake CMakeLists.txt
-        sudo make
-        sudo cp *.a /usr/lib
+        cd googletest
+        mkdir -p build
+        cd build
+        cmake ..
+        make
+        cd ../..
 
     - name: Build using g++
       run: |
         mkdir -p build
-        g++ -I/usr/include -Igoogletest/googletest/include -Igoogletest/googlemock/include -L/usr/lib -L/usr/local/lib tests/test_tic_tac_toe.cpp -lgtest -lgtest_main -lpthread -o build/test_tic_tac_toe
+        g++ -Igoogletest/googletest/include -Igoogletest/googlemock/include -Lgoogletest/build/googlemock -Lgoogletest/build/googlemock/gtest tests/test_tic_tac_toe.cpp -lgmock -lgtest -lgmock_main -lgtest_main -o build/test_tic_tac_toe -pthread
 
     - name: Run tests
       run: ./build/test_tic_tac_toe
