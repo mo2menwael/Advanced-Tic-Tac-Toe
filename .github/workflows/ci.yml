@@ -8,7 +8,7 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4.1.7
       
     - name: Cache MinGW
       id: cache-mingw
@@ -22,7 +22,6 @@ jobs:
     - name: Install MinGW
       run: |
         choco install mingw -y
-        mkdir -p C:\tools
         move C:\ProgramData\chocolatey\lib\mingw\tools\install C:\tools\mingw64
         echo "C:\tools\mingw64\bin" >> $GITHUB_PATH
 
