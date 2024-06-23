@@ -10,16 +10,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Set up MinGW
-      uses: msftoct/setup-minGW@v1
-      with:
-        arch: x64
-
-    - name: Add MinGW to Path
-      run: echo "C:\MinGW\bin" >> $GITHUB_PATH
+    - name: Install MinGW
+      run: |
+        choco install mingw -y
+        echo "::add-path::C:\tools\mingw64\bin"
 
     - name: Build using MinGW
       run: |
-        gcc -o test_tic_tac_toe.exe tests/test_tic_tac_toe.cpp -lstdc++
+        g++ -o test_tic_tac_toe.exe tests/test_tic_tac_toe.cpp
+
     - name: Run tests
-      run: ./test_tic_tac_toe.exe
+      run: .\test_tic_tac_toe.exe
