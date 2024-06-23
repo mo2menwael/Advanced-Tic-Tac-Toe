@@ -18,6 +18,7 @@ jobs:
     - name: Build Google Test
       run: |
         cd googletest
+        mkdir build
         cd build
         cmake -G "MinGW Makefiles" ..
         mingw32-make
