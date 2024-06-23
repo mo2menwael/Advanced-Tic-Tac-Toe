@@ -1,0 +1,25 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up MinGW
+      uses: msftoct/setup-minGW@v1
+      with:
+        arch: x64
+
+    - name: Add MinGW to Path
+      run: echo "C:\MinGW\bin" >> $GITHUB_PATH
+
+    - name: Build using MinGW
+      run: |
+        gcc -o test_tic_tac_toe.exe tests/test_tic_tac_toe.cpp -lstdc++
+    - name: Run tests
+      run: ./test_tic_tac_toe.exe
