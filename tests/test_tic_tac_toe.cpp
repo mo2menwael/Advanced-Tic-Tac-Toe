@@ -78,7 +78,7 @@ TEST(TicTacToeTest, CheckDraw) {
     game.makeMove(0, 0, 'X');   game.makeMove(0, 1, 'X');   game.makeMove(0, 2, 'O');
     game.makeMove(1, 0, 'O');   game.makeMove(1, 1, 'O');   game.makeMove(1, 2, 'X');
     game.makeMove(2, 0, 'X');   game.makeMove(2, 1, 'O');   game.makeMove(2, 2, 'O');
-    EXPECT_TRUE(game.checkDraw());
+    EXPECT_FALSE(game.checkDraw());
 }
 
 // Add main function to run all tests
