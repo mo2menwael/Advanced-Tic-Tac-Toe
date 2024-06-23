@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
 #include "test_tic_tac_toe.h"
-#include <QApplication>
 
 // Test case for checking the initialization of the board
 TEST(TicTacToeTest, InitializeBoard) {
