@@ -15,17 +15,9 @@ jobs:
         choco install mingw -y
         echo "C:\tools\mingw64\bin" >> $GITHUB_PATH
 
-    - name: Install Google Test
-      run: |
-        git clone https://github.com/google/googletest.git
-        cd googletest
-        cmake .
-        make
-        cd ..
-
     - name: Build using MinGW
       run: |
-        g++ -I googletest/googletest/include -I googletest/googletest tests/test_tic_tac_toe.cpp -o test_tic_tac_toe.exe googletest/build/lib/libgtest.a googletest/build/lib/libgtest_main.a
+        g++ -Igoogletest/googletest/include -Igoogletest/googlemock/include -o test_tic_tac_toe.exe tests/test_tic_tac_toe.cpp googletest/googletest/src/gtest-all.cc googletest/googlemock/src/gmock-all.cc -pthread
 
     - name: Run tests
       run: .\test_tic_tac_toe.exe
