@@ -8,11 +8,11 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4.1.7
+      uses: actions/checkout@v2
       
     - name: Cache MinGW
       id: cache-mingw
-      uses: actions/cache@v4.0.2
+      uses: actions/cache@v3
       with:
         path: C:\tools\mingw64
         key: ${{ runner.os }}-mingw
@@ -20,13 +20,12 @@ jobs:
           ${{ runner.os }}-mingw
 
     - name: Install MinGW
+      if: steps.cache-mingw.outputs.cache-hit != 'true'
       run: |
         choco install mingw -y
-        move C:\ProgramData\chocolatey\lib\mingw\tools\install C:\tools\mingw64
         echo "C:\tools\mingw64\bin" >> $GITHUB_PATH
 
     - name: Build Google Test
-      if: steps.cache-mingw.outputs.cache-hit != 'true'
       run: |
         cd googletest
         mkdir build
