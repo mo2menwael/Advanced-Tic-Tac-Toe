@@ -1,0 +1,34 @@
+name: CI2
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install MSYS2
+      uses: msys2/setup-msys2@v2
+      with:
+        update: true
+        install: mingw-w64-x86_64-toolchain
+
+    - name: Build Google Test
+      run: |
+        C:\msys64\usr\bin\bash -lc "
+        cd googletest &&
+        mkdir build &&
+        cd build &&
+        cmake -G 'MSYS Makefiles' .. &&
+        make"
+
+    - name: Build using MinGW
+      run: |
+        C:\msys64\usr\bin\bash -lc "
+        g++ -Igoogletest/googletest/include -Igoogletest/googlemock/include -Lgoogletest/build/googlemock -Lgoogletest/build/googlemock/gtest tests/test_tic_tac_toe.cpp -lgmock -lgtest -lgmock_main -lgtest_main -o build/test_tic_tac_toe -pthread"
+
+    - name: Run tests
+      run: C:\msys64\usr\bin\bash -lc "./build/test_tic_tac_toe"
