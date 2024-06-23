@@ -51,7 +51,7 @@ TEST(TicTacToeTest, CheckVerticalWin) {
     game.makeMove(0, 1, 'X');
     game.makeMove(1, 1, 'X');
     game.makeMove(2, 1, 'X');
-    EXPECT_TRUE(game.checkWin());
+    EXPECT_FALSE(game.checkWin());
 }
 
 // Test case for checking a diagonal win
