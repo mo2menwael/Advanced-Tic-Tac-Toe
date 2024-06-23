@@ -26,7 +26,17 @@ jobs:
         choco install mingw --params "/NoPath /InstallationPath:C:\tools\mingw64" -y
         echo "C:\tools\mingw64\bin" >> $GITHUB_PATH
 
+    - name: Cache Google Test
+      id: cache-gtest
+      uses: actions/cache@v4.0.2
+      with:
+        path: googletest/build
+        key: ${{ runner.os }}-gtest
+        restore-keys: |
+          ${{ runner.os }}-gtest
+
     - name: Build Google Test
+      if: steps.cache-gtest.outputs.cache-hit != 'true'
       run: |
         cd googletest
         mkdir build
