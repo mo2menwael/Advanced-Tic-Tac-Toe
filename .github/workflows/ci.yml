@@ -44,19 +44,8 @@ jobs:
         cmake -G "MinGW Makefiles" ..
         mingw32-make
         cd ../..
-        
-    - name: Cache Build Artifacts
-      id: cache-build
-      uses: actions/cache@v4.0.2
-      with:
-        path: |
-          test_tic_tac_toe.exe
-        key: ${{ runner.os }}-build
-        restore-keys: |
-          ${{ runner.os }}-build
           
     - name: Build using MinGW
-      if: steps.cache-build.outputs.cache-hit != 'true'
       run: |
         g++ -Igoogletest/googletest/include -Igoogletest/googlemock/include -Lgoogletest/build/lib tests/test_tic_tac_toe.cpp -lgmock -lgtest -lgmock_main -lgtest_main -o test_tic_tac_toe.exe -pthread
 
