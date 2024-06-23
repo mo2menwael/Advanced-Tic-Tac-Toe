@@ -1,4 +1,4 @@
-#include <googletest/googletest/include/gtest/gtest.h>
+#include <gtest/gtest.h>
 #include "test_tic_tac_toe.h"
 #include <QApplication>
 
