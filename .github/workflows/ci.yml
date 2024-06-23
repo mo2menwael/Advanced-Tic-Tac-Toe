@@ -22,7 +22,7 @@ jobs:
     - name: Install MinGW
       if: steps.cache-mingw.outputs.cache-hit != 'true'
       run: |
-        choco install mingw -y
+        choco install mingw --params "/NoPath /InstallationPath:C:\tools\mingw64" -y
         echo "C:\tools\mingw64\bin" >> $GITHUB_PATH
 
     - name: Build Google Test
