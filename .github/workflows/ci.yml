@@ -18,13 +18,14 @@ jobs:
     - name: Build Google Test
       run: |
         cd googletest
-        cmake -G "MinGW Makefiles" .
+        cd build
+        cmake -G "MinGW Makefiles" ..
         mingw32-make
-        cd ..
+        cd ../..
 
     - name: Build using MinGW
       run: |
-        g++ -Igoogletest/googletest/include -Igoogletest/googlemock/include tests/test_tic_tac_toe.cpp -Lgoogletest/googlemock -Lgoogletest/googletest -lgmock -lgtest -lgmock_main -lgtest_main -o test_tic_tac_toe.exe -pthread
+        g++ -Igoogletest/googletest/include -Igoogletest/googlemock/include -Lgoogletest/build/lib tests/test_tic_tac_toe.cpp -lgmock -lgtest -lgmock_main -lgtest_main -o test_tic_tac_toe.exe -pthread
 
     - name: Run tests
       run: .\test_tic_tac_toe.exe
