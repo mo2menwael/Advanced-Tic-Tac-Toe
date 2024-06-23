@@ -9,6 +9,15 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
+      
+    - name: Cache MinGW
+      id: cache-mingw
+      uses: actions/cache@v4.0.2
+      with:
+        path: C:\tools\mingw64
+        key: ${{ runner.os }}-mingw
+        restore-keys: |
+          ${{ runner.os }}-mingw
 
     - name: Install MinGW
       run: |
@@ -16,6 +25,7 @@ jobs:
         echo "C:\tools\mingw64\bin" >> $GITHUB_PATH
 
     - name: Build Google Test
+      if: steps.cache-mingw.outputs.cache-hit != 'true'
       run: |
         cd googletest
         mkdir build
