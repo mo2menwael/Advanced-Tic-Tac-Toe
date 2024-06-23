@@ -160,6 +160,7 @@ public:
         label_4 = new QLabel(frame_11);
         label_4->setObjectName("label_4");
         label_4->setGeometry(QRect(10, 10, 63, 20));
+        label_4->setAlignment(Qt::AlignCenter);
         frame_12 = new QFrame(frame_5);
         frame_12->setObjectName("frame_12");
         frame_12->setGeometry(QRect(140, 10, 81, 31));
@@ -167,24 +168,26 @@ public:
         frame_12->setFrameShadow(QFrame::Sunken);
         label_5 = new QLabel(frame_12);
         label_5->setObjectName("label_5");
-        label_5->setGeometry(QRect(20, 10, 63, 20));
+        label_5->setGeometry(QRect(10, 10, 63, 20));
+        label_5->setAlignment(Qt::AlignCenter);
         frame_13 = new QFrame(frame_5);
         frame_13->setObjectName("frame_13");
-        frame_13->setGeometry(QRect(260, 10, 91, 31));
+        frame_13->setGeometry(QRect(250, 10, 91, 31));
         frame_13->setFrameShape(QFrame::StyledPanel);
         frame_13->setFrameShadow(QFrame::Sunken);
         label_6 = new QLabel(frame_13);
         label_6->setObjectName("label_6");
-        label_6->setGeometry(QRect(10, 10, 81, 20));
+        label_6->setGeometry(QRect(0, 10, 81, 20));
+        label_6->setAlignment(Qt::AlignCenter);
         frame_14 = new QFrame(frame_5);
         frame_14->setObjectName("frame_14");
-        frame_14->setGeometry(QRect(390, 10, 91, 31));
+        frame_14->setGeometry(QRect(440, 10, 91, 31));
         frame_14->setFrameShape(QFrame::StyledPanel);
         frame_14->setFrameShadow(QFrame::Sunken);
         label_7 = new QLabel(frame_14);
         label_7->setObjectName("label_7");
-        label_7->setGeometry(QRect(30, 10, 81, 20));
-        label_7->setLayoutDirection(Qt::LeftToRight);
+        label_7->setGeometry(QRect(0, 10, 81, 20));
+        label_7->setAlignment(Qt::AlignCenter);
         main_menu = new QPushButton(history);
         main_menu->setObjectName("main_menu");
         main_menu->setGeometry(QRect(652, 30, 151, 29));
@@ -207,7 +210,7 @@ public:
         label_4->setText(QCoreApplication::translate("history", "ID", nullptr));
         label_5->setText(QCoreApplication::translate("history", "Result", nullptr));
         label_6->setText(QCoreApplication::translate("history", "game_level", nullptr));
-        label_7->setText(QCoreApplication::translate("history", "Date", nullptr));
+        label_7->setText(QCoreApplication::translate("history", "Time", nullptr));
         main_menu->setText(QCoreApplication::translate("history", " Main Menu", nullptr));
     } // retranslateUi
 

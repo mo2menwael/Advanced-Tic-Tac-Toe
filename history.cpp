@@ -2,14 +2,13 @@
 #include "ui_history.h"
 #include "display.h"
 #include <QtWidgets>
-#include "mainwindow.h"
 #include "mode_selector.h"
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QScrollArea>
 #include <QFrame>
 #include <array>
-
+#include <QString>
 
 extern QString currentUsername;
 QString WinCount;
@@ -57,13 +56,12 @@ history::history(QWidget *parent) :
     connClose();
     connOpen();
     QString queryString = QString("SELECT MAX(id) AS last_game_id FROM player_%1").arg(currentUsername);
-    qDebug() << "Query String: " << currentUsername;
+    qDebug() << "Query String: " << queryString;
 
     QSqlQuery query;
     query.prepare(queryString);
     if(query.exec()) {
         if(query.next()) {
-
             lastGameId = query.value(0).toInt();
             // Now you have the lastGameId for the current player
             // You can use this value as needed in your application
@@ -75,8 +73,7 @@ history::history(QWidget *parent) :
     connClose();
 
     // Assuming 'ui->verticalLayout' is your QVBoxLayout in the .ui file
-    createLabels(lastGameId,ui->scrollArea);
-
+    createLabels(lastGameId, ui->scrollArea);
 }
 
 std::array<QString, 3> history::getresult(int gameId){
@@ -120,7 +117,7 @@ void history::createLabels(int maxGameId, QScrollArea* scrollArea) {
         resultsArray = getresult(i+1);
         //QString game_result = getresult(i+1);
         QLabel *label2 = new QLabel(resultsArray[0], frame);
-       // QString game_level= getPlayerLevel(i+1);
+        // QString game_level= getPlayerLevel(i+1);
         QLabel *label3 = new QLabel(resultsArray[1], frame);
         QLabel *label4 = new QLabel(resultsArray[2], frame);
         QPushButton *button = new QPushButton("show", frame);
@@ -149,20 +146,16 @@ void history::createLabels(int maxGameId, QScrollArea* scrollArea) {
     scrollArea->setWidgetResizable(true);
 }
 
-
-
 void history::on_verticalScrollBar_sliderMoved(int position)
 {
     // Assuming 'container' is a pointer to your QScrollArea
     ui->scrollArea->verticalScrollBar()->setValue(position);
 }
 
-
 history::~history()
 {
     delete ui;
 }
-
 
 void history::on_main_menu_clicked()
 {
@@ -179,6 +172,7 @@ void history::openWindow() {
     display_->show();
 }
 */
+
 void history::openWindow(int gameId) {
     hide();
     display_ = new display(gameId); // Pass the game ID when creating 'display'

@@ -54,14 +54,23 @@ void SignUp::on_Register_clicked()
                                        "game_level INTEGER, "
                                        "result INTEGER, "
                                        "game_played_date DATE NOT NULL,"
+                                       "ip00 INTEGER, "
                                        "move00 CHAR(1), "
+                                       "ip01 INTEGER, "
                                        "move01 CHAR(1), "
+                                       "ip02 INTEGER, "
                                        "move02 CHAR(1), "
+                                       "ip10 INTEGER, "
                                        "move10 CHAR(1), "
+                                       "ip11 INTEGER, "
                                        "move11 CHAR(1), "
+                                       "ip12 INTEGER, "
                                        "move12 CHAR(1), "
+                                       "ip20 INTEGER, "
                                        "move20 CHAR(1), "
+                                       "ip21 INTEGER, "
                                        "move21 CHAR(1), "
+                                       "ip22 INTEGER, "
                                        "move22 CHAR(1))").arg(tableName);
     if(!qry2.exec(createTableQuery)){
         qDebug() << "Failed to create table for user:" << username;

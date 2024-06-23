@@ -6,7 +6,6 @@ debug/mode_selector.o
 debug/pvai.o
 debug/pvp.o
 debug/signup.o
-debug/test_tic_tac_toe.o
 debug/moc_display.o
 debug/moc_history.o
 debug/moc_mainwindow.o

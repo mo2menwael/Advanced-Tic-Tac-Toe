@@ -1,7 +1,6 @@
 #include "display.h"
 #include "ui_display.h"
 #include <QtWidgets>
-#include "mainwindow.h"
 #include "mode_selector.h"
 #include <QVBoxLayout>
 #include <QLabel>
@@ -100,6 +99,8 @@ void display::on_doButton_clicked() {
 
         ++currentMoveIndex;
     }
+    if (currentMoveIndex >= moves.size()) {
+        QMessageBox::information(this, "Moves Completed", "All moves have been completed!");}
 }
 
 
@@ -108,6 +109,8 @@ void display::on_undoButton_clicked() {
         --currentMoveIndex;
         displayCurrentMove();
     }
+    if (currentMoveIndex <= 0) {
+        QMessageBox::information(this, "Removal Done", "Nothing to remove!");}
 }
 
 display::~display() {

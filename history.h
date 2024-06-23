@@ -1,16 +1,14 @@
 #ifndef HISTORY_H
 #define HISTORY_H
+
 #include <QDialog>
 #include <QtSql>
 #include <QtDebug>
-#include <QFileInfo>
-#include <QVBoxLayout>
-#include <QLabel>
 #include <QScrollArea>
-#include <QFrame>
-#include "display.h"
-#include <array>
 #include <QString>
+#include <array>
+#include "display.h"
+
 
 
 namespace Ui {
@@ -61,8 +59,8 @@ private slots:
     void createLabels(int numberOfLabels, QScrollArea* scrollArea);
     void on_verticalScrollBar_sliderMoved(int position);
     void openWindow(int gameId);
-    void on_main_menu_clicked();
     std::array<QString, 3> getresult(int gameId);
+    void on_main_menu_clicked();
 
 private:
     Ui::history *ui;

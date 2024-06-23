@@ -10,6 +10,16 @@ using namespace std;
 extern QString currentUsername;
 QString Level;
 QString state;
+QString J00;
+QString J01;
+QString J02;
+QString J10;
+QString J11;
+QString J12;
+QString J20;
+QString J21;
+QString J22;
+int counter_1=0;
 
 pvai::pvai(QWidget *parent)
     : QDialog(parent)
@@ -30,7 +40,7 @@ pvai::~pvai()
 
 int l,mode,m;
 int winCount = 0;
-int loseCount =0;
+int loseCount = 0;
 int drawCount = 0;
 
 void pvai::save_state()
@@ -66,9 +76,9 @@ void pvai::saveIntoMemory()
     }
 
     QSqlQuery qry;
-    QDate gamePlayedDate = QDate::currentDate();
-    QString Current_date = gamePlayedDate.toString("dd-MM-yyyy");
-    qry.prepare("insert into player_" + currentUsername + " (game_level,result,game_played_date,move00,move01,move02,move10,move11,move12,move20,move21,move22) values ('"+Level+"','"+state+"','"+Current_date+"','"+board[0][0]+"','"+board[0][1]+"','"+board[0][2]+"','"+board[1][0]+"','"+board[1][1]+"','"+board[1][2]+"','"+board[2][0]+"','"+board[2][1]+"','"+board[2][2]+"')");
+    QDateTime gamePlayedDateTime = QDateTime::currentDateTime();
+    QString currentDateTime = gamePlayedDateTime.toString("dd-MM-yyyy HH:mm:ss");
+    qry.prepare("insert into player_" + currentUsername + " (game_level,result,game_played_date,ip00,move00,ip01,move01,ip02,move02,ip10,move10,ip11,move11,ip12,move12,ip20,move20,ip21,move21,ip22,move22) values ('"+Level+"','"+state+"','"+currentDateTime+"',"+J00+",'"+board[0][0]+"',"+J01+",'"+board[0][1]+"',"+J02+",'"+board[0][2]+"',"+J10+",'"+board[1][0]+"',"+J11+",'"+board[1][1]+"',"+J12+",'"+board[1][2]+"',"+J20+",'"+board[2][0]+"',"+J21+",'"+board[2][1]+"',"+J22+",'"+board[2][2]+"')");
 
     if(qry.exec()){
         qDebug() << "Data updated successfully for username:" << currentUsername;
@@ -105,6 +115,16 @@ void pvai::init()
     ui->four->setText("    ");          ui->five->setText("     ");          ui->six->setText("      ");
     ui->seven->setText("       ");      ui->eight->setText("        ");      ui->nine->setText("         ");
     l=1; m=1;
+    J00='0';
+    J01='0';
+    J02='0';
+    J10='0';
+    J11='0';
+    J12='0';
+    J20='0';
+    J21='0';
+    J22='0';
+    counter_1=0;
 }
 
 void pvai::update()
@@ -117,23 +137,23 @@ void pvai::update()
 void pvai::move(int r,int c, const QString turn)
 {
     if(r==0 && c==0)
-        ui->one->setText(turn);
+        {ui->one->setText(turn); J00=QString::number(++counter_1);}
     else if(r==0 && c==1)
-        ui->two->setText(turn);
+        {ui->two->setText(turn); J01=QString::number(++counter_1);}
     else if(r==0 && c==2)
-        ui->three->setText(turn);
+        {ui->three->setText(turn); J02=QString::number(++counter_1);}
     else if(r==1 && c==0)
-        ui->four->setText(turn);
+        {ui->four->setText(turn); J10=QString::number(++counter_1);}
     else if(r==1 && c==1)
-        ui->five->setText(turn);
+        {ui->five->setText(turn); J11=QString::number(++counter_1);}
     else if(r==1 && c==2)
-        ui->six->setText(turn);
+        {ui->six->setText(turn); J12=QString::number(++counter_1);}
     else if(r==2 && c==0)
-        ui->seven->setText(turn);
+        {ui->seven->setText(turn); J20=QString::number(++counter_1);}
     else if(r==2 && c==1)
-        ui->eight->setText(turn);
+        {ui->eight->setText(turn); J21=QString::number(++counter_1);}
     else if(r==2 && c==2)
-        ui->nine->setText(turn);
+        {ui->nine->setText(turn); J22=QString::number(++counter_1);}
     update();
 }
 
@@ -477,6 +497,18 @@ void pvai::handleButtonClick(QPushButton* button)
     {
         button->setText(player_turn);
         l++; m++;
+
+        // Determine the row and column of the clicked button and update the board state
+        if (button == ui->one) { board[0][0] = currentUsername; J00=QString::number(++counter_1);}
+        else if (button == ui->two) { board[0][1] = currentUsername;J01=QString::number(++counter_1);}
+        else if (button == ui->three) { board[0][2] = currentUsername; J02=QString::number(++counter_1); }
+        else if (button == ui->four) { board[1][0] = currentUsername; J10=QString::number(++counter_1); }
+        else if (button == ui->five) { board[1][1] = currentUsername; J11=QString::number(++counter_1);}
+        else if (button == ui->six) { board[1][2] = currentUsername; J12=QString::number(++counter_1);}
+        else if (button == ui->seven) { board[2][0] = currentUsername;J20=QString::number(++counter_1); }
+        else if (button == ui->eight) { board[2][1] = currentUsername; J21=QString::number(++counter_1);}
+        else if (button == ui->nine) { board[2][2] = currentUsername; J22=QString::number(++counter_1);}
+
         update();
         if(iswon())
         {

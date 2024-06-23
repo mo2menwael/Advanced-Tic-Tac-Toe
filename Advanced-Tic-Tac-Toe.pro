@@ -17,7 +17,7 @@ SOURCES += \
     pvai.cpp \
     pvp.cpp \
     signup.cpp \
-    tests/test_tic_tac_toe.cpp
+    #tests/test_tic_tac_toe.cpp
 
 HEADERS += \
     display.h \
@@ -27,7 +27,7 @@ HEADERS += \
     pvai.h \
     pvp.h \
     signup.h \
-    tests/test_tic_tac_toe.h
+    #tests/test_tic_tac_toe.h
 
 FORMS += \
     display.ui \

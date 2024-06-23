@@ -357,6 +357,9 @@
      <property name="text">
       <string>ID</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
     </widget>
    </widget>
    <widget class="QFrame" name="frame_12">
@@ -377,7 +380,7 @@
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>10</y>
        <width>63</width>
        <height>20</height>
@@ -386,12 +389,15 @@
      <property name="text">
       <string>Result</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
     </widget>
    </widget>
    <widget class="QFrame" name="frame_13">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>250</x>
       <y>10</y>
       <width>91</width>
       <height>31</height>
@@ -406,7 +412,7 @@
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>0</x>
        <y>10</y>
        <width>81</width>
        <height>20</height>
@@ -415,12 +421,15 @@
      <property name="text">
       <string>game_level</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
     </widget>
    </widget>
    <widget class="QFrame" name="frame_14">
     <property name="geometry">
      <rect>
-      <x>390</x>
+      <x>440</x>
       <y>10</y>
       <width>91</width>
       <height>31</height>
@@ -435,17 +444,17 @@
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>0</x>
        <y>10</y>
        <width>81</width>
        <height>20</height>
       </rect>
      </property>
-     <property name="layoutDirection">
-      <enum>Qt::LeftToRight</enum>
-     </property>
      <property name="text">
-      <string>Date</string>
+      <string>Time</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>

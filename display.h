@@ -2,14 +2,9 @@
 #define DISPLAY_H
 
 #include <QDialog>
-#include <QtSql>
+#include <QtSql/QSqlDatabase>
 #include <QtDebug>
-#include <QFileInfo>
-#include <QVBoxLayout>
-#include <QLabel>
-#include <QScrollArea>
-#include <QFrame>
-#include <QPushButton>
+#include <QStringList>
 #include <QPair>
 #include <QList>
 
@@ -38,7 +33,6 @@ public:
     {
         mydb = QSqlDatabase::addDatabase("QSQLITE");
         mydb.setDatabaseName("C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/SqLite/TicTacToe_Project.db");
-
         if (!mydb.open()) {
             qDebug() << "Database connection failed.";
             return false;
