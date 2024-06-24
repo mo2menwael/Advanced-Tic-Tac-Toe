@@ -41,7 +41,7 @@ constexpr auto qt_meta_stringdata_CLASSmode_selectorENDCLASS = QtMocHelpers::str
     "on_PVAI_clicked",
     "on_history_clicked",
     "on_start_button_clicked",
-    "on_main_menu_clicked"
+    "on_log_out_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -95,7 +95,7 @@ Q_CONSTINIT const QMetaObject mode_selector::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_start_button_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'on_main_menu_clicked'
+        // method 'on_log_out_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -111,7 +111,7 @@ void mode_selector::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 1: _t->on_PVAI_clicked(); break;
         case 2: _t->on_history_clicked(); break;
         case 3: _t->on_start_button_clicked(); break;
-        case 4: _t->on_main_menu_clicked(); break;
+        case 4: _t->on_log_out_clicked(); break;
         default: ;
         }
     }

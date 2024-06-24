@@ -52,10 +52,6 @@ public:
 
 
 private slots:
-    //void on_profile_linkActivated(const QString &link);
-
-    // void on_frame_3_customContextMenuRequested(const QPoint &pos);
-
     void createLabels(int numberOfLabels, QScrollArea* scrollArea);
     void on_verticalScrollBar_sliderMoved(int position);
     void openWindow(int gameId);

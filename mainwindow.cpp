@@ -80,3 +80,10 @@ void MainWindow::on_SignUp_Button_clicked()
     signup.exec();
 }
 
+
+void MainWindow::on_exit_clicked()
+{
+    // Close the application
+    QApplication::quit();
+}
+

@@ -166,7 +166,7 @@ Q_CONSTINIT const QMetaObject pvai::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        QtPrivate::TypeAndForceComplete<const QString, std::false_type>,
+        QtPrivate::TypeAndForceComplete<const QString &, std::false_type>,
         // method 'isMovesLeft'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'evaluate'

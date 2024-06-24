@@ -13,14 +13,26 @@
   <property name="windowTitle">
    <string>Player VS AI</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(0, 47, 65);</string>
+  </property>
   <widget class="QLabel" name="difficulty">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>20</x>
      <y>200</y>
-     <width>121</width>
+     <width>141</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(91, 189, 206);</string>
    </property>
    <property name="text">
     <string>Choose Difficulty</string>
@@ -32,11 +44,34 @@
   <widget class="QPushButton" name="easy">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>50</x>
      <y>250</y>
      <width>81</width>
      <height>29</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+color: rgb(0, 255, 0);
+background-color: rgb(0, 33, 45);
+border: 3px solid;
+border-radius: 5px;
+border-color: rgb(0, 33, 45);
+}
+QPushButton:Hover{
+border-color: rgb(0, 35, 48);
+background-color: rgb(0, 35, 48);
+}
+QPushButton:Pressed{
+background-color: rgb(0, 255, 0);
+color:rgb(0, 33, 45);
+border-color: rgb(0, 255, 0);
+}</string>
    </property>
    <property name="text">
     <string>Easy</string>
@@ -45,11 +80,34 @@
   <widget class="QPushButton" name="medium">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>50</x>
      <y>310</y>
      <width>81</width>
      <height>29</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+color: rgb(255, 170, 0);
+background-color: rgb(0, 33, 45);
+border: 3px solid;
+border-radius: 5px;
+border-color: rgb(0, 33, 45);
+}
+QPushButton:Hover{
+border-color: rgb(0, 35, 48);
+background-color: rgb(0, 35, 48);
+}
+QPushButton:Pressed{
+background-color: rgb(255, 170, 0);
+color:rgb(0, 33, 45);
+border-color: rgb(255, 170, 0);
+}</string>
    </property>
    <property name="text">
     <string>Medium</string>
@@ -58,11 +116,34 @@
   <widget class="QPushButton" name="hard">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>50</x>
      <y>370</y>
      <width>81</width>
      <height>29</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+color: rgb(225, 0, 0);
+background-color: rgb(0, 33, 45);
+border: 3px solid;
+border-radius: 5px;
+border-color: rgb(0, 33, 45);
+}
+QPushButton:Hover{
+border-color: rgb(0, 35, 48);
+background-color: rgb(0, 35, 48);
+}
+QPushButton:Pressed{
+background-color: rgb(225, 0, 0);
+color:rgb(0, 33, 45);
+border-color: rgb(225, 0, 0);
+}</string>
    </property>
    <property name="text">
     <string>Hard</string>
@@ -71,11 +152,34 @@
   <widget class="QPushButton" name="main_menu">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>20</x>
      <y>490</y>
      <width>151</width>
      <height>29</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+color: rgb(93, 184, 211);
+background-color: rgb(0, 33, 45);
+border: 3px solid;
+border-radius: 5px;
+border-color: rgb(0, 33, 45);
+}
+QPushButton:Hover{
+border-color: rgb(0, 35, 48);
+background-color: rgb(0, 35, 48);
+}
+QPushButton:Pressed{
+background-color: rgb(93, 184, 211);
+color:rgb(0, 33, 45);
+border-color: rgb(93, 184, 211);
+}</string>
    </property>
    <property name="text">
     <string>Main Menu</string>
@@ -84,15 +188,24 @@
   <widget class="QWidget" name="layoutWidget_2">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>30</x>
      <y>70</y>
      <width>131</width>
-     <height>76</height>
+     <height>94</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <widget class="QLabel" name="username">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(253, 66, 83);</string>
+      </property>
       <property name="text">
        <string>Username</string>
       </property>
@@ -103,6 +216,15 @@
     </item>
     <item>
      <widget class="QLabel" name="VS">
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(253, 66, 83);</string>
+      </property>
       <property name="text">
        <string>Vs</string>
       </property>
@@ -113,6 +235,15 @@
     </item>
     <item>
      <widget class="QLabel" name="diff">
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(253, 66, 83);</string>
+      </property>
       <property name="text">
        <string>Ai(Diff)</string>
       </property>
@@ -155,6 +286,9 @@
          <bold>true</bold>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 67, 80);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -171,7 +305,11 @@
        <property name="font">
         <font>
          <pointsize>30</pointsize>
+         <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -180,6 +318,9 @@
      </item>
      <item row="2" column="3">
       <widget class="Line" name="line_3">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 67, 80);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -196,7 +337,11 @@
        <property name="font">
         <font>
          <pointsize>30</pointsize>
+         <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -214,7 +359,11 @@
        <property name="font">
         <font>
          <pointsize>30</pointsize>
+         <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -232,7 +381,11 @@
        <property name="font">
         <font>
          <pointsize>30</pointsize>
+         <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -250,7 +403,11 @@
        <property name="font">
         <font>
          <pointsize>30</pointsize>
+         <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(0, 47, 65);</string>
        </property>
        <property name="text">
         <string/>
@@ -259,6 +416,9 @@
      </item>
      <item row="0" column="3">
       <widget class="Line" name="line_5">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 67, 80);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -275,7 +435,11 @@
        <property name="font">
         <font>
          <pointsize>30</pointsize>
+         <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -284,6 +448,9 @@
      </item>
      <item row="4" column="3">
       <widget class="Line" name="line_4">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 67, 80);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -291,6 +458,9 @@
      </item>
      <item row="0" column="1">
       <widget class="Line" name="line_8">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 67, 80);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -298,6 +468,9 @@
      </item>
      <item row="4" column="1">
       <widget class="Line" name="line_6">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 67, 80);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -314,7 +487,11 @@
        <property name="font">
         <font>
          <pointsize>30</pointsize>
+         <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -332,7 +509,11 @@
        <property name="font">
         <font>
          <pointsize>30</pointsize>
+         <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -350,7 +531,11 @@
        <property name="font">
         <font>
          <pointsize>30</pointsize>
+         <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
        </property>
        <property name="text">
         <string/>
@@ -359,6 +544,9 @@
      </item>
      <item row="2" column="1">
       <widget class="Line" name="line_7">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 67, 80);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -371,6 +559,12 @@
          <bold>true</bold>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 67, 80);</string>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -378,6 +572,9 @@
      </item>
      <item row="3" column="0">
       <widget class="Line" name="line_2">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 67, 80);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -385,6 +582,9 @@
      </item>
      <item row="3" column="2">
       <widget class="Line" name="line_11">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 67, 80);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -392,6 +592,9 @@
      </item>
      <item row="3" column="4">
       <widget class="Line" name="line_12">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 67, 80);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -399,6 +602,9 @@
      </item>
      <item row="1" column="0">
       <widget class="Line" name="line">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 67, 80);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>

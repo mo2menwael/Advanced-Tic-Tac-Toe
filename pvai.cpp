@@ -134,26 +134,28 @@ void pvai::update()
     board[2][0] = ui->seven->text(); board[2][1] = ui->eight->text(); board[2][2] = ui->nine->text();
 }
 
-void pvai::move(int r,int c, const QString turn)
-{
+void pvai::move(int r, int c, const QString& turn) {
+    QString color = "#FF4350";  // Hex color for every turn
+
     if(r==0 && c==0)
-        {ui->one->setText(turn); J00=QString::number(++counter_1);}
+    {ui->one->setText(turn); ui->one->setStyleSheet("color: " + color); J00 = QString::number(++counter_1);}
     else if(r==0 && c==1)
-        {ui->two->setText(turn); J01=QString::number(++counter_1);}
+    {ui->two->setText(turn); ui->two->setStyleSheet("color: " + color); J01 = QString::number(++counter_1);}
     else if(r==0 && c==2)
-        {ui->three->setText(turn); J02=QString::number(++counter_1);}
+    {ui->three->setText(turn); ui->three->setStyleSheet("color: " + color); J02 = QString::number(++counter_1);}
     else if(r==1 && c==0)
-        {ui->four->setText(turn); J10=QString::number(++counter_1);}
+    {ui->four->setText(turn); ui->four->setStyleSheet("color: " + color); J10 = QString::number(++counter_1);}
     else if(r==1 && c==1)
-        {ui->five->setText(turn); J11=QString::number(++counter_1);}
+    {ui->five->setText(turn); ui->five->setStyleSheet("color: " + color); J11 = QString::number(++counter_1);}
     else if(r==1 && c==2)
-        {ui->six->setText(turn); J12=QString::number(++counter_1);}
+    {ui->six->setText(turn); ui->six->setStyleSheet("color: " + color); J12 = QString::number(++counter_1);}
     else if(r==2 && c==0)
-        {ui->seven->setText(turn); J20=QString::number(++counter_1);}
+    {ui->seven->setText(turn); ui->seven->setStyleSheet("color: " + color); J20 = QString::number(++counter_1);}
     else if(r==2 && c==1)
-        {ui->eight->setText(turn); J21=QString::number(++counter_1);}
+    {ui->eight->setText(turn); ui->eight->setStyleSheet("color: " + color); J21 = QString::number(++counter_1);}
     else if(r==2 && c==2)
-        {ui->nine->setText(turn); J22=QString::number(++counter_1);}
+    {ui->nine->setText(turn); ui->nine->setStyleSheet("color: " + color); J22 = QString::number(++counter_1);}
+
     update();
 }
 
@@ -193,7 +195,15 @@ void pvai::computer_turn_easy()
     l++;
     if(iswon())
     {
-        QMessageBox::about(this," ","Ai Won");
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Game Over");
+        msgBox.setText(QString("Ai Won!"));
+        msgBox.setIcon(QMessageBox::Information);
+        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                             "QLabel { color: #61B8D3; font-weight: bold; } "
+                             "QPushButton { background-color: #003E54; color: white; } "
+                             "QPushButton:hover { background-color: #004F6A; }");
+        msgBox.exec();
         loseCount=1; winCount = 0; drawCount = 0;
         state="lose";
         save_state();
@@ -201,7 +211,16 @@ void pvai::computer_turn_easy()
     }
     else if(isdraw())
     {
-        QMessageBox::about(this," ","Draw");
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Game Over");
+        msgBox.setText(QString("Draw!"));
+        msgBox.setIcon(QMessageBox::Information);
+        msgBox.setFixedWidth(500);
+        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                             "QLabel { color: #61B8D3; font-weight: bold; } "
+                             "QPushButton { background-color: #003E54; color: white; } "
+                             "QPushButton:hover { background-color: #004F6A; }");
+        msgBox.exec();
         loseCount=0; winCount = 0; drawCount = 1;
          state="draw";
         save_state();
@@ -221,7 +240,15 @@ void pvai::computer_turn_medium()
                     l++;
                     if(iswon())
                     {
-                        QMessageBox::about(this," ","Ai Won");
+                        QMessageBox msgBox;
+                        msgBox.setWindowTitle("Game Over");
+                        msgBox.setText(QString("Ai Won!"));
+                        msgBox.setIcon(QMessageBox::Information);
+                        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                                             "QLabel { color: #61B8D3; font-weight: bold; } "
+                                             "QPushButton { background-color: #003E54; color: white; } "
+                                             "QPushButton:hover { background-color: #004F6A; }");
+                        msgBox.exec();
                         loseCount=1; winCount = 0; drawCount = 0;
                          state="lose";
                         save_state();
@@ -229,7 +256,16 @@ void pvai::computer_turn_medium()
                     }
                     else if(isdraw())
                     {
-                        QMessageBox::about(this," ","Draw");
+                        QMessageBox msgBox;
+                        msgBox.setWindowTitle("Game Over");
+                        msgBox.setText(QString("Draw!"));
+                        msgBox.setIcon(QMessageBox::Information);
+                        msgBox.setFixedWidth(500);
+                        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                                             "QLabel { color: #61B8D3; font-weight: bold; } "
+                                             "QPushButton { background-color: #003E54; color: white; } "
+                                             "QPushButton:hover { background-color: #004F6A; }");
+                        msgBox.exec();
                         loseCount=0;  winCount = 0; drawCount = 1;
                          state="draw";
                         save_state();
@@ -252,7 +288,15 @@ void pvai::computer_turn_medium()
                     l++;
                     if(iswon())
                     {
-                        QMessageBox::about(this," ","Ai Won");
+                        QMessageBox msgBox;
+                        msgBox.setWindowTitle("Game Over");
+                        msgBox.setText(QString("Ai Won!"));
+                        msgBox.setIcon(QMessageBox::Information);
+                        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                                             "QLabel { color: #61B8D3; font-weight: bold; } "
+                                             "QPushButton { background-color: #003E54; color: white; } "
+                                             "QPushButton:hover { background-color: #004F6A; }");
+                        msgBox.exec();
                         loseCount=1; winCount = 0; drawCount = 0;
                          state="lose";
                         save_state();
@@ -260,7 +304,16 @@ void pvai::computer_turn_medium()
                     }
                     else if(isdraw())
                     {
-                        QMessageBox::about(this," ","Draw");
+                        QMessageBox msgBox;
+                        msgBox.setWindowTitle("Game Over");
+                        msgBox.setText(QString("Draw!"));
+                        msgBox.setIcon(QMessageBox::Information);
+                        msgBox.setFixedWidth(500);
+                        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                                             "QLabel { color: #61B8D3; font-weight: bold; } "
+                                             "QPushButton { background-color: #003E54; color: white; } "
+                                             "QPushButton:hover { background-color: #004F6A; }");
+                        msgBox.exec();
                         loseCount=0;winCount = 0; drawCount = 1;
                          state="draw";
                         save_state();
@@ -282,7 +335,15 @@ void pvai::computer_turn_medium()
     l++;
     if(iswon())
     {
-        QMessageBox::about(this," ","Ai Won");
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Game Over");
+        msgBox.setText(QString("Ai Won!"));
+        msgBox.setIcon(QMessageBox::Information);
+        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                             "QLabel { color: #61B8D3; font-weight: bold; } "
+                             "QPushButton { background-color: #003E54; color: white; } "
+                             "QPushButton:hover { background-color: #004F6A; }");
+        msgBox.exec();
         loseCount=1; winCount = 0; drawCount = 0;
          state="lose";
         save_state();
@@ -290,7 +351,16 @@ void pvai::computer_turn_medium()
     }
     else if(isdraw())
     {
-        QMessageBox::about(this," ","Draw");
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Game Over");
+        msgBox.setText(QString("Draw!"));
+        msgBox.setIcon(QMessageBox::Information);
+        msgBox.setFixedWidth(500);
+        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                             "QLabel { color: #61B8D3; font-weight: bold; } "
+                             "QPushButton { background-color: #003E54; color: white; } "
+                             "QPushButton:hover { background-color: #004F6A; }");
+        msgBox.exec();
         loseCount=0; winCount = 0; drawCount = 1;
          state="draw";
         save_state();
@@ -490,12 +560,33 @@ pair<int, int> bestMove;
 void pvai::handleButtonClick(QPushButton* button)
 {
     if(iswon() || isdraw())
-        QMessageBox::warning(this," ","Game finished.");
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Invalid Move");
+        msgBox.setText(QString("Game is already finished."));
+        msgBox.setIcon(QMessageBox::Warning);
+        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                             "QLabel { color: #61B8D3; font-weight: bold; } "
+                             "QPushButton { background-color: #003E54; color: white; } "
+                             "QPushButton:hover { background-color: #004F6A; }");
+        msgBox.exec();
+    }
     else if (button->text() == "X" || button->text() == "O")
-        QMessageBox::warning(this, " ", "Already occupied. Please choose another box.");
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Invalid Move");
+        msgBox.setText(QString("Already occupied. Please, choose another Box."));
+        msgBox.setIcon(QMessageBox::Warning);
+        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                             "QLabel { color: #61B8D3; font-weight: bold; } "
+                             "QPushButton { background-color: #003E54; color: white; } "
+                             "QPushButton:hover { background-color: #004F6A; }");
+        msgBox.exec();
+    }
     else
     {
         button->setText(player_turn);
+        button->setStyleSheet("color: #FF4350");
         l++; m++;
 
         // Determine the row and column of the clicked button and update the board state
@@ -512,7 +603,15 @@ void pvai::handleButtonClick(QPushButton* button)
         update();
         if(iswon())
         {
-            QMessageBox::about(this," ","You Won");
+            QMessageBox msgBox;
+            msgBox.setWindowTitle("Game Over");
+            msgBox.setText(QString("You Won!"));
+            msgBox.setIcon(QMessageBox::Information);
+            msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                                 "QLabel { color: #61B8D3; font-weight: bold; } "
+                                 "QPushButton { background-color: #003E54; color: white; } "
+                                 "QPushButton:hover { background-color: #004F6A; }");
+            msgBox.exec();
             loseCount=0; winCount = 1; drawCount = 0;
             state="win";
             save_state();
@@ -529,7 +628,15 @@ void pvai::handleButtonClick(QPushButton* button)
             l++;    m++;
             if(iswon())
             {
-                QMessageBox::about(this," ","Ai Won");
+                QMessageBox msgBox;
+                msgBox.setWindowTitle("Game Over");
+                msgBox.setText(QString("Ai Won!"));
+                msgBox.setIcon(QMessageBox::Information);
+                msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                                     "QLabel { color: #61B8D3; font-weight: bold; } "
+                                     "QPushButton { background-color: #003E54; color: white; } "
+                                     "QPushButton:hover { background-color: #004F6A; }");
+                msgBox.exec();
                 loseCount=1; winCount = 0; drawCount = 0;
                 state="lose";
                 save_state();
@@ -537,7 +644,16 @@ void pvai::handleButtonClick(QPushButton* button)
             }
             else if(isdraw())
             {
-                QMessageBox::about(this," ","Draw");
+                QMessageBox msgBox;
+                msgBox.setWindowTitle("Game Over");
+                msgBox.setText(QString("Draw!"));
+                msgBox.setIcon(QMessageBox::Information);
+                msgBox.setFixedWidth(500);
+                msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                                     "QLabel { color: #61B8D3; font-weight: bold; } "
+                                     "QPushButton { background-color: #003E54; color: white; } "
+                                     "QPushButton:hover { background-color: #004F6A; }");
+                msgBox.exec();
                 loseCount=0; winCount = 0; drawCount = 1;
                 state="draw";
                 save_state();
@@ -546,7 +662,15 @@ void pvai::handleButtonClick(QPushButton* button)
         }
         else if(isdraw())
         {
-            QMessageBox::about(this," ","Draw");
+            QMessageBox msgBox;
+            msgBox.setWindowTitle("Game Over");
+            msgBox.setText(QString("Draw"));
+            msgBox.setIcon(QMessageBox::Information);
+            msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                                 "QLabel { color: #61B8D3; font-weight: bold; } "
+                                 "QPushButton { background-color: #003E54; color: white; } "
+                                 "QPushButton:hover { background-color: #004F6A; }");
+            msgBox.exec();
             loseCount=0; winCount = 0; drawCount = 1;
             state="draw";
             save_state();

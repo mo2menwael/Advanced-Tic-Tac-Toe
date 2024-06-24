@@ -77,6 +77,7 @@ void display::clearBoard() {
 }
 
 void display::on_doButton_clicked() {
+    QString color = "#FF4350";
     if (currentMoveIndex < moves.size()) {
         int moveIndex = moves[currentMoveIndex].second.first;
         QString move = moves[currentMoveIndex].second.second;
@@ -84,6 +85,7 @@ void display::on_doButton_clicked() {
         QLabel *label = findChild<QLabel*>(labelNames[moveIndex]);
         if (label) {
             label->setText(move);
+            label->setStyleSheet("color: " + color);
         }
 
         // Display all previous moves up to the current index
@@ -94,13 +96,22 @@ void display::on_doButton_clicked() {
             QLabel *prevLabel = findChild<QLabel*>(labelNames[prevMoveIndex]);
             if (prevLabel) {
                 prevLabel->setText(prevMove);
+                prevLabel->setStyleSheet("color: " + color);
             }
         }
 
         ++currentMoveIndex;
     }
     if (currentMoveIndex >= moves.size()) {
-        QMessageBox::information(this, "Moves Completed", "All moves have been completed!");}
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Moves Completed");
+        msgBox.setText(QString("There is no Next Move, All Moves Completed!"));
+        msgBox.setIcon(QMessageBox::Information);
+        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                             "QLabel { color: #61B8D3; font-weight: bold; } "
+                             "QPushButton { background-color: #003E54; color: white; } "
+                             "QPushButton:hover { background-color: #004F6A; }");
+        msgBox.exec();}
 }
 
 
@@ -110,7 +121,15 @@ void display::on_undoButton_clicked() {
         displayCurrentMove();
     }
     if (currentMoveIndex <= 0) {
-        QMessageBox::information(this, "Removal Done", "Nothing to remove!");}
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Removal Done");
+        msgBox.setText(QString("Board Empty, Nothing to Undo!"));
+        msgBox.setIcon(QMessageBox::Information);
+        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                             "QLabel { color: #61B8D3; font-weight: bold; } "
+                             "QPushButton { background-color: #003E54; color: white; } "
+                             "QPushButton:hover { background-color: #004F6A; }");
+        msgBox.exec();}
 }
 
 display::~display() {

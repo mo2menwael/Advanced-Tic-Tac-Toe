@@ -16,6 +16,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -50,18 +51,24 @@ public:
     QPushButton *startt;
     QPushButton *main_menu;
     QLabel *turntext;
+    QWidget *layoutWidget_2;
+    QVBoxLayout *verticalLayout;
     QLabel *p1label;
+    QLabel *VS;
     QLabel *p2label;
-    QLabel *VSlabel;
 
     void setupUi(QDialog *pvp)
     {
         if (pvp->objectName().isEmpty())
             pvp->setObjectName("pvp");
-        pvp->resize(834, 585);
+        pvp->resize(789, 600);
+        QFont font;
+        font.setBold(true);
+        pvp->setFont(font);
+        pvp->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 47, 65);"));
         frame1 = new QFrame(pvp);
         frame1->setObjectName("frame1");
-        frame1->setGeometry(QRect(250, 10, 571, 541));
+        frame1->setGeometry(QRect(190, 30, 571, 541));
         frame1->setFrameShape(QFrame::StyledPanel);
         frame1->setFrameShadow(QFrame::Raised);
         layoutWidget = new QWidget(frame1);
@@ -72,9 +79,8 @@ public:
         gridLayout->setContentsMargins(0, 0, 0, 0);
         line_9 = new QFrame(layoutWidget);
         line_9->setObjectName("line_9");
-        QFont font;
-        font.setBold(true);
         line_9->setFont(font);
+        line_9->setStyleSheet(QString::fromUtf8("background-color: rgb(253, 66, 83);"));
         line_9->setFrameShape(QFrame::Shape::HLine);
         line_9->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -89,12 +95,14 @@ public:
         eight->setSizePolicy(sizePolicy);
         QFont font1;
         font1.setPointSize(30);
+        font1.setBold(true);
         eight->setFont(font1);
 
         gridLayout->addWidget(eight, 4, 2, 1, 1);
 
         line_3 = new QFrame(layoutWidget);
         line_3->setObjectName("line_3");
+        line_3->setStyleSheet(QString::fromUtf8("background-color: rgb(253, 66, 83);"));
         line_3->setFrameShape(QFrame::Shape::VLine);
         line_3->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -134,6 +142,7 @@ public:
 
         line_5 = new QFrame(layoutWidget);
         line_5->setObjectName("line_5");
+        line_5->setStyleSheet(QString::fromUtf8("background-color: rgb(253, 66, 83);"));
         line_5->setFrameShape(QFrame::Shape::VLine);
         line_5->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -149,6 +158,7 @@ public:
 
         line_4 = new QFrame(layoutWidget);
         line_4->setObjectName("line_4");
+        line_4->setStyleSheet(QString::fromUtf8("background-color: rgb(253, 66, 83);"));
         line_4->setFrameShape(QFrame::Shape::VLine);
         line_4->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -156,6 +166,7 @@ public:
 
         line_8 = new QFrame(layoutWidget);
         line_8->setObjectName("line_8");
+        line_8->setStyleSheet(QString::fromUtf8("background-color: rgb(253, 66, 83);"));
         line_8->setFrameShape(QFrame::Shape::VLine);
         line_8->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -163,6 +174,7 @@ public:
 
         line_6 = new QFrame(layoutWidget);
         line_6->setObjectName("line_6");
+        line_6->setStyleSheet(QString::fromUtf8("background-color: rgb(253, 66, 83);"));
         line_6->setFrameShape(QFrame::Shape::VLine);
         line_6->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -188,15 +200,13 @@ public:
         five->setObjectName("five");
         sizePolicy.setHeightForWidth(five->sizePolicy().hasHeightForWidth());
         five->setSizePolicy(sizePolicy);
-        QFont font2;
-        font2.setPointSize(30);
-        font2.setBold(false);
-        five->setFont(font2);
+        five->setFont(font1);
 
         gridLayout->addWidget(five, 2, 2, 1, 1);
 
         line_7 = new QFrame(layoutWidget);
         line_7->setObjectName("line_7");
+        line_7->setStyleSheet(QString::fromUtf8("background-color: rgb(253, 66, 83);"));
         line_7->setFrameShape(QFrame::Shape::VLine);
         line_7->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -205,6 +215,7 @@ public:
         line_10 = new QFrame(layoutWidget);
         line_10->setObjectName("line_10");
         line_10->setFont(font);
+        line_10->setStyleSheet(QString::fromUtf8("background-color: rgb(253, 66, 83);"));
         line_10->setFrameShape(QFrame::Shape::HLine);
         line_10->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -212,6 +223,7 @@ public:
 
         line_2 = new QFrame(layoutWidget);
         line_2->setObjectName("line_2");
+        line_2->setStyleSheet(QString::fromUtf8("background-color: rgb(253, 66, 83);"));
         line_2->setFrameShape(QFrame::Shape::HLine);
         line_2->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -219,6 +231,7 @@ public:
 
         line_11 = new QFrame(layoutWidget);
         line_11->setObjectName("line_11");
+        line_11->setStyleSheet(QString::fromUtf8("background-color: rgb(253, 66, 83);"));
         line_11->setFrameShape(QFrame::Shape::HLine);
         line_11->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -226,6 +239,7 @@ public:
 
         line_12 = new QFrame(layoutWidget);
         line_12->setObjectName("line_12");
+        line_12->setStyleSheet(QString::fromUtf8("background-color: rgb(253, 66, 83);"));
         line_12->setFrameShape(QFrame::Shape::HLine);
         line_12->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -233,6 +247,7 @@ public:
 
         line = new QFrame(layoutWidget);
         line->setObjectName("line");
+        line->setStyleSheet(QString::fromUtf8("background-color: rgb(253, 66, 83);"));
         line->setFrameShape(QFrame::Shape::HLine);
         line->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -240,33 +255,89 @@ public:
 
         startt = new QPushButton(pvp);
         startt->setObjectName("startt");
-        startt->setGeometry(QRect(70, 440, 101, 29));
-        QFont font3;
-        font3.setBold(false);
-        startt->setFont(font3);
+        startt->setGeometry(QRect(40, 380, 111, 29));
+        startt->setFont(font);
+        startt->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"color: rgb(93, 184, 211);\n"
+"background-color: rgb(0, 33, 45);\n"
+"border: 3px solid;\n"
+"border-radius: 5px;\n"
+"border-color: rgb(0, 33, 45);\n"
+"}\n"
+"QPushButton:Hover{\n"
+"border-color: rgb(0, 35, 48);\n"
+"background-color: rgb(0, 35, 48);\n"
+"}\n"
+"QPushButton:Pressed{\n"
+"background-color: rgb(93, 184, 211);\n"
+"color:rgb(0, 33, 45);\n"
+"border-color: rgb(93, 184, 211);\n"
+"}"));
         main_menu = new QPushButton(pvp);
         main_menu->setObjectName("main_menu");
-        main_menu->setGeometry(QRect(70, 490, 101, 29));
+        main_menu->setGeometry(QRect(40, 430, 111, 29));
+        QFont font2;
+        font2.setPointSize(9);
+        font2.setBold(true);
+        main_menu->setFont(font2);
+        main_menu->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"color: rgb(93, 184, 211);\n"
+"background-color: rgb(0, 33, 45);\n"
+"border: 3px solid;\n"
+"border-radius: 5px;\n"
+"border-color: rgb(0, 33, 45);\n"
+"}\n"
+"QPushButton:Hover{\n"
+"border-color: rgb(0, 35, 48);\n"
+"background-color: rgb(0, 35, 48);\n"
+"}\n"
+"QPushButton:Pressed{\n"
+"background-color: rgb(93, 184, 211);\n"
+"color:rgb(0, 33, 45);\n"
+"border-color: rgb(93, 184, 211);\n"
+"}"));
         turntext = new QLabel(pvp);
         turntext->setObjectName("turntext");
-        turntext->setGeometry(QRect(30, 210, 191, 20));
-        QFont font4;
-        font4.setPointSize(10);
-        font4.setBold(true);
-        turntext->setFont(font4);
+        turntext->setGeometry(QRect(20, 210, 151, 21));
+        QFont font3;
+        font3.setPointSize(12);
+        font3.setBold(true);
+        turntext->setFont(font3);
+        turntext->setStyleSheet(QString::fromUtf8("color: rgb(253, 66, 83);"));
         turntext->setAlignment(Qt::AlignCenter);
-        p1label = new QLabel(pvp);
+        layoutWidget_2 = new QWidget(pvp);
+        layoutWidget_2->setObjectName("layoutWidget_2");
+        layoutWidget_2->setGeometry(QRect(30, 80, 131, 94));
+        verticalLayout = new QVBoxLayout(layoutWidget_2);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        p1label = new QLabel(layoutWidget_2);
         p1label->setObjectName("p1label");
-        p1label->setGeometry(QRect(80, 60, 91, 20));
+        p1label->setFont(font3);
+        p1label->setStyleSheet(QString::fromUtf8("color: rgb(253, 66, 83);"));
         p1label->setAlignment(Qt::AlignCenter);
-        p2label = new QLabel(pvp);
+
+        verticalLayout->addWidget(p1label);
+
+        VS = new QLabel(layoutWidget_2);
+        VS->setObjectName("VS");
+        QFont font4;
+        font4.setPointSize(11);
+        font4.setBold(true);
+        VS->setFont(font4);
+        VS->setStyleSheet(QString::fromUtf8("color: rgb(253, 66, 83);"));
+        VS->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(VS);
+
+        p2label = new QLabel(layoutWidget_2);
         p2label->setObjectName("p2label");
-        p2label->setGeometry(QRect(80, 120, 91, 20));
+        p2label->setFont(font3);
+        p2label->setStyleSheet(QString::fromUtf8("color: rgb(253, 66, 83);"));
         p2label->setAlignment(Qt::AlignCenter);
-        VSlabel = new QLabel(pvp);
-        VSlabel->setObjectName("VSlabel");
-        VSlabel->setGeometry(QRect(100, 90, 51, 20));
-        VSlabel->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(p2label);
+
 
         retranslateUi(pvp);
 
@@ -288,9 +359,9 @@ public:
         startt->setText(QCoreApplication::translate("pvp", "Start Game", nullptr));
         main_menu->setText(QCoreApplication::translate("pvp", "Main Menu", nullptr));
         turntext->setText(QCoreApplication::translate("pvp", "TextLabel", nullptr));
-        p1label->setText(QCoreApplication::translate("pvp", "TextLabel", nullptr));
-        p2label->setText(QCoreApplication::translate("pvp", "TextLabel", nullptr));
-        VSlabel->setText(QCoreApplication::translate("pvp", "VS", nullptr));
+        p1label->setText(QCoreApplication::translate("pvp", "Player 1", nullptr));
+        VS->setText(QCoreApplication::translate("pvp", "Vs", nullptr));
+        p2label->setText(QCoreApplication::translate("pvp", "Player 2", nullptr));
     } // retranslateUi
 
 };

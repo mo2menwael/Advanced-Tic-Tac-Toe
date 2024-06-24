@@ -72,7 +72,6 @@ history::history(QWidget *parent) :
     }
     connClose();
 
-    // Assuming 'ui->verticalLayout' is your QVBoxLayout in the .ui file
     createLabels(lastGameId, ui->scrollArea);
 }
 
@@ -148,7 +147,6 @@ void history::createLabels(int maxGameId, QScrollArea* scrollArea) {
 
 void history::on_verticalScrollBar_sliderMoved(int position)
 {
-    // Assuming 'container' is a pointer to your QScrollArea
     ui->scrollArea->verticalScrollBar()->setValue(position);
 }
 
@@ -164,14 +162,6 @@ void history::on_main_menu_clicked()
     mode.setModal(true);
     mode.exec();
 }
-
-/* Slot that opens the desired window
-void history::openWindow() {
-    hide();
-    display_ = new display();
-    display_->show();
-}
-*/
 
 void history::openWindow(int gameId) {
     hide();

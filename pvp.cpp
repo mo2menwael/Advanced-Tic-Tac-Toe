@@ -6,6 +6,8 @@
 #include <QtWidgets>
 #include "mode_selector.h"
 #include <Qmessagebox>
+#include <QFontDatabase>
+#include <QString>
 #include <QDate>
 
 using namespace std;
@@ -15,7 +17,16 @@ extern  QString othertUsername;
 QString playerLevel="local";
 QString result_1;
 QString result_2;
-
+QString I00;
+QString I01;
+QString I02;
+QString I10;
+QString I11;
+QString I12;
+QString I20;
+QString I21;
+QString I22;
+int counter=0;
 
 QString movesArray[9]; // Array to hold up to 9 moves
 int moveCount = 0; // Counter to keep track of the number of moves made
@@ -112,6 +123,16 @@ void pvp::init() {
     ui->four->setText("    ");          ui->five->setText("     ");          ui->six->setText("      ");
     ui->seven->setText("       ");      ui->eight->setText("        ");      ui->nine->setText("         ");
     i = 1;
+    I00='0';
+    I01='0';
+    I02='0';
+    I10='0';
+    I11='0';
+    I12='0';
+    I20='0';
+    I21='0';
+    I22='0';
+    counter=0;
     // Reset the 3x3 array
     for (int row = 0; row < 3; ++row) {
         for (int col = 0; col < 3; ++col) {
@@ -153,32 +174,51 @@ bool pvp::isdraw()
 
 void pvp::handleButtonClick(QPushButton* button) {
     if(iswon() || isdraw())
-        QMessageBox::warning(this," ","Game finished.");
+    {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Invalid Move");
+        msgBox.setText(QString("Game is already finished."));
+        msgBox.setIcon(QMessageBox::Warning);
+        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                             "QLabel { color: #61B8D3; font-weight: bold; } "
+                             "QPushButton { background-color: #003E54; color: white; } "
+                             "QPushButton:hover { background-color: #004F6A; }");
+        msgBox.exec();
+    }
     else if (button->text() == "X" || button->text() == "O")
         QMessageBox::warning(this, " ", "Already occupied. Please choose another box.");
     else
     {
         QString currentPlayer = (i % 2 != 0) ? p1_turn : p2_turn;
         button->setText(currentPlayer);
+        button->setStyleSheet("color: #FF4350"); // Set the text color
         ui->turntext->setText((i % 2 != 0) ? othertUsername + "'s turn" : currentUsername + "'s turn");
 
         // Determine the row and column of the clicked button and update the board state
-        if (button == ui->one) { board[0][0] = currentPlayer; }
-        else if (button == ui->two) { board[0][1] = currentPlayer; }
-        else if (button == ui->three) { board[0][2] = currentPlayer; }
-        else if (button == ui->four) { board[1][0] = currentPlayer; }
-        else if (button == ui->five) { board[1][1] = currentPlayer; }
-        else if (button == ui->six) { board[1][2] = currentPlayer; }
-        else if (button == ui->seven) { board[2][0] = currentPlayer; }
-        else if (button == ui->eight) { board[2][1] = currentPlayer; }
-        else if (button == ui->nine) { board[2][2] = currentPlayer; }
+        if (button == ui->one) { board[0][0] = currentPlayer; I00=QString::number(++counter);}
+        else if (button == ui->two) { board[0][1] = currentPlayer; I01=QString::number(++counter);}
+        else if (button == ui->three) { board[0][2] = currentPlayer; I02=QString::number(++counter); }
+        else if (button == ui->four) { board[1][0] = currentPlayer; I10=QString::number(++counter); }
+        else if (button == ui->five) { board[1][1] = currentPlayer; I11=QString::number(++counter);}
+        else if (button == ui->six) { board[1][2] = currentPlayer; I12=QString::number(++counter);}
+        else if (button == ui->seven) { board[2][0] = currentPlayer;I20=QString::number(++counter); }
+        else if (button == ui->eight) { board[2][1] = currentPlayer; I21=QString::number(++counter);}
+        else if (button == ui->nine) { board[2][2] = currentPlayer; I22=QString::number(++counter);}
 
         i++;
         k = i - 1;
         update();
         if (iswon() && (k % 2 != 0)) {
             ui->turntext->hide();
-            QMessageBox::about(this, " ", currentUsername + " Won");
+            QMessageBox msgBox;
+            msgBox.setWindowTitle("Game Over");
+            msgBox.setText(QString("%1 Won").arg(currentUsername));
+            msgBox.setIcon(QMessageBox::Information);
+            msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                                 "QLabel { color: #61B8D3; font-weight: bold; } "
+                                 "QPushButton { background-color: #003E54; color: white; } "
+                                 "QPushButton:hover { background-color: #004F6A; }");
+            msgBox.exec();
             winCount_1 = 1;loseCount_1 = 0;drawCount_1 = 0;
             loseCount_2 = 1; winCount_2 = 0; drawCount_2 = 0;
             result_1="win";
@@ -187,7 +227,15 @@ void pvp::handleButtonClick(QPushButton* button) {
             saveIntoMemory();
         } else if (iswon() && (k % 2 == 0)) {
             ui->turntext->hide();
-            QMessageBox::about(this, " ", othertUsername + " Won");
+            QMessageBox msgBox;
+            msgBox.setWindowTitle("Game Over");
+            msgBox.setText(QString("%1 Won").arg(othertUsername));
+            msgBox.setIcon(QMessageBox::Information);
+            msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                                 "QLabel { color: #61B8D3; font-weight: bold; } "
+                                 "QPushButton { background-color: #003E54; color: white; } "
+                                 "QPushButton:hover { background-color: #004F6A; }");
+            msgBox.exec();
             winCount_1 = 0; loseCount_1 = 1;drawCount_1 = 0;
             loseCount_2 = 0; winCount_2 = 1; drawCount_2 = 0;
             result_1="lose";
@@ -196,7 +244,15 @@ void pvp::handleButtonClick(QPushButton* button) {
             saveIntoMemory();
         } else if (isdraw()) {
             ui->turntext->hide();
-            QMessageBox::about(this, " ", "Draw");
+            QMessageBox msgBox;
+            msgBox.setWindowTitle("Game Over");
+            msgBox.setText(QString("Draw"));
+            msgBox.setIcon(QMessageBox::Information);
+            msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                                 "QLabel { color: #61B8D3; font-weight: bold; } "
+                                 "QPushButton { background-color: #003E54; color: white; } "
+                                 "QPushButton:hover { background-color: #004F6A; }");
+            msgBox.exec();
             winCount_1 = 0;loseCount_1 = 0; drawCount_1 = 1;
             loseCount_2 = 0; winCount_2 = 0;drawCount_2 = 1;
             result_1="draw";
@@ -239,10 +295,9 @@ void pvp::saveIntoMemory()
     }
 
     QSqlQuery qry_1;
-    QDate gamePlayedDate = QDate::currentDate();
-    QString Current_date = gamePlayedDate.toString("dd-MM-yyyy");
-    qry_1.prepare("insert into player_" + currentUsername + " (game_level,result,game_played_date,move00,move01,move02,move10,move11,move12,move20,move21,move22) values ('"+playerLevel+"','"+result_1+"','"+Current_date+"','"+board[0][0]+"','"+board[0][1]+"','"+board[0][2]+"','"+board[1][0]+"','"+board[1][1]+"','"+board[1][2]+"','"+board[2][0]+"','"+board[2][1]+"','"+board[2][2]+"')");
-
+    QDateTime gamePlayedDateTime = QDateTime::currentDateTime();
+    QString currentDateTime = gamePlayedDateTime.toString("dd-MM-yyyy HH:mm:ss");
+    qry_1.prepare("insert into player_" + currentUsername + " (game_level,result,game_played_date,ip00,move00,ip01,move01,ip02,move02,ip10,move10,ip11,move11,ip12,move12,ip20,move20,ip21,move21,ip22,move22) values ('"+playerLevel+"','"+result_1+"','"+currentDateTime+"',"+I00+",'"+board[0][0]+"',"+I01+",'"+board[0][1]+"',"+I02+",'"+board[0][2]+"',"+I10+",'"+board[1][0]+"',"+I11+",'"+board[1][1]+"',"+I12+",'"+board[1][2]+"',"+I20+",'"+board[2][0]+"',"+I21+",'"+board[2][1]+"',"+I22+",'"+board[2][2]+"')");
     if(qry_1.exec()){
         qDebug() << "Data updated successfully for username:" << currentUsername;
     } else {
@@ -250,14 +305,14 @@ void pvp::saveIntoMemory()
     }
 
     QSqlQuery qry_2;
-    qry_2.prepare("insert into player_" + othertUsername + " (game_level,result,move00,move01,move02,move10,move11,move12,move20,move21,move22) values ('"+playerLevel+"','"+result_2+"','"+board[0][0]+"','"+board[0][1]+"','"+board[0][2]+"','"+board[1][0]+"','"+board[1][1]+"','"+board[1][2]+"','"+board[2][0]+"','"+board[2][1]+"','"+board[2][2]+"')");
+    qry_2.prepare("insert into player_" + othertUsername + " (game_level,result,ip00,move00,ip01,move01,ip02,move02,ip10,move10,ip11,move11,ip12,move12,ip20,move20,ip21,move21,ip22,move22) values ('"+playerLevel+"','"+result_1+"',"+I00+",'"+board[0][0]+"',"+I01+",'"+board[0][1]+"',"+I02+",'"+board[0][2]+"',"+I10+",'"+board[1][0]+"',"+I11+",'"+board[1][1]+"',"+I12+",'"+board[1][2]+"',"+I20+",'"+board[2][0]+"',"+I21+",'"+board[2][1]+"',"+I22+",'"+board[2][2]+"')");
+
 
     if(qry_2.exec()){
         qDebug() << "Data updated successfully for username:" << currentUsername;
     } else {
         qDebug() << "Error updating data:" << qry_2.lastError().text();
     }
-
     connClose(); // Close the database connection when done
 }
 

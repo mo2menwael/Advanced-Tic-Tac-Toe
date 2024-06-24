@@ -16,17 +16,31 @@
   <property name="layoutDirection">
    <enum>Qt::RightToLeft</enum>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(0, 47, 65);
+color: rgb(97, 184, 211);</string>
+  </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>20</y>
-     <width>131</width>
+     <x>40</x>
+     <y>30</y>
+     <width>241</width>
      <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <bold>true</bold>
+     <kerning>true</kerning>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(97, 184, 211);</string>
+   </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::NoFrame</enum>
    </property>
    <property name="frameShadow">
     <enum>QFrame::Plain</enum>
@@ -34,11 +48,20 @@
    <widget class="QLabel" name="profile">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>10</y>
-      <width>81</width>
-      <height>20</height>
+      <x>20</x>
+      <y>0</y>
+      <width>221</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(253, 66, 83);</string>
     </property>
     <property name="text">
      <string>TextLabel</string>
@@ -54,11 +77,21 @@
      <height>111</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 2px solid rgb(93, 184, 211);
+border-radius: 5px;
+</string>
+   </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::WinPanel</enum>
    </property>
    <property name="frameShadow">
-    <enum>QFrame::Sunken</enum>
+    <enum>QFrame::Plain</enum>
    </property>
    <widget class="QFrame" name="win">
     <property name="geometry">
@@ -70,22 +103,31 @@
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::WinPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
+     <enum>QFrame::Plain</enum>
     </property>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>0</y>
+       <x>13</x>
+       <y>5</y>
        <width>63</width>
        <height>20</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(253, 66, 83);
+border:0;</string>
+     </property>
      <property name="text">
-      <string>Win</string>
+      <string>Wins</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -95,29 +137,41 @@
    <widget class="QFrame" name="frame_8">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>50</x>
       <y>60</y>
-      <width>101</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::WinPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
+     <enum>QFrame::Plain</enum>
     </property>
     <widget class="QLabel" name="win_count">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>0</y>
-       <width>71</width>
-       <height>21</height>
+       <x>10</x>
+       <y>5</y>
+       <width>63</width>
+       <height>20</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(253, 66, 83);
+border:0;</string>
      </property>
      <property name="text">
       <string>TextLabel</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
@@ -131,11 +185,21 @@
      <height>111</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 2px solid rgb(93, 184, 211);
+border-radius: 5px;
+</string>
+   </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::WinPanel</enum>
    </property>
    <property name="frameShadow">
-    <enum>QFrame::Sunken</enum>
+    <enum>QFrame::Plain</enum>
    </property>
    <widget class="QFrame" name="frame_6">
     <property name="geometry">
@@ -147,22 +211,31 @@
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::WinPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
+     <enum>QFrame::Plain</enum>
     </property>
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>0</y>
+       <x>13</x>
+       <y>5</y>
        <width>63</width>
        <height>20</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(253, 66, 83);
+border:0;</string>
+     </property>
      <property name="text">
-      <string>Draw</string>
+      <string>Draws</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -172,29 +245,41 @@
    <widget class="QFrame" name="frame_9">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>50</x>
       <y>60</y>
-      <width>101</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::WinPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
+     <enum>QFrame::Plain</enum>
     </property>
     <widget class="QLabel" name="draw_count">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>0</y>
+       <x>10</x>
+       <y>5</y>
        <width>63</width>
        <height>20</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(253, 66, 83);
+border:0;</string>
+     </property>
      <property name="text">
       <string>TextLabel</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
@@ -208,11 +293,16 @@
      <height>111</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border: 2px solid rgb(93, 184, 211);
+border-radius: 5px;
+</string>
+   </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::WinPanel</enum>
    </property>
    <property name="frameShadow">
-    <enum>QFrame::Sunken</enum>
+    <enum>QFrame::Plain</enum>
    </property>
    <widget class="QFrame" name="frame_7">
     <property name="geometry">
@@ -224,22 +314,31 @@
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::WinPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
+     <enum>QFrame::Plain</enum>
     </property>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>0</y>
+       <x>13</x>
+       <y>5</y>
        <width>63</width>
        <height>20</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(253, 66, 83);
+border:0;</string>
+     </property>
      <property name="text">
-      <string>Lose</string>
+      <string>Losses</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -249,29 +348,41 @@
    <widget class="QFrame" name="frame_10">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>60</x>
       <y>60</y>
-      <width>101</width>
+      <width>81</width>
       <height>31</height>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::WinPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
+     <enum>QFrame::Plain</enum>
     </property>
     <widget class="QLabel" name="lose_count">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>10</y>
+       <x>10</x>
+       <y>5</y>
        <width>63</width>
        <height>20</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(253, 66, 83);
+border:0;</string>
+     </property>
      <property name="text">
       <string>TextLabel</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
@@ -282,11 +393,20 @@
      <x>60</x>
      <y>330</y>
      <width>711</width>
-     <height>151</height>
+     <height>171</height>
     </rect>
    </property>
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::WinPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
    </property>
    <property name="widgetResizable">
     <bool>true</bool>
@@ -296,8 +416,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>709</width>
-      <height>149</height>
+      <width>707</width>
+      <height>167</height>
      </rect>
     </property>
     <widget class="QScrollBar" name="verticalScrollBar">
@@ -306,7 +426,7 @@
        <x>0</x>
        <y>0</y>
        <width>20</width>
-       <height>151</height>
+       <height>171</height>
       </rect>
      </property>
      <property name="orientation">
@@ -324,38 +444,52 @@
      <height>51</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border: 2px solid rgb(93, 184, 211);
+border-radius: 5px;
+</string>
+   </property>
    <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
+    <enum>QFrame::WinPanel</enum>
    </property>
    <property name="frameShadow">
-    <enum>QFrame::Sunken</enum>
+    <enum>QFrame::Plain</enum>
    </property>
    <widget class="QFrame" name="frame_11">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>10</x>
       <y>10</y>
       <width>81</width>
       <height>31</height>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::WinPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
+     <enum>QFrame::Plain</enum>
     </property>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>10</y>
+       <y>5</y>
        <width>63</width>
        <height>20</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(253, 66, 83);
+border:0;</string>
+     </property>
      <property name="text">
-      <string>ID</string>
+      <string>Game ID</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -365,29 +499,38 @@
    <widget class="QFrame" name="frame_12">
     <property name="geometry">
      <rect>
-      <x>140</x>
+      <x>135</x>
       <y>10</y>
-      <width>81</width>
+      <width>91</width>
       <height>31</height>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::WinPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
+     <enum>QFrame::Plain</enum>
     </property>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>63</width>
+       <x>5</x>
+       <y>5</y>
+       <width>81</width>
        <height>20</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(253, 66, 83);
+border:0;</string>
+     </property>
      <property name="text">
-      <string>Result</string>
+      <string>Game Level</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -397,29 +540,38 @@
    <widget class="QFrame" name="frame_13">
     <property name="geometry">
      <rect>
-      <x>250</x>
+      <x>257</x>
       <y>10</y>
       <width>91</width>
       <height>31</height>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::WinPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
+     <enum>QFrame::Plain</enum>
     </property>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>10</y>
+       <x>5</x>
+       <y>5</y>
        <width>81</width>
        <height>20</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(253, 66, 83);
+border:0;</string>
+     </property>
      <property name="text">
-      <string>game_level</string>
+      <string>Result</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -429,26 +581,35 @@
    <widget class="QFrame" name="frame_14">
     <property name="geometry">
      <rect>
-      <x>440</x>
+      <x>430</x>
       <y>10</y>
       <width>91</width>
       <height>31</height>
      </rect>
     </property>
     <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
+     <enum>QFrame::WinPanel</enum>
     </property>
     <property name="frameShadow">
-     <enum>QFrame::Sunken</enum>
+     <enum>QFrame::Plain</enum>
     </property>
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>10</y>
+       <x>5</x>
+       <y>5</y>
        <width>81</width>
        <height>20</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(253, 66, 83);
+border:0;</string>
      </property>
      <property name="text">
       <string>Time</string>
@@ -462,15 +623,86 @@
   <widget class="QPushButton" name="main_menu">
    <property name="geometry">
     <rect>
-     <x>652</x>
-     <y>30</y>
-     <width>151</width>
-     <height>29</height>
+     <x>350</x>
+     <y>535</y>
+     <width>141</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+color: rgb(93, 184, 211);
+background-color: rgb(0, 33, 45);
+border: 3px solid;
+border-radius: 5px;
+border-color: rgb(0, 33, 45);
+}
+QPushButton:Hover{
+border-color: rgb(0, 35, 48);
+background-color: rgb(0, 35, 48);
+}
+QPushButton:Pressed{
+background-color: rgb(93, 184, 211);
+color:rgb(0, 33, 45);
+border-color: rgb(93, 184, 211);
+}</string>
    </property>
    <property name="text">
     <string> Main Menu</string>
    </property>
+  </widget>
+  <widget class="QFrame" name="frame_15">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>30</y>
+     <width>291</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>13</pointsize>
+     <bold>true</bold>
+     <kerning>true</kerning>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: rgb(97, 184, 211);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Plain</enum>
+   </property>
+   <widget class="QLabel" name="TotalGames">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>281</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(253, 66, 83);</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>

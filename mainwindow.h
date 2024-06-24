@@ -60,6 +60,8 @@ private slots:
 
     void on_SignUp_Button_clicked();
 
+    void on_exit_clicked();
+
 private:
     Ui::MainWindow *ui;
     mode_selector *modeselector;

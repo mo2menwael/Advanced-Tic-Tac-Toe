@@ -1,8 +1,6 @@
 #include "signup.h"
 #include "ui_signup.h"
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
-#include "mode_selector.h"
 #include <QCryptographicHash>
 
 
@@ -13,7 +11,6 @@ SignUp::SignUp(QWidget *parent)
     , ui(new Ui::SignUp)
 {
     ui->setupUi(this);
-
 }
 
 SignUp::~SignUp()
@@ -50,12 +47,16 @@ void SignUp::on_Register_clicked()
         }
 
         if(count==1){
-            ui->label->setText("user is already exist ");
+            ui->label->show();
+            ui->label->setText("User already exists");
+            ui->match->hide();
             return;}
     }
 
     if(password != confirm){
+        ui->match->show();
         ui->match->setText("Passwords do not match");
+        ui->label->hide();
         return;
     }
 

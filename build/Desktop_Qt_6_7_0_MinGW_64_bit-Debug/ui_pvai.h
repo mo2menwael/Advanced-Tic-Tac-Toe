@@ -64,42 +64,130 @@ public:
         if (pvai->objectName().isEmpty())
             pvai->setObjectName("pvai");
         pvai->resize(789, 600);
+        pvai->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 47, 65);"));
         difficulty = new QLabel(pvai);
         difficulty->setObjectName("difficulty");
-        difficulty->setGeometry(QRect(40, 200, 121, 20));
+        difficulty->setGeometry(QRect(20, 200, 141, 20));
+        QFont font;
+        font.setPointSize(10);
+        font.setBold(true);
+        difficulty->setFont(font);
+        difficulty->setStyleSheet(QString::fromUtf8("color: rgb(91, 189, 206);"));
         difficulty->setAlignment(Qt::AlignCenter);
         easy = new QPushButton(pvai);
         easy->setObjectName("easy");
-        easy->setGeometry(QRect(60, 250, 81, 29));
+        easy->setGeometry(QRect(50, 250, 81, 29));
+        QFont font1;
+        font1.setBold(true);
+        easy->setFont(font1);
+        easy->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"color: rgb(0, 255, 0);\n"
+"background-color: rgb(0, 33, 45);\n"
+"border: 3px solid;\n"
+"border-radius: 5px;\n"
+"border-color: rgb(0, 33, 45);\n"
+"}\n"
+"QPushButton:Hover{\n"
+"border-color: rgb(0, 35, 48);\n"
+"background-color: rgb(0, 35, 48);\n"
+"}\n"
+"QPushButton:Pressed{\n"
+"background-color: rgb(0, 255, 0);\n"
+"color:rgb(0, 33, 45);\n"
+"border-color: rgb(0, 255, 0);\n"
+"}"));
         medium = new QPushButton(pvai);
         medium->setObjectName("medium");
-        medium->setGeometry(QRect(60, 310, 81, 29));
+        medium->setGeometry(QRect(50, 310, 81, 29));
+        medium->setFont(font1);
+        medium->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"color: rgb(255, 170, 0);\n"
+"background-color: rgb(0, 33, 45);\n"
+"border: 3px solid;\n"
+"border-radius: 5px;\n"
+"border-color: rgb(0, 33, 45);\n"
+"}\n"
+"QPushButton:Hover{\n"
+"border-color: rgb(0, 35, 48);\n"
+"background-color: rgb(0, 35, 48);\n"
+"}\n"
+"QPushButton:Pressed{\n"
+"background-color: rgb(255, 170, 0);\n"
+"color:rgb(0, 33, 45);\n"
+"border-color: rgb(255, 170, 0);\n"
+"}"));
         hard = new QPushButton(pvai);
         hard->setObjectName("hard");
-        hard->setGeometry(QRect(60, 370, 81, 29));
+        hard->setGeometry(QRect(50, 370, 81, 29));
+        hard->setFont(font1);
+        hard->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"color: rgb(225, 0, 0);\n"
+"background-color: rgb(0, 33, 45);\n"
+"border: 3px solid;\n"
+"border-radius: 5px;\n"
+"border-color: rgb(0, 33, 45);\n"
+"}\n"
+"QPushButton:Hover{\n"
+"border-color: rgb(0, 35, 48);\n"
+"background-color: rgb(0, 35, 48);\n"
+"}\n"
+"QPushButton:Pressed{\n"
+"background-color: rgb(225, 0, 0);\n"
+"color:rgb(0, 33, 45);\n"
+"border-color: rgb(225, 0, 0);\n"
+"}"));
         main_menu = new QPushButton(pvai);
         main_menu->setObjectName("main_menu");
-        main_menu->setGeometry(QRect(30, 490, 151, 29));
+        main_menu->setGeometry(QRect(20, 490, 151, 29));
+        main_menu->setFont(font1);
+        main_menu->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"color: rgb(93, 184, 211);\n"
+"background-color: rgb(0, 33, 45);\n"
+"border: 3px solid;\n"
+"border-radius: 5px;\n"
+"border-color: rgb(0, 33, 45);\n"
+"}\n"
+"QPushButton:Hover{\n"
+"border-color: rgb(0, 35, 48);\n"
+"background-color: rgb(0, 35, 48);\n"
+"}\n"
+"QPushButton:Pressed{\n"
+"background-color: rgb(93, 184, 211);\n"
+"color:rgb(0, 33, 45);\n"
+"border-color: rgb(93, 184, 211);\n"
+"}"));
         layoutWidget_2 = new QWidget(pvai);
         layoutWidget_2->setObjectName("layoutWidget_2");
-        layoutWidget_2->setGeometry(QRect(40, 70, 131, 76));
+        layoutWidget_2->setGeometry(QRect(30, 70, 131, 94));
         verticalLayout = new QVBoxLayout(layoutWidget_2);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         username = new QLabel(layoutWidget_2);
         username->setObjectName("username");
+        QFont font2;
+        font2.setPointSize(12);
+        font2.setBold(true);
+        username->setFont(font2);
+        username->setStyleSheet(QString::fromUtf8("color: rgb(253, 66, 83);"));
         username->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(username);
 
         VS = new QLabel(layoutWidget_2);
         VS->setObjectName("VS");
+        QFont font3;
+        font3.setPointSize(11);
+        font3.setBold(true);
+        VS->setFont(font3);
+        VS->setStyleSheet(QString::fromUtf8("color: rgb(253, 66, 83);"));
         VS->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(VS);
 
         diff = new QLabel(layoutWidget_2);
         diff->setObjectName("diff");
+        diff->setFont(font2);
+        diff->setStyleSheet(QString::fromUtf8("color: rgb(253, 66, 83);"));
         diff->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(diff);
@@ -117,9 +205,8 @@ public:
         gridLayout->setContentsMargins(0, 0, 0, 0);
         line_9 = new QFrame(layoutWidget);
         line_9->setObjectName("line_9");
-        QFont font;
-        font.setBold(true);
-        line_9->setFont(font);
+        line_9->setFont(font1);
+        line_9->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 67, 80);"));
         line_9->setFrameShape(QFrame::Shape::HLine);
         line_9->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -132,14 +219,17 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(eight->sizePolicy().hasHeightForWidth());
         eight->setSizePolicy(sizePolicy);
-        QFont font1;
-        font1.setPointSize(30);
-        eight->setFont(font1);
+        QFont font4;
+        font4.setPointSize(30);
+        font4.setBold(true);
+        eight->setFont(font4);
+        eight->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(eight, 4, 2, 1, 1);
 
         line_3 = new QFrame(layoutWidget);
         line_3->setObjectName("line_3");
+        line_3->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 67, 80);"));
         line_3->setFrameShape(QFrame::Shape::VLine);
         line_3->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -149,7 +239,8 @@ public:
         six->setObjectName("six");
         sizePolicy.setHeightForWidth(six->sizePolicy().hasHeightForWidth());
         six->setSizePolicy(sizePolicy);
-        six->setFont(font1);
+        six->setFont(font4);
+        six->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(six, 2, 4, 1, 1);
 
@@ -157,7 +248,8 @@ public:
         nine->setObjectName("nine");
         sizePolicy.setHeightForWidth(nine->sizePolicy().hasHeightForWidth());
         nine->setSizePolicy(sizePolicy);
-        nine->setFont(font1);
+        nine->setFont(font4);
+        nine->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(nine, 4, 4, 1, 1);
 
@@ -165,7 +257,8 @@ public:
         three->setObjectName("three");
         sizePolicy.setHeightForWidth(three->sizePolicy().hasHeightForWidth());
         three->setSizePolicy(sizePolicy);
-        three->setFont(font1);
+        three->setFont(font4);
+        three->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(three, 0, 4, 1, 1);
 
@@ -173,12 +266,14 @@ public:
         one->setObjectName("one");
         sizePolicy.setHeightForWidth(one->sizePolicy().hasHeightForWidth());
         one->setSizePolicy(sizePolicy);
-        one->setFont(font1);
+        one->setFont(font4);
+        one->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 47, 65);"));
 
         gridLayout->addWidget(one, 0, 0, 1, 1);
 
         line_5 = new QFrame(layoutWidget);
         line_5->setObjectName("line_5");
+        line_5->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 67, 80);"));
         line_5->setFrameShape(QFrame::Shape::VLine);
         line_5->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -188,12 +283,14 @@ public:
         two->setObjectName("two");
         sizePolicy.setHeightForWidth(two->sizePolicy().hasHeightForWidth());
         two->setSizePolicy(sizePolicy);
-        two->setFont(font1);
+        two->setFont(font4);
+        two->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(two, 0, 2, 1, 1);
 
         line_4 = new QFrame(layoutWidget);
         line_4->setObjectName("line_4");
+        line_4->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 67, 80);"));
         line_4->setFrameShape(QFrame::Shape::VLine);
         line_4->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -201,6 +298,7 @@ public:
 
         line_8 = new QFrame(layoutWidget);
         line_8->setObjectName("line_8");
+        line_8->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 67, 80);"));
         line_8->setFrameShape(QFrame::Shape::VLine);
         line_8->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -208,6 +306,7 @@ public:
 
         line_6 = new QFrame(layoutWidget);
         line_6->setObjectName("line_6");
+        line_6->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 67, 80);"));
         line_6->setFrameShape(QFrame::Shape::VLine);
         line_6->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -217,7 +316,8 @@ public:
         seven->setObjectName("seven");
         sizePolicy.setHeightForWidth(seven->sizePolicy().hasHeightForWidth());
         seven->setSizePolicy(sizePolicy);
-        seven->setFont(font1);
+        seven->setFont(font4);
+        seven->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(seven, 4, 0, 1, 1);
 
@@ -225,7 +325,8 @@ public:
         four->setObjectName("four");
         sizePolicy.setHeightForWidth(four->sizePolicy().hasHeightForWidth());
         four->setSizePolicy(sizePolicy);
-        four->setFont(font1);
+        four->setFont(font4);
+        four->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(four, 2, 0, 1, 1);
 
@@ -233,12 +334,14 @@ public:
         five->setObjectName("five");
         sizePolicy.setHeightForWidth(five->sizePolicy().hasHeightForWidth());
         five->setSizePolicy(sizePolicy);
-        five->setFont(font1);
+        five->setFont(font4);
+        five->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(five, 2, 2, 1, 1);
 
         line_7 = new QFrame(layoutWidget);
         line_7->setObjectName("line_7");
+        line_7->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 67, 80);"));
         line_7->setFrameShape(QFrame::Shape::VLine);
         line_7->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -246,14 +349,16 @@ public:
 
         line_10 = new QFrame(layoutWidget);
         line_10->setObjectName("line_10");
-        line_10->setFont(font);
+        line_10->setFont(font1);
+        line_10->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 67, 80);"));
+        line_10->setFrameShadow(QFrame::Sunken);
         line_10->setFrameShape(QFrame::Shape::HLine);
-        line_10->setFrameShadow(QFrame::Shadow::Sunken);
 
         gridLayout->addWidget(line_10, 1, 4, 1, 1);
 
         line_2 = new QFrame(layoutWidget);
         line_2->setObjectName("line_2");
+        line_2->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 67, 80);"));
         line_2->setFrameShape(QFrame::Shape::HLine);
         line_2->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -261,6 +366,7 @@ public:
 
         line_11 = new QFrame(layoutWidget);
         line_11->setObjectName("line_11");
+        line_11->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 67, 80);"));
         line_11->setFrameShape(QFrame::Shape::HLine);
         line_11->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -268,6 +374,7 @@ public:
 
         line_12 = new QFrame(layoutWidget);
         line_12->setObjectName("line_12");
+        line_12->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 67, 80);"));
         line_12->setFrameShape(QFrame::Shape::HLine);
         line_12->setFrameShadow(QFrame::Shadow::Sunken);
 
@@ -275,6 +382,7 @@ public:
 
         line = new QFrame(layoutWidget);
         line->setObjectName("line");
+        line->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 67, 80);"));
         line->setFrameShape(QFrame::Shape::HLine);
         line->setFrameShadow(QFrame::Shadow::Sunken);
 

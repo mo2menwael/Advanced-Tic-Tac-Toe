@@ -9,18 +9,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>879</width>
-    <height>682</height>
+    <width>789</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(0, 47, 65);</string>
+  </property>
   <widget class="QFrame" name="frame1">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>50</y>
+     <x>190</x>
+     <y>30</y>
      <width>571</width>
      <height>541</height>
     </rect>
@@ -43,6 +46,12 @@
     <layout class="QGridLayout" name="gridLayout_4">
      <item row="4" column="0">
       <widget class="QLabel" name="seven_3">
+       <property name="font">
+        <font>
+         <pointsize>30</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -53,6 +62,9 @@
      </item>
      <item row="4" column="3">
       <widget class="Line" name="line_40">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(253, 66, 83);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -60,6 +72,9 @@
      </item>
      <item row="1" column="0">
       <widget class="Line" name="line_48">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(253, 66, 83);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -67,6 +82,12 @@
      </item>
      <item row="0" column="4">
       <widget class="QLabel" name="three_3">
+       <property name="font">
+        <font>
+         <pointsize>30</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -77,6 +98,9 @@
      </item>
      <item row="2" column="3">
       <widget class="Line" name="line_38">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(253, 66, 83);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -84,6 +108,9 @@
      </item>
      <item row="0" column="1">
       <widget class="Line" name="line_41">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(253, 66, 83);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -96,6 +123,9 @@
          <bold>true</bold>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(253, 66, 83);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -103,6 +133,9 @@
      </item>
      <item row="4" column="1">
       <widget class="Line" name="line_42">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(253, 66, 83);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -110,6 +143,9 @@
      </item>
      <item row="0" column="3">
       <widget class="Line" name="line_39">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(253, 66, 83);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -117,6 +153,9 @@
      </item>
      <item row="3" column="4">
       <widget class="Line" name="line_47">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(253, 66, 83);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -124,6 +163,12 @@
      </item>
      <item row="2" column="0">
       <widget class="QLabel" name="four_3">
+       <property name="font">
+        <font>
+         <pointsize>30</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -134,6 +179,9 @@
      </item>
      <item row="3" column="2">
       <widget class="Line" name="line_46">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(253, 66, 83);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -146,6 +194,9 @@
          <bold>true</bold>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(253, 66, 83);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -153,6 +204,9 @@
      </item>
      <item row="3" column="0">
       <widget class="Line" name="line_45">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(253, 66, 83);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -160,6 +214,12 @@
      </item>
      <item row="2" column="2">
       <widget class="QLabel" name="five_3">
+       <property name="font">
+        <font>
+         <pointsize>30</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -170,6 +230,12 @@
      </item>
      <item row="4" column="4">
       <widget class="QLabel" name="nine_3">
+       <property name="font">
+        <font>
+         <pointsize>30</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -180,6 +246,9 @@
      </item>
      <item row="2" column="1">
       <widget class="Line" name="line_43">
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(253, 66, 83);</string>
+       </property>
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
@@ -187,6 +256,12 @@
      </item>
      <item row="0" column="2">
       <widget class="QLabel" name="two_3">
+       <property name="font">
+        <font>
+         <pointsize>30</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -197,6 +272,12 @@
      </item>
      <item row="4" column="2">
       <widget class="QLabel" name="eight_3">
+       <property name="font">
+        <font>
+         <pointsize>30</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -207,6 +288,12 @@
      </item>
      <item row="2" column="4">
       <widget class="QLabel" name="six_3">
+       <property name="font">
+        <font>
+         <pointsize>30</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -217,6 +304,12 @@
      </item>
      <item row="0" column="0">
       <widget class="QLabel" name="one_3">
+       <property name="font">
+        <font>
+         <pointsize>30</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>
@@ -237,11 +330,35 @@
   <widget class="QPushButton" name="main_menu">
    <property name="geometry">
     <rect>
-     <x>670</x>
-     <y>100</y>
-     <width>131</width>
-     <height>29</height>
+     <x>25</x>
+     <y>450</y>
+     <width>141</width>
+     <height>41</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+color: rgb(93, 184, 211);
+background-color: rgb(0, 33, 45);
+border: 3px solid;
+border-radius: 5px;
+border-color: rgb(0, 33, 45);
+}
+QPushButton:Hover{
+border-color: rgb(0, 35, 48);
+background-color: rgb(0, 35, 48);
+}
+QPushButton:Pressed{
+background-color: rgb(93, 184, 211);
+color:rgb(0, 33, 45);
+border-color: rgb(93, 184, 211);
+}</string>
    </property>
    <property name="text">
     <string> Main Menu</string>
@@ -250,40 +367,112 @@
   <widget class="QPushButton" name="back_to_history">
    <property name="geometry">
     <rect>
-     <x>670</x>
-     <y>150</y>
-     <width>131</width>
-     <height>29</height>
+     <x>25</x>
+     <y>370</y>
+     <width>141</width>
+     <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+color: rgb(93, 184, 211);
+background-color: rgb(0, 33, 45);
+border: 3px solid;
+border-radius: 5px;
+border-color: rgb(0, 33, 45);
+}
+QPushButton:Hover{
+border-color: rgb(0, 35, 48);
+background-color: rgb(0, 35, 48);
+}
+QPushButton:Pressed{
+background-color: rgb(93, 184, 211);
+color:rgb(0, 33, 45);
+border-color: rgb(93, 184, 211);
+}</string>
+   </property>
    <property name="text">
-    <string>Back </string>
+    <string>Return to History</string>
    </property>
   </widget>
   <widget class="QPushButton" name="doButton">
    <property name="geometry">
     <rect>
-     <x>690</x>
-     <y>210</y>
-     <width>83</width>
-     <height>29</height>
+     <x>30</x>
+     <y>150</y>
+     <width>131</width>
+     <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+color: rgb(255, 85, 255);
+background-color: rgb(0, 33, 45);
+border: 3px solid;
+border-radius: 5px;
+border-color: rgb(0, 33, 45);
+}
+QPushButton:Hover{
+background-color: rgb(0, 35, 48);
+border-color: rgb(0, 35, 48);
+}
+QPushButton:Pressed{
+background-color: rgb(255, 85, 255);
+color:rgb(0, 33, 45);
+border-color: rgb(255, 85, 255);
+}</string>
+   </property>
    <property name="text">
-    <string>do</string>
+    <string>Next Move</string>
    </property>
   </widget>
   <widget class="QPushButton" name="undoButton">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>270</y>
-     <width>83</width>
-     <height>29</height>
+     <x>30</x>
+     <y>230</y>
+     <width>131</width>
+     <height>41</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>10</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+color: rgb(255, 170, 0);
+background-color: rgb(0, 33, 45);
+border: 3px solid;
+border-radius: 5px;
+border-color: rgb(0, 33, 45);
+}
+QPushButton:Hover{
+border-color: rgb(0, 35, 48);
+background-color: rgb(0, 35, 48);
+}
+QPushButton:Pressed{
+background-color: rgb(255, 170, 0);
+color:rgb(0, 33, 45);
+border-color: rgb(255, 170, 0);
+}</string>
+   </property>
    <property name="text">
-    <string>undo</string>
+    <string>Previous Move</string>
    </property>
   </widget>
  </widget>

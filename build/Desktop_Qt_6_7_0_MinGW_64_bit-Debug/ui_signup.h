@@ -46,78 +46,132 @@ public:
         font.setFamilies({QString::fromUtf8("Calibri")});
         font.setPointSize(10);
         SignUp->setFont(font);
+        SignUp->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 47, 65);"));
         lineEdit = new QLineEdit(SignUp);
         lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(360, 240, 191, 29));
+        lineEdit->setGeometry(QRect(360, 238, 191, 29));
         QFont font1;
         font1.setFamilies({QString::fromUtf8("Calibri")});
         font1.setPointSize(12);
         lineEdit->setFont(font1);
+        lineEdit->setStyleSheet(QString::fromUtf8("color: rgb(97, 184, 211);\n"
+"border: 2px solid rgb(225, 225, 225);\n"
+"border-radius: 5px;"));
         lineEdit_3 = new QLineEdit(SignUp);
         lineEdit_3->setObjectName("lineEdit_3");
-        lineEdit_3->setGeometry(QRect(360, 300, 191, 30));
+        lineEdit_3->setGeometry(QRect(360, 297, 191, 30));
         lineEdit_3->setFont(font1);
+        lineEdit_3->setStyleSheet(QString::fromUtf8("color: rgb(97, 184, 211);\n"
+"border: 2px solid rgb(225, 225, 225);\n"
+"border-radius: 5px;"));
         lineEdit_3->setEchoMode(QLineEdit::Password);
         Username = new QLabel(SignUp);
         Username->setObjectName("Username");
         Username->setEnabled(true);
-        Username->setGeometry(QRect(230, 240, 84, 22));
+        Username->setGeometry(QRect(220, 240, 101, 22));
         QSizePolicy sizePolicy(QSizePolicy::Policy::Preferred, QSizePolicy::Policy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(Username->sizePolicy().hasHeightForWidth());
         Username->setSizePolicy(sizePolicy);
         QFont font2;
-        font2.setFamilies({QString::fromUtf8("Calibri")});
+        font2.setFamilies({QString::fromUtf8("Segoe UI")});
         font2.setPointSize(11);
+        font2.setBold(true);
         Username->setFont(font2);
+        Username->setStyleSheet(QString::fromUtf8("color: rgb(97, 184, 211);"));
         Password = new QLabel(SignUp);
         Password->setObjectName("Password");
-        Password->setGeometry(QRect(230, 300, 79, 22));
+        Password->setGeometry(QRect(220, 300, 91, 22));
         Password->setFont(font2);
+        Password->setStyleSheet(QString::fromUtf8("color: rgb(97, 184, 211);"));
         lineEdit_4 = new QLineEdit(SignUp);
         lineEdit_4->setObjectName("lineEdit_4");
-        lineEdit_4->setGeometry(QRect(360, 350, 191, 30));
+        lineEdit_4->setGeometry(QRect(360, 357, 191, 30));
         lineEdit_4->setFont(font1);
+        lineEdit_4->setStyleSheet(QString::fromUtf8("color: rgb(97, 184, 211);\n"
+"border: 2px solid rgb(225, 225, 225);\n"
+"border-radius: 5px;"));
         lineEdit_4->setEchoMode(QLineEdit::Password);
         confirmpass = new QLabel(SignUp);
         confirmpass->setObjectName("confirmpass");
-        confirmpass->setGeometry(QRect(200, 351, 142, 22));
+        confirmpass->setGeometry(QRect(180, 360, 171, 22));
         confirmpass->setFont(font2);
+        confirmpass->setStyleSheet(QString::fromUtf8("color: rgb(97, 184, 211);"));
         Register = new QPushButton(SignUp);
         Register->setObjectName("Register");
-        Register->setGeometry(QRect(330, 500, 90, 29));
-        Register->setFont(font2);
+        Register->setGeometry(QRect(340, 480, 111, 41));
+        QFont font3;
+        font3.setFamilies({QString::fromUtf8("Segoe UI")});
+        font3.setPointSize(10);
+        font3.setBold(false);
+        Register->setFont(font3);
+        Register->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"color: rgb(93, 184, 211);\n"
+"background-color: rgb(0, 33, 45);\n"
+"border: 3px solid;\n"
+"border-radius: 5px;\n"
+"border-color: rgb(0, 33, 45);\n"
+"}\n"
+"QPushButton:Hover{\n"
+"border-color: rgb(0, 35, 48);\n"
+"background-color: rgb(0, 35, 48);\n"
+"}\n"
+"QPushButton:Pressed{\n"
+"background-color: rgb(93, 184, 211);\n"
+"color:rgb(0, 33, 45);\n"
+"border-color: rgb(93, 184, 211);\n"
+"}"));
         layoutWidget = new QWidget(SignUp);
         layoutWidget->setObjectName("layoutWidget");
-        layoutWidget->setGeometry(QRect(180, 80, 417, 86));
+        layoutWidget->setGeometry(QRect(160, 80, 481, 93));
         verticalLayout = new QVBoxLayout(layoutWidget);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         label_6 = new QLabel(layoutWidget);
         label_6->setObjectName("label_6");
-        QFont font3;
-        font3.setFamilies({QString::fromUtf8("Calibri")});
-        font3.setPointSize(26);
-        font3.setBold(true);
-        label_6->setFont(font3);
+        QFont font4;
+        font4.setFamilies({QString::fromUtf8("Segoe UI")});
+        font4.setPointSize(26);
+        font4.setBold(true);
+        font4.setKerning(false);
+        label_6->setFont(font4);
+        label_6->setStyleSheet(QString::fromUtf8("color: rgb(253, 66, 83);"));
+        label_6->setTextFormat(Qt::AutoText);
+        label_6->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(label_6);
 
         label_7 = new QLabel(layoutWidget);
         label_7->setObjectName("label_7");
-        label_7->setFont(font1);
+        QFont font5;
+        font5.setFamilies({QString::fromUtf8("Segoe UI")});
+        font5.setPointSize(12);
+        label_7->setFont(font5);
         label_7->setLayoutDirection(Qt::LeftToRight);
+        label_7->setStyleSheet(QString::fromUtf8("color: rgb(253, 66, 83);"));
         label_7->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(label_7);
 
         match = new QLabel(SignUp);
         match->setObjectName("match");
-        match->setGeometry(QRect(240, 410, 281, 20));
+        match->setGeometry(QRect(260, 410, 281, 20));
+        QFont font6;
+        font6.setFamilies({QString::fromUtf8("Segoe UI")});
+        font6.setPointSize(10);
+        font6.setBold(true);
+        match->setFont(font6);
+        match->setStyleSheet(QString::fromUtf8("color: rgb(97, 184, 211);"));
+        match->setAlignment(Qt::AlignCenter);
         label = new QLabel(SignUp);
         label->setObjectName("label");
-        label->setGeometry(QRect(240, 460, 281, 20));
+        label->setGeometry(QRect(250, 440, 291, 20));
+        QFont font7;
+        font7.setPointSize(10);
+        font7.setBold(true);
+        label->setFont(font7);
+        label->setStyleSheet(QString::fromUtf8("color: rgb(97, 184, 211);"));
         label->setAlignment(Qt::AlignCenter);
 
         retranslateUi(SignUp);

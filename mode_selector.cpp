@@ -1,9 +1,7 @@
 #include "mode_selector.h"
 #include "ui_mode_selector.h"
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
 #include <qmessagebox.h>
-#include <random>
 #include <QtWidgets>
 #include <Qmessagebox>
 #include "history.h"
@@ -63,7 +61,7 @@ void mode_selector::on_history_clicked()
 }
 
 
-void mode_selector::on_main_menu_clicked()
+void mode_selector::on_log_out_clicked()
 {
     this->hide();
     m2 = new MainWindow();

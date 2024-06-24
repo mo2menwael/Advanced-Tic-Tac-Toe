@@ -10,25 +10,36 @@
     <height>600</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Tic Tac Toe</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(0, 47, 65);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>222</y>
-      <width>141</width>
-      <height>20</height>
+      <x>200</x>
+      <y>221</y>
+      <width>131</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Calibri</family>
+      <family>Segoe UI</family>
       <pointsize>11</pointsize>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(97, 184, 211);</string>
     </property>
     <property name="text">
      <string>Username :</string>
@@ -40,18 +51,21 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>210</x>
       <y>264</y>
-      <width>81</width>
+      <width>111</width>
       <height>20</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Calibri</family>
+      <family>Segoe UI</family>
       <pointsize>11</pointsize>
-      <bold>false</bold>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(97, 184, 211);</string>
     </property>
     <property name="text">
      <string>Password :</string>
@@ -65,7 +79,7 @@
      <rect>
       <x>340</x>
       <y>220</y>
-      <width>231</width>
+      <width>201</width>
       <height>26</height>
      </rect>
     </property>
@@ -74,6 +88,11 @@
       <family>Calibri</family>
       <pointsize>11</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(97, 184, 211);
+border: 2px solid rgb(225, 225, 225);
+border-radius: 5px;</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -84,7 +103,7 @@
      <rect>
       <x>340</x>
       <y>260</y>
-      <width>231</width>
+      <width>201</width>
       <height>26</height>
      </rect>
     </property>
@@ -93,6 +112,11 @@
       <family>Calibri</family>
       <pointsize>11</pointsize>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(97, 184, 211);
+border: 2px solid rgb(225, 225, 225);
+border-radius: 5px;</string>
     </property>
     <property name="echoMode">
      <enum>QLineEdit::Password</enum>
@@ -104,36 +128,97 @@
    <widget class="QPushButton" name="SignUp_Button">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>410</x>
       <y>320</y>
-      <width>93</width>
-      <height>29</height>
+      <width>111</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+color: rgb(93, 184, 211);
+background-color: rgb(0, 33, 45);
+border: 3px solid;
+border-radius: 5px;
+border-color: rgb(0, 33, 45);
+}
+QPushButton:Hover{
+border-color: rgb(0, 35, 48);
+background-color: rgb(0, 35, 48);
+}
+QPushButton:Pressed{
+background-color: rgb(93, 184, 211);
+color:rgb(0, 33, 45);
+border-color: rgb(93, 184, 211);
+}</string>
     </property>
     <property name="text">
      <string>Sign Up</string>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="SignIn_Button">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>240</x>
       <y>320</y>
-      <width>93</width>
-      <height>29</height>
+      <width>111</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+color: rgb(93, 184, 211);
+background-color: rgb(0, 33, 45);
+border: 3px solid;
+border-radius: 5px;
+border-color: rgb(0, 33, 45);
+}
+QPushButton:Hover{
+border-color: rgb(0, 35, 48);
+background-color: rgb(0, 35, 48);
+}
+QPushButton:Pressed{
+background-color: rgb(93, 184, 211);
+color:rgb(0, 33, 45);
+border-color: rgb(93, 184, 211);
+}</string>
     </property>
     <property name="text">
      <string>Login</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>110</y>
-      <width>290</width>
-      <height>86</height>
+      <x>230</x>
+      <y>100</y>
+      <width>300</width>
+      <height>93</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -141,10 +226,13 @@
       <widget class="QLabel" name="label">
        <property name="font">
         <font>
-         <family>Calibri</family>
+         <family>Segoe UI</family>
          <pointsize>26</pointsize>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(253, 66, 83);</string>
        </property>
        <property name="text">
         <string>Tic Tac Toe</string>
@@ -158,10 +246,13 @@
       <widget class="QLabel" name="label_4">
        <property name="font">
         <font>
-         <family>Calibri</family>
+         <family>Segoe UI</family>
          <pointsize>12</pointsize>
          <bold>false</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(253, 66, 83);</string>
        </property>
        <property name="text">
         <string>Please enter your login credentials</string>
@@ -176,11 +267,20 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>440</y>
+      <x>260</x>
+      <y>390</y>
       <width>291</width>
       <height>20</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>11</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(97, 184, 211);</string>
     </property>
     <property name="text">
      <string/>
@@ -190,13 +290,58 @@
     <property name="geometry">
      <rect>
       <x>270</x>
-      <y>390</y>
+      <y>440</y>
       <width>221</width>
       <height>20</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>10</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(97, 184, 211);</string>
+    </property>
     <property name="text">
      <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exit">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>480</y>
+      <width>161</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+color: rgb(93, 184, 211);
+background-color: rgb(0, 33, 45);
+border: 3px solid;
+border-radius: 5px;
+border-color: rgb(0, 33, 45);
+}
+QPushButton:Hover{
+border-color: rgb(0, 35, 48);
+background-color: rgb(0, 35, 48);
+}
+QPushButton:Pressed{
+background-color: rgb(93, 184, 211);
+color:rgb(0, 33, 45);
+border-color: rgb(93, 184, 211);
+}</string>
+    </property>
+    <property name="text">
+     <string>Exit</string>
     </property>
    </widget>
   </widget>
