@@ -61,7 +61,7 @@ void mode_selector::on_history_clicked()
 }
 
 
-void mode_selector::on_log_out_clicked()
+void mode_selector::on_sign_out_clicked()
 {
     this->hide();
     m2 = new MainWindow();

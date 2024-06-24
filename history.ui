@@ -48,7 +48,7 @@ color: rgb(97, 184, 211);</string>
    <widget class="QLabel" name="profile">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>50</x>
       <y>0</y>
       <width>221</width>
       <height>41</height>
@@ -684,7 +684,7 @@ border-color: rgb(93, 184, 211);
    <widget class="QLabel" name="TotalGames">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>40</x>
       <y>0</y>
       <width>281</width>
       <height>41</height>

@@ -38,8 +38,8 @@ pvp::pvp(QWidget *parent)
 {
     ui->setupUi(this);
     // Display the global variable p1 in a QLabel
-    ui->turntext->hide();
-    ui->p1label->setText(currentUsername);     ui->p2label->setText(othertUsername);
+    ui->turntext->hide();    ui->VS->hide();
+    ui->p1label->hide();     ui->p2label->hide();
     ui->one->hide();    ui->two->hide();    ui->three->hide();
     ui->four->hide();   ui->five->hide();   ui->six->hide();
     ui->seven->hide();  ui->eight->hide();  ui->nine->hide();
@@ -278,6 +278,8 @@ void pvp::setupConnections()
 
 void pvp::on_startt_clicked()
 {
+    ui->p1label->setText(currentUsername+"("+p1_turn+")");     ui->p2label->setText(othertUsername+"("+p2_turn+")");
+    ui->p1label->show();    ui->p2label->show();    ui->VS->show();
     ui->one->show();    ui->two->show();    ui->three->show();
     ui->four->show();   ui->five->show();   ui->six->show();
     ui->seven->show();  ui->eight->show();  ui->nine->show();

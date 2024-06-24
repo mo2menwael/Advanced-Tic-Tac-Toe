@@ -256,7 +256,7 @@ color: rgb(0, 47, 65);
     <string>History</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="log_out">
+  <widget class="QPushButton" name="sign_out">
    <property name="geometry">
     <rect>
      <x>310</x>
@@ -290,7 +290,7 @@ border-color: rgb(93, 184, 211);
 }</string>
    </property>
    <property name="text">
-    <string>Log Out</string>
+    <string>Sign Out</string>
    </property>
   </widget>
  </widget>
@@ -299,7 +299,7 @@ border-color: rgb(93, 184, 211);
   <tabstop>PVAI</tabstop>
   <tabstop>history</tabstop>
   <tabstop>start_button</tabstop>
-  <tabstop>log_out</tabstop>
+  <tabstop>sign_out</tabstop>
   <tabstop>SecondBox</tabstop>
  </tabstops>
  <resources/>

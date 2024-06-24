@@ -14,6 +14,7 @@ extern QString currentUsername;
 QString WinCount;
 QString DrawCount;
 QString LoseCount;
+QString Totalgames;
 int lastGameId;
 QString gamedetails[3];
 
@@ -35,6 +36,7 @@ history::history(QWidget *parent) :
             WinCount = qry.value(0).toString();
             DrawCount = qry.value(1).toString();
             LoseCount = qry.value(2).toString();
+            Totalgames = QString::number(WinCount.toInt() + DrawCount.toInt() + LoseCount.toInt());
 
             qDebug() << "Win: " << WinCount; // Debug statement
             qDebug() << "Draw: " << DrawCount; // Debug statement
@@ -43,6 +45,7 @@ history::history(QWidget *parent) :
             ui->win_count->setText(WinCount);
             ui->draw_count->setText(DrawCount);
             ui->lose_count->setText(LoseCount);
+            ui->TotalGames->setText("Total Games Played: "+Totalgames);
         } else {
             qDebug() << "No data found for user."; // Debug statement
         }

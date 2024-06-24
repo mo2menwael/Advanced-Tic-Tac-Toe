@@ -31,7 +31,7 @@ private slots:
 
     void on_start_button_clicked();
 
-    void on_log_out_clicked();
+    void on_sign_out_clicked();
 
 private:
     Ui::mode_selector *ui;

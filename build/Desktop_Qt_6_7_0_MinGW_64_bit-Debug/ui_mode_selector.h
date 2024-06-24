@@ -33,7 +33,7 @@ public:
     QLabel *SecondName;
     QPushButton *start_button;
     QPushButton *history;
-    QPushButton *log_out;
+    QPushButton *sign_out;
 
     void setupUi(QDialog *mode_selector)
     {
@@ -165,14 +165,14 @@ public:
 "background-color: rgb(253, 66, 83);\n"
 "color: rgb(0, 47, 65);\n"
 "}"));
-        log_out = new QPushButton(mode_selector);
-        log_out->setObjectName("log_out");
-        log_out->setGeometry(QRect(310, 530, 161, 41));
+        sign_out = new QPushButton(mode_selector);
+        sign_out->setObjectName("sign_out");
+        sign_out->setGeometry(QRect(310, 530, 161, 41));
         QFont font5;
         font5.setPointSize(12);
         font5.setBold(false);
-        log_out->setFont(font5);
-        log_out->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+        sign_out->setFont(font5);
+        sign_out->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "color: rgb(93, 184, 211);\n"
 "background-color: rgb(0, 33, 45);\n"
 "border: 3px solid;\n"
@@ -194,8 +194,8 @@ public:
         QWidget::setTabOrder(PVP, PVAI);
         QWidget::setTabOrder(PVAI, history);
         QWidget::setTabOrder(history, start_button);
-        QWidget::setTabOrder(start_button, log_out);
-        QWidget::setTabOrder(log_out, SecondBox);
+        QWidget::setTabOrder(start_button, sign_out);
+        QWidget::setTabOrder(sign_out, SecondBox);
 
         retranslateUi(mode_selector);
 
@@ -212,7 +212,7 @@ public:
         SecondName->setText(QCoreApplication::translate("mode_selector", "Second Player :", nullptr));
         start_button->setText(QCoreApplication::translate("mode_selector", "Start", nullptr));
         history->setText(QCoreApplication::translate("mode_selector", "History", nullptr));
-        log_out->setText(QCoreApplication::translate("mode_selector", "Log Out", nullptr));
+        sign_out->setText(QCoreApplication::translate("mode_selector", "Sign Out", nullptr));
     } // retranslateUi
 
 };

@@ -77,7 +77,7 @@ public:
         frame->setFrameShadow(QFrame::Plain);
         profile = new QLabel(frame);
         profile->setObjectName("profile");
-        profile->setGeometry(QRect(20, 0, 221, 41));
+        profile->setGeometry(QRect(50, 0, 221, 41));
         QFont font1;
         font1.setPointSize(15);
         font1.setBold(true);
@@ -288,7 +288,7 @@ public:
         frame_15->setFrameShadow(QFrame::Plain);
         TotalGames = new QLabel(frame_15);
         TotalGames->setObjectName("TotalGames");
-        TotalGames->setGeometry(QRect(10, 0, 281, 41));
+        TotalGames->setGeometry(QRect(40, 0, 281, 41));
         TotalGames->setFont(font1);
         TotalGames->setStyleSheet(QString::fromUtf8("color: rgb(253, 66, 83);"));
 
