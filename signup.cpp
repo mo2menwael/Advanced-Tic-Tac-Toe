@@ -32,10 +32,33 @@ void SignUp::on_Register_clicked()
     draw_inialization=0;
     lose_inialization=0;
 
-    if(password != confirm){
-         ui->match->setText("Passwords do not match");
+    if(!connOpen()){
+        qDebug()<<"Failed to open the database";
         return;
     }
+
+    connOpen();
+    QSqlQuery qry5;
+    qry5.prepare("select * from data where Username='"+username+"'");
+    if(qry5.exec())
+    {
+        connClose();
+        int count=0;
+        while(qry5.next())
+        {
+            count++;
+        }
+
+        if(count==1){
+            ui->label->setText("user is already exist ");
+            return;}
+    }
+
+    if(password != confirm){
+        ui->match->setText("Passwords do not match");
+        return;
+    }
+
     // Hash the password using QCryptographicHash
     QByteArray passwordData = password.toUtf8();
     QByteArray hash = QCryptographicHash::hash(passwordData, QCryptographicHash::Sha256);

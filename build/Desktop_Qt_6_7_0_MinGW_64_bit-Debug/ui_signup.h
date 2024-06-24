@@ -35,6 +35,7 @@ public:
     QLabel *label_6;
     QLabel *label_7;
     QLabel *match;
+    QLabel *label;
 
     void setupUi(QDialog *SignUp)
     {
@@ -85,7 +86,7 @@ public:
         confirmpass->setFont(font2);
         Register = new QPushButton(SignUp);
         Register->setObjectName("Register");
-        Register->setGeometry(QRect(330, 450, 90, 29));
+        Register->setGeometry(QRect(330, 500, 90, 29));
         Register->setFont(font2);
         layoutWidget = new QWidget(SignUp);
         layoutWidget->setObjectName("layoutWidget");
@@ -114,6 +115,10 @@ public:
         match = new QLabel(SignUp);
         match->setObjectName("match");
         match->setGeometry(QRect(240, 410, 281, 20));
+        label = new QLabel(SignUp);
+        label->setObjectName("label");
+        label->setGeometry(QRect(240, 460, 281, 20));
+        label->setAlignment(Qt::AlignCenter);
 
         retranslateUi(SignUp);
 
@@ -130,6 +135,7 @@ public:
         label_6->setText(QCoreApplication::translate("SignUp", "Welcome to Tic Tac Toe", nullptr));
         label_7->setText(QCoreApplication::translate("SignUp", "Please Enter Your Info", nullptr));
         match->setText(QString());
+        label->setText(QString());
     } // retranslateUi
 
 };
