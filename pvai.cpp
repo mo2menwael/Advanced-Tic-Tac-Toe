@@ -588,6 +588,7 @@ void pvai::handleButtonClick(QPushButton* button)
     }
     else
     {
+        auto start = chrono::high_resolution_clock::now();
         button->setText(player_turn);
         button->setStyleSheet("color: #FF4350");
         l++; m++;
@@ -604,6 +605,9 @@ void pvai::handleButtonClick(QPushButton* button)
         else if (button == ui->nine) { board[2][2] = currentUsername; J22=QString::number(++counter_1);}
 
         update();
+        auto end = chrono::high_resolution_clock::now();
+        chrono::duration<double> elapsed = end - start;
+        cout << "Player move response time: " << elapsed.count()*1000 << " ms" << endl;
         if(iswon())
         {
             QMessageBox msgBox;
