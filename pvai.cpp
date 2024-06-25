@@ -369,11 +369,14 @@ void pvai::computer_turn_medium()
     }
 }
 
+#include <vector>
+#include <algorithm>
+#include <utility>
 // Function to check if any player has won
 bool pvai::isMovesLeft()
 {
-    for (int i = 0; i<3; i++)
-        for (int j = 0; j<3; j++)
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
             if (board[i][j] != "X" && board[i][j] != "O")
                 return true;
     return false;
@@ -383,53 +386,52 @@ bool pvai::isMovesLeft()
 int pvai::evaluate()
 {
     // Checking for Rows for X or O victory.
-    for (int ro = 0; ro<3; ro++)
+    for (int ro = 0; ro < 3; ro++)
     {
-        if (board[ro][0]==board[ro][1] &&
-            board[ro][1]==board[ro][2])
+        if (board[ro][0] == board[ro][1] &&
+            board[ro][1] == board[ro][2])
         {
-            if (board[ro][0]==ai_turn)
+            if (board[ro][0] == ai_turn)
                 return +10;
-            else if (board[ro][0]==player_turn)
+            else if (board[ro][0] == player_turn)
                 return -10;
         }
     }
 
     // Checking for Columns for X or O victory.
-    for (int col = 0; col<3; col++)
+    for (int col = 0; col < 3; col++)
     {
-        if (board[0][col]==board[1][col] &&
-            board[1][col]==board[2][col])
+        if (board[0][col] == board[1][col] &&
+            board[1][col] == board[2][col])
         {
-            if (board[0][col]==ai_turn)
+            if (board[0][col] == ai_turn)
                 return +10;
 
-            else if (board[0][col]==player_turn)
+            else if (board[0][col] == player_turn)
                 return -10;
         }
     }
 
     // Checking for Diagonals for X or O victory.
-    if (board[0][0]==board[1][1] && board[1][1]==board[2][2])
+    if (board[0][0] == board[1][1] && board[1][1] == board[2][2])
     {
-        if (board[0][0]==ai_turn)
+        if (board[0][0] == ai_turn)
             return +10;
-        else if (board[0][0]==player_turn)
+        else if (board[0][0] == player_turn)
             return -10;
     }
 
-    if (board[0][2]==board[1][1] && board[1][1]==board[2][0])
+    if (board[0][2] == board[1][1] && board[1][1] == board[2][0])
     {
-        if (board[0][2]==ai_turn)
+        if (board[0][2] == ai_turn)
             return +10;
-        else if (board[0][2]==player_turn)
+        else if (board[0][2] == player_turn)
             return -10;
     }
 
     // Else if none of them have won then return 0
     return 0;
 }
-
 
 // Function to perform the minimax algorithm
 int pvai::minimax(int depth, bool isMax, int alpha, int beta)
@@ -445,7 +447,7 @@ int pvai::minimax(int depth, bool isMax, int alpha, int beta)
         return score;
 
     // If there are no more moves and no winner then it is a tie
-    if (isMovesLeft()==false)
+    if (isMovesLeft() == false)
         return 0;
 
     // If this maximizer's move
@@ -453,64 +455,65 @@ int pvai::minimax(int depth, bool isMax, int alpha, int beta)
     {
         int best = -1000;
 
-        // Traverse all cells
-        for (int i = 0; i<3; i++)
+        // Prioritize center, corners, and edges
+        vector<pair<int, int>> moves = { {1, 1}, {0, 0}, {0, 2}, {2, 0}, {2, 2}, {0, 1}, {1, 0}, {1, 2}, {2, 1} };
+        for (auto move : moves)
         {
-            for (int j = 0; j<3; j++)
+            int i = move.first;
+            int j = move.second;
+
+            // Check if cell is empty
+            if (board[i][j] != "X" && board[i][j] != "O")
             {
-                // Check if cell is empty
-                if (board[i][j] != "X" && board[i][j] != "O")
-                {
-                    QString temp = board[i][j];
-                    // Make the move
-                    move(i,j,ai_turn);
+                QString temp = board[i][j];
+                // Make the move
+                this->move(i, j, ai_turn);
 
-                    // Call minimax recursively and choose the maximum value
-                    best = max( best, minimax(depth+1, !isMax, alpha, beta) );
+                // Call minimax recursively and choose the maximum value
+                best = max(best, minimax(depth + 1, !isMax, alpha, beta));
 
-                    // Undo the move
-                    move(i,j,temp);
+                // Undo the move
+                this->move(i, j, temp);
 
-                    alpha = max(alpha, best);
+                alpha = max(alpha, best);
 
-                    // Alpha Beta Pruning
-                    if(beta <= alpha)
-                        return best;
-                }
+                // Alpha Beta Pruning
+                if (beta <= alpha)
+                    return best;
             }
         }
         return best;
     }
-
     // If this minimizer's move
     else
     {
         int best = 1000;
 
-        // Traverse all cells
-        for (int i = 0; i<3; i++)
+        // Prioritize center, corners, and edges
+        vector<pair<int, int>> moves = { {1, 1}, {0, 0}, {0, 2}, {2, 0}, {2, 2}, {0, 1}, {1, 0}, {1, 2}, {2, 1} };
+        for (auto move : moves)
         {
-            for (int j = 0; j<3; j++)
+            int i = move.first;
+            int j = move.second;
+
+            // Check if cell is empty
+            if (board[i][j] != "X" && board[i][j] != "O")
             {
-                // Check if cell is empty
-                if (board[i][j] != "X" && board[i][j] != "O")
-                {
-                    QString temp=board[i][j];
-                    // Make the move
-                    move(i,j,player_turn);
+                QString temp = board[i][j];
+                // Make the move
+                this->move(i, j, player_turn);
 
-                    // Call minimax recursively and choose the minimum value
-                    best = min(best, minimax(depth+1, !isMax, alpha, beta));
+                // Call minimax recursively and choose the minimum value
+                best = min(best, minimax(depth + 1, !isMax, alpha, beta));
 
-                    // Undo the move
-                    move(i,j,temp);
+                // Undo the move
+                this->move(i, j, temp);
 
-                    beta = min(beta, best);
+                beta = min(beta, best);
 
-                    // Alpha Beta Pruning
-                    if(beta <= alpha)
-                        return best;
-                }
+                // Alpha Beta Pruning
+                if (beta <= alpha)
+                    return best;
             }
         }
         return best;
@@ -525,38 +528,37 @@ pair<int, int> pvai::findBestMove()
     bestMove.first = -1;
     bestMove.second = -1;
 
-    // Traverse all cells, evaluate minimax function for all empty cells. And return the cell with optimal value.
-    for (int i = 0; i<3; i++)
+    // Prioritize center, corners, and edges
+    vector<pair<int, int>> moves = { {1, 1}, {0, 0}, {0, 2}, {2, 0}, {2, 2}, {0, 1}, {1, 0}, {1, 2}, {2, 1} };
+    for (auto move : moves)
     {
-        for (int j = 0; j<3; j++)
+        int i = move.first;
+        int j = move.second;
+
+        // Check if cell is empty
+        if (board[i][j] != "X" && board[i][j] != "O")
         {
-            // Check if cell is empty
-            if (board[i][j] != "X" && board[i][j] != "O")
+            QString temp = board[i][j];
+            // Make the move
+            this->move(i, j, ai_turn);
+
+            // Compute evaluation function for this move.
+            int moveVal = minimax(0, false, -1000, 1000);
+
+            // Undo the move
+            this->move(i, j, temp);
+
+            // If the value of the current move is more than the best value, then update best
+            if (moveVal > bestVal)
             {
-                QString temp=board[i][j];
-                // Make the move
-                move(i,j,ai_turn);
-
-                // compute evaluation function for this move.
-                int moveVal = minimax(0, false, -1000, 1000);
-
-                // Undo the move
-                move(i,j,temp);
-
-                // If the value of the current move is more than the best value, then update best
-                if (moveVal > bestVal)
-                {
-                    bestMove.first = i;
-                    bestMove.second = j;
-                    bestVal = moveVal;
-                }
+                bestMove.first = i;
+                bestMove.second = j;
+                bestVal = moveVal;
             }
         }
     }
     return bestMove;
 }
-
-pair<int, int> bestMove;
 
 void pvai::handleButtonClick(QPushButton* button)
 {
@@ -618,65 +620,6 @@ void pvai::handleButtonClick(QPushButton* button)
             save_state();
             saveIntoMemory();
         }
-        else if(!iswon() && l!=10 && mode==1 && m%2==0){
-            auto start = chrono::high_resolution_clock::now();
-            computer_turn_easy();
-            auto end = chrono::high_resolution_clock::now();
-            chrono::duration<double> elapsed = end - start;
-            cout << "Easy Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
-            m++;
-        }
-        else if(!iswon() && l!=10 && mode==2 && m%2==0){
-            auto start = chrono::high_resolution_clock::now();
-            computer_turn_medium();
-            auto end = chrono::high_resolution_clock::now();
-            chrono::duration<double> elapsed = end - start;
-            cout << "Medium Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
-            m++;
-        }
-        else if(!iswon() && l!=10 && mode==3 && m%2==0)
-        {
-            auto start = chrono::high_resolution_clock::now();
-            bestMove = findBestMove();
-            move(bestMove.first,bestMove.second,ai_turn);
-            auto end = chrono::high_resolution_clock::now();
-            chrono::duration<double> elapsed = end - start;
-            cout << "Hard Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
-            l++;    m++;
-            if(iswon())
-            {
-                QMessageBox msgBox;
-                msgBox.setWindowTitle("Game Over");
-                msgBox.setText(QString("Ai Won!"));
-                msgBox.setIcon(QMessageBox::Information);
-                msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                                     "QLabel { color: #61B8D3; font-weight: bold; } "
-                                     "QPushButton { background-color: #003E54; color: white; } "
-                                     "QPushButton:hover { background-color: #004F6A; }");
-                msgBox.exec();
-                loseCount=1; winCount = 0; drawCount = 0;
-                state="lose";
-                save_state();
-                saveIntoMemory();
-            }
-            else if(isdraw())
-            {
-                QMessageBox msgBox;
-                msgBox.setWindowTitle("Game Over");
-                msgBox.setText(QString("Draw!"));
-                msgBox.setIcon(QMessageBox::Information);
-                msgBox.setFixedWidth(500);
-                msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                                     "QLabel { color: #61B8D3; font-weight: bold; } "
-                                     "QPushButton { background-color: #003E54; color: white; } "
-                                     "QPushButton:hover { background-color: #004F6A; }");
-                msgBox.exec();
-                loseCount=0; winCount = 0; drawCount = 1;
-                state="draw";
-                save_state();
-                saveIntoMemory();
-            }
-        }
         else if(isdraw())
         {
             QMessageBox msgBox;
@@ -692,6 +635,106 @@ void pvai::handleButtonClick(QPushButton* button)
             state="draw";
             save_state();
             saveIntoMemory();
+        }
+        else if(!iswon() && l!=10 && mode==1 && m%2==0){
+            auto start = chrono::high_resolution_clock::now();
+            computer_turn_easy();
+            auto end = chrono::high_resolution_clock::now();
+            chrono::duration<double> elapsed = end - start;
+            cout << "Easy Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+            l++; m++;
+        }
+        else if(!iswon() && l!=10 && mode==2 && m%2==0){
+            auto start = chrono::high_resolution_clock::now();
+            computer_turn_medium();
+            auto end = chrono::high_resolution_clock::now();
+            chrono::duration<double> elapsed = end - start;
+            cout << "Medium Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+            l++; m++;
+        }
+        else if(!iswon() && l!=10 && mode==3 && m%2==0)
+        {
+            if(l==2 && (board[1][1] == player_turn || board[0][1] == player_turn ||
+                           board[1][0] == player_turn))
+            {
+                auto start = chrono::high_resolution_clock::now();
+                move(0,0,ai_turn);
+                auto end = chrono::high_resolution_clock::now();
+                chrono::duration<double> elapsed = end - start;
+                cout << "Hard Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+                l++; m++;
+            }
+            else if (l==2 && (board[0][0] == player_turn || board[0][2] == player_turn ||
+                                  board[2][0] == player_turn || board[2][2] == player_turn))
+            {
+                auto start = chrono::high_resolution_clock::now();
+                move(1,1,ai_turn);
+                auto end = chrono::high_resolution_clock::now();
+                chrono::duration<double> elapsed = end - start;
+                cout << "Hard Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+                l++; m++;
+            }
+            else if (l==2 && board[1][2] == player_turn)
+            {
+                auto start = chrono::high_resolution_clock::now();
+                move(0,2,ai_turn);
+                auto end = chrono::high_resolution_clock::now();
+                chrono::duration<double> elapsed = end - start;
+                cout << "Hard Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+                l++; m++;
+            }
+            else if (l==2 && board[2][1] == player_turn)
+            {
+                auto start = chrono::high_resolution_clock::now();
+                move(0,1,ai_turn);
+                auto end = chrono::high_resolution_clock::now();
+                chrono::duration<double> elapsed = end - start;
+                cout << "Hard Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+                l++; m++;
+            }
+            else
+            {
+                auto start = chrono::high_resolution_clock::now();
+                pair<int, int> bestMove = findBestMove();
+                move(bestMove.first,bestMove.second,ai_turn);
+                auto end = chrono::high_resolution_clock::now();
+                chrono::duration<double> elapsed = end - start;
+                cout << "Hard Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+                l++;    m++;
+                if(iswon())
+                {
+                    QMessageBox msgBox;
+                    msgBox.setWindowTitle("Game Over");
+                    msgBox.setText(QString("Ai Won!"));
+                    msgBox.setIcon(QMessageBox::Information);
+                    msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                                         "QLabel { color: #61B8D3; font-weight: bold; } "
+                                         "QPushButton { background-color: #003E54; color: white; } "
+                                         "QPushButton:hover { background-color: #004F6A; }");
+                    msgBox.exec();
+                    loseCount=1; winCount = 0; drawCount = 0;
+                    state="lose";
+                    save_state();
+                    saveIntoMemory();
+                }
+                else if(isdraw())
+                {
+                    QMessageBox msgBox;
+                    msgBox.setWindowTitle("Game Over");
+                    msgBox.setText(QString("Draw!"));
+                    msgBox.setIcon(QMessageBox::Information);
+                    msgBox.setFixedWidth(500);
+                    msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
+                                         "QLabel { color: #61B8D3; font-weight: bold; } "
+                                         "QPushButton { background-color: #003E54; color: white; } "
+                                         "QPushButton:hover { background-color: #004F6A; }");
+                    msgBox.exec();
+                    loseCount=0; winCount = 0; drawCount = 1;
+                    state="draw";
+                    save_state();
+                    saveIntoMemory();
+                }
+            }
         }
     }
 }
@@ -720,7 +763,6 @@ void pvai::on_easy_clicked()
     ui->seven->show();  ui->eight->show();  ui->nine->show();
     init();
     update();
-    //computer_turn_easy(); //first turn is ai
 }
 
 
@@ -734,7 +776,6 @@ void pvai::on_medium_clicked()
     ui->seven->show();  ui->eight->show();  ui->nine->show();
     init();
     update();
-    //computer_turn_medium();   //first turn is ai
 }
 
 
@@ -748,9 +789,6 @@ void pvai::on_hard_clicked()
     ui->seven->show();  ui->eight->show();  ui->nine->show();
     init();
     update();
-    //l++;
-    //bestMove = findBestMove();
-    //move(bestMove.first,bestMove.second,ai_turn); //first turn is ai
 }
 
 

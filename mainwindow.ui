@@ -136,7 +136,7 @@ border-radius: 5px;</string>
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
       <bold>false</bold>
       <kerning>true</kerning>
      </font>
@@ -180,7 +180,7 @@ border-color: rgb(93, 184, 211);
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
+      <pointsize>11</pointsize>
       <bold>false</bold>
      </font>
     </property>

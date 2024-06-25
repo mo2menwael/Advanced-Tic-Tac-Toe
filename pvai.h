@@ -7,6 +7,19 @@
 #include <QFileInfo>
 #include <QList>
 #include <QPushButton>
+/*class pvai {
+public:
+    vector<vector<string>> board;
+    string ai_turn;
+    string player_turn;
+
+    bool isMovesLeft();
+    int evaluate();
+    int minimax(int depth, bool isMax, int alpha, int beta);
+    pair<int, int> findBestMove();
+    void move(int i, int j, string player);
+    pvai(vector<vector<string>> b, string ai, string player) : board(b), ai_turn(ai), player_turn(player) {}
+};*/
 
 namespace Ui {
 class pvai;
