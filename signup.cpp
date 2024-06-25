@@ -53,12 +53,33 @@ void SignUp::on_Register_clicked()
             return;}
     }
 
+    if(password.length() < 4) {
+        ui->match->show();
+        ui->match->setText("Password must be at least 4 characters");
+        ui->label->hide();
+
+        return;}
+
+    if(username.length() < 4) {
+        ui->match->show();
+        ui->match->setText("Username must be at least 4 characters");
+        ui->label->hide();
+
+        return;}
+
     if(password != confirm){
         ui->match->show();
         ui->match->setText("Passwords do not match");
         ui->label->hide();
         return;
     }
+
+
+
+
+
+
+
 
     // Hash the password using QCryptographicHash
     QByteArray passwordData = password.toUtf8();
