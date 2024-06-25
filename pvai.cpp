@@ -4,7 +4,8 @@
 #include "mode_selector.h"
 #include <random>
 #include <Qmessagebox>
-
+#include <chrono>
+#include <iostream>
 using namespace std;
 
 extern QString currentUsername;
@@ -618,13 +619,29 @@ void pvai::handleButtonClick(QPushButton* button)
             saveIntoMemory();
         }
         else if(!iswon() && l!=10 && mode==1 && m%2==0){
-            computer_turn_easy();   m++;}
+            auto start = chrono::high_resolution_clock::now();
+            computer_turn_easy();
+            auto end = chrono::high_resolution_clock::now();
+            chrono::duration<double> elapsed = end - start;
+            cout << "Easy Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+            m++;
+        }
         else if(!iswon() && l!=10 && mode==2 && m%2==0){
-            computer_turn_medium(); m++;}
+            auto start = chrono::high_resolution_clock::now();
+            computer_turn_medium();
+            auto end = chrono::high_resolution_clock::now();
+            chrono::duration<double> elapsed = end - start;
+            cout << "Medium Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+            m++;
+        }
         else if(!iswon() && l!=10 && mode==3 && m%2==0)
         {
+            auto start = chrono::high_resolution_clock::now();
             bestMove = findBestMove();
             move(bestMove.first,bestMove.second,ai_turn);
+            auto end = chrono::high_resolution_clock::now();
+            chrono::duration<double> elapsed = end - start;
+            cout << "Hard Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
             l++;    m++;
             if(iswon())
             {
