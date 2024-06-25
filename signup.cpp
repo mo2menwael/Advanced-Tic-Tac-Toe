@@ -74,13 +74,6 @@ void SignUp::on_Register_clicked()
         return;
     }
 
-
-
-
-
-
-
-
     // Hash the password using QCryptographicHash
     QByteArray passwordData = password.toUtf8();
     QByteArray hash = QCryptographicHash::hash(passwordData, QCryptographicHash::Sha256);

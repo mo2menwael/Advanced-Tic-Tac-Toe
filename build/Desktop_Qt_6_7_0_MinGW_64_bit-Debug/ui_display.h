@@ -331,7 +331,7 @@ public:
 
     void retranslateUi(QWidget *display)
     {
-        display->setWindowTitle(QCoreApplication::translate("display", "Form", nullptr));
+        display->setWindowTitle(QCoreApplication::translate("display", "Game details", nullptr));
         seven_3->setText(QString());
         three_3->setText(QString());
         four_3->setText(QString());
