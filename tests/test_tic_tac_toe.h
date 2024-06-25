@@ -1,4 +1,4 @@
-/*#ifndef TEST_TIC_TAC_TOE_H
+#ifndef TEST_TIC_TAC_TOE_H
 #define TEST_TIC_TAC_TOE_H
 
 #include <iostream>
@@ -332,4 +332,3 @@ void TicTacToe::computer_turn_hard()
 }
 
 #endif // TEST_TIC_TAC_TOE_H
-*/
