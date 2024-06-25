@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>789</width>
-    <height>600</height>
+    <width>760</width>
+    <height>588</height>
    </rect>
   </property>
   <property name="font">
@@ -203,7 +203,7 @@ border-color: rgb(93, 184, 211);
 }</string>
     </property>
     <property name="text">
-     <string>Login</string>
+     <string>Sign In</string>
     </property>
     <property name="autoDefault">
      <bool>false</bool>
@@ -351,7 +351,7 @@ border-color: rgb(93, 184, 211);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>789</width>
+     <width>760</width>
      <height>25</height>
     </rect>
    </property>
