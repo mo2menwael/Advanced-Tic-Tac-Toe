@@ -34,6 +34,7 @@ TEST(TicTacToeTest, NoMoveAfterWin) {
     game.makeMove(0, 2, 'X');
 
     EXPECT_EQ(game.makeMove(1, 1, 'O'),"Invalid move");
+    EXPECT_EQ(game.makeMove(1, 2, 'X'),"Invalid move");
 }
 
 // Test case for checking a horizontal win
