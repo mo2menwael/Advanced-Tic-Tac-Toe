@@ -149,14 +149,16 @@ TEST(TicTacToeTest, MediumAIAvoidLoss) {
     EXPECT_EQ(game.getBoardValue(0, 2), 'O'); // AI should block the winning move
 }
 
-// Test case for checking AI avoids immediate loss at Hard level
-TEST(TicTacToeTest, HardAIAvoidLoss) {
+// Test case for checking AI takes the chance to win at Hard level
+TEST(TicTacToeTest, HardAIWin) {
     TicTacToe game;
     game.makeMove(1, 1, 'X');
     game.computer_turn_hard();
     game.makeMove(0, 2, 'X');
     game.computer_turn_hard();
-    EXPECT_EQ(game.getBoardValue(2, 0), 'O'); // AI should block the winning move
+    game.makeMove(1, 2, 'X');
+    game.computer_turn_hard();
+    EXPECT_TRUE(game.checkWin()); // AI should make the winning move
 }
 
 // Add main function to run all tests
