@@ -1,4 +1,4 @@
-/*#include <gtest/gtest.h>
+#include <gtest/gtest.h>
 #include "test_tic_tac_toe.h"
 
 // Test case for checking the initialization of the board
@@ -163,4 +163,3 @@ int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
-*/
