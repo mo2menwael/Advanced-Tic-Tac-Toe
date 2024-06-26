@@ -3,7 +3,7 @@
 #include "mainwindow.h"
 #include "mode_selector.h"
 #include <random>
-#include <Qmessagebox>
+#include <QMessageBox>
 #include <chrono>
 #include <iostream>
 using namespace std;
