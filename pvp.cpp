@@ -5,7 +5,7 @@
 #include <random>
 #include <QtWidgets>
 #include "mode_selector.h"
-#include <Qmessagebox>
+#include <QMessageBox>
 #include <QFontDatabase>
 #include <QString>
 #include <QDate>
