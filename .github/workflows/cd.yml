@@ -18,6 +18,7 @@ jobs:
         with:
           version: 6.4.3
           host: linux
+          cache : true
 
       - name: Configure project
         run: qmake Advanced-Tic-Tac-Toe.pro
@@ -28,7 +29,7 @@ jobs:
       - name: Package application
         run: |
           mkdir -p output
-          cp path/to/your/built/application output/
+          cp build/your-application-binary output/
 
       - name: Copy files to Azure VM
         uses: appleboy/scp-action@v0.1.3
