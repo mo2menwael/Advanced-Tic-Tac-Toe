@@ -18,6 +18,8 @@ public:
     explicit pvp(QWidget *parent = nullptr);
     ~pvp();
     QString board[3][3];
+    QTimer *timer = new QTimer(this);
+    void updatePerformanceMetrics();
 
 public:
     QSqlDatabase mydb;
@@ -66,6 +68,10 @@ private slots:
     void saveIntoMemory();
 
     void on_main_menu_clicked();
+
+    size_t getMemoryUsage();
+
+    double getCpuUsage();
 
 private:
     Ui::pvp *ui;

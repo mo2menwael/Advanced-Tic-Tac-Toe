@@ -6,6 +6,9 @@
 #include <QMessageBox>
 #include <chrono>
 #include <iostream>
+#include <QTimer>
+#include <windows.h>
+#include <psapi.h>
 using namespace std;
 
 extern QString currentUsername;
@@ -32,6 +35,8 @@ pvai::pvai(QWidget *parent)
     ui->four->hide();   ui->five->hide();   ui->six->hide();
     ui->seven->hide();  ui->eight->hide();  ui->nine->hide();
     setupConnections();
+    connect(timer, &QTimer::timeout, this, &pvai::updatePerformanceMetrics);
+    timer->start(1000);
 }
 
 pvai::~pvai()
@@ -43,6 +48,71 @@ int l,mode,m;
 int winCount = 0;
 int loseCount = 0;
 int drawCount = 0;
+
+void pvai::updatePerformanceMetrics()
+{
+    // Fetch memory and CPU usage metrics
+    size_t memoryUsage = getMemoryUsage();
+    double cpuUsage = getCpuUsage();
+
+    // Output to qDebug for debugging purposes
+    qDebug() << "Memory Usage: " << memoryUsage / (1024*1024) << " MB";
+    qDebug() << "CPU Usage: " <<cpuUsage<<"%";
+
+}
+
+size_t pvai::getMemoryUsage() {
+    PROCESS_MEMORY_COUNTERS_EX pmc;
+    GetProcessMemoryInfo(GetCurrentProcess(), (PROCESS_MEMORY_COUNTERS*)&pmc, sizeof(pmc));
+    return pmc.WorkingSetSize;
+}
+
+double pvai::getCpuUsage() {
+    FILETIME idleTime, kernelTime, userTime;
+    ULARGE_INTEGER sysIdleTime, sysKernelTime, sysUserTime;
+
+    #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
+    #pragma GCC diagnostic ignored "-Wmissing-braces"
+    static ULARGE_INTEGER prevIdleTime = {0}, prevKernelTime = {0}, prevUserTime = {0};
+
+    if (!GetSystemTimes(&idleTime, &kernelTime, &userTime)) {
+        // Handle system call failure
+        // For simplicity, returning -1.0 as an error indicator
+        return -1.0;
+    }
+
+    // Convert FILETIME structure to ULARGE_INTEGER to access QuadPart
+    memcpy(&sysIdleTime, &idleTime, sizeof(FILETIME));
+    memcpy(&sysKernelTime, &kernelTime, sizeof(FILETIME));
+    memcpy(&sysUserTime, &userTime, sizeof(FILETIME));
+
+    ULONGLONG idleTimeDiff = sysIdleTime.QuadPart - prevIdleTime.QuadPart;
+    ULONGLONG kernelTimeDiff = sysKernelTime.QuadPart - prevKernelTime.QuadPart;
+    ULONGLONG userTimeDiff = sysUserTime.QuadPart - prevUserTime.QuadPart;
+
+    double cpuUsage = 0.0;
+
+    if (prevIdleTime.QuadPart != 0) {
+        // Ensure non-negative values
+        if (idleTimeDiff >= 0 && kernelTimeDiff >= 0 && userTimeDiff >= 0) {
+            cpuUsage = 100.0 - (
+                           (idleTimeDiff * 100.0) / (kernelTimeDiff + userTimeDiff)
+                           );
+        } else {
+            // Handle unexpected negative values or other anomalies
+            // Example: Return -1.0 as an error indicator
+            cpuUsage = -1.0;
+        }
+    }
+
+    prevIdleTime = sysIdleTime;
+    prevKernelTime = sysKernelTime;
+    prevUserTime = sysUserTime;
+
+    return cpuUsage;
+}
+
+
 
 void pvai::save_state()
 {
@@ -798,6 +868,7 @@ void pvai::on_hard_clicked()
 
 void pvai::on_main_menu_clicked()
 {
+    timer->stop();
     this->hide();
     mode_selector mode;
     mode.setModal(true);

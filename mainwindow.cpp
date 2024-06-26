@@ -3,9 +3,7 @@
 #include "mode_selector.h"
 #include "signup.h"
 #include <QCryptographicHash>
-#include "ui_mode_selector.h"
 #include <qmessagebox.h>
-#include <random>
 #include <QtWidgets>
 #include <QMessageBox>
 
