@@ -26,14 +26,15 @@ jobs:
       run: |
         choco install -y ninja
         choco install -y qtcreator  # Install Qt Creator for additional tools
+        choco install -y make
         choco install -y cmake --installargs 'ADD_CMAKE_TO_PATH=System'  # Install CMake and add it to PATH
 
     - name: Configure and build the project
       run: |
         mkdir build
         cd build
-        qmake ../your_project.pro
-        nmake
+        qmake ../Advanced-Tic-Tac-Toe.pro
+        make
 
     - name: Archive build artifacts
       uses: actions/upload-artifact@v2
