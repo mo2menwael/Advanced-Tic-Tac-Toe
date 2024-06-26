@@ -20,7 +20,7 @@ jobs:
       uses: actions/setup-python@v5.1.0
     
     - name: Set up Qt
-      uses: jurplel/install-qt-action@4
+      uses: jurplel/install-qt-action@v4
 
     - name: Install dependencies
       run: |
