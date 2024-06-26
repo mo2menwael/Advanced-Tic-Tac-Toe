@@ -1,0 +1,28 @@
+name: Build Qt Project on LINUX
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.1.7
+
+      - name: Set up Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: 6.4.3
+          host: linux
+          cache : true
+
+      - name: Configure project
+        run: qmake Advanced-Tic-Tac-Toe.pro
+
+      - name: Build project
+        run: make
+
