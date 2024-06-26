@@ -1,0 +1,51 @@
+name: Build and Deploy Qt Project
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.1.7
+
+      - name: Set up Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: 6.4.3
+          host: linux
+
+      - name: Configure project
+        run: qmake Advanced-Tic-Tac-Toe.pro
+
+      - name: Build project
+        run: make
+
+      - name: Package application
+        run: |
+          mkdir -p output
+          cp path/to/your/built/application output/
+
+      - name: Copy files to Azure VM
+        uses: appleboy/scp-action@v0.1.3
+        with:
+          host: ${{ secrets.AZURE_VM_IP }}
+          username: ${{ secrets.AZURE_VM_USERNAME }}
+          key: ${{ secrets.AZURE_VM_SSH_KEY }}
+          target: /home/${{ secrets.AZURE_VM_USERNAME }}/app/
+          source: output/
+
+      - name: Deploy on Azure VM
+        uses: appleboy/ssh-action@v0.1.6
+        with:
+          host: ${{ secrets.AZURE_VM_IP }}
+          username: ${{ secrets.AZURE_VM_USERNAME }}
+          key: ${{ secrets.AZURE_VM_SSH_KEY }}
+          script: |
+            cd /home/${{ secrets.AZURE_VM_USERNAME }}/app/
+            ./your-application-binary
+
