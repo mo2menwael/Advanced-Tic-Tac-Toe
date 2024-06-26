@@ -716,7 +716,7 @@ void pvai::handleButtonClick(QPushButton* button)
             auto end = chrono::high_resolution_clock::now();
             chrono::duration<double> elapsed = end - start;
             cout << "Easy Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
-            l++; m++;
+            m++;
         }
         else if(!iswon() && l!=10 && mode==2 && m%2==0){
             auto start = chrono::high_resolution_clock::now();
@@ -724,7 +724,7 @@ void pvai::handleButtonClick(QPushButton* button)
             auto end = chrono::high_resolution_clock::now();
             chrono::duration<double> elapsed = end - start;
             cout << "Medium Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
-            l++; m++;
+            m++;
         }
         else if(!iswon() && l!=10 && mode==3 && m%2==0)
         {

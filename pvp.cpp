@@ -345,7 +345,7 @@ void pvp::setupConnections()
 
 void pvp::on_startt_clicked()
 {
-    ui->p1label->setText(currentUsername+"("+p1_turn+")");     ui->p2label->setText(othertUsername+"("+p2_turn+")");
+    ui->p1label->setText(currentUsername);     ui->p2label->setText(othertUsername);
     ui->p1label->show();    ui->p2label->show();    ui->VS->show();
     ui->one->show();    ui->two->show();    ui->three->show();
     ui->four->show();   ui->five->show();   ui->six->show();
