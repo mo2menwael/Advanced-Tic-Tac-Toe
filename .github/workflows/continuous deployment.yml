@@ -1,39 +1,30 @@
-name: Deploy Tic Tac Toe Game
+name: Build and Deploy Qt Project
 
 on:
   push:
     branches:
       - main
 
-env:
-  SOLUTION_FILE_PATH: ..  # Path to your solution file relative to the project root
-  BUILD_CONFIGURATION: Release  # Configuration type to build (e.g., Debug or Release)
-  
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4.1.7
+      - name: Checkout code
+        uses: actions/checkout@v4.1.7
 
-    - name: Set up Qt environment
-      uses: jurplel/install-qt-action@v4
-      with:
-        qt-version: '6.7'
-        cache : true
-        host: windows
-        target: desktop
-        arch: win64_msvc2019_64
-        dir: ${{ runner.temp }}
+      - name: Set up Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: 6.4.3
+          target: desktop
+          arch: linux
 
-    - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
-    - name: Create build folder
-      run: mkdir -p ${{ runner.temp }}\\build
-    - name: Build with MSBuild
-      working-directory: ${{ runner.temp }}\\build
-      run: |
-        echo "Start building in ${{ runner.temp }}\\build"
-        cd ${{ runner.temp }}\\build
-        msbuild /m /p:Configuration=${{ env.BUILD_CONFIGURATION }} ${{ github.workspace }}\\xxx.sln
+      - name: Configure project
+        run: qmake Advanced-Tic-Tac-Toe.pro
+
+      - name: Build project
+        run: make
+
+      # Add deployment steps here (e.g., deploying artifacts)
+
