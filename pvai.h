@@ -35,7 +35,7 @@ public:
     bool connOpen()
     {
         mydb=QSqlDatabase::addDatabase("QSQLITE");
-        mydb.setDatabaseName("C:/Users/moame/Documents/QT/Advanced-Tic-Tac-Toe/SqLite/TicTacToe_Project.db");
+        mydb.setDatabaseName("D:/2nd year/project 2 embedded/Advanced-Tic-Tac-Toe/SqLite/TicTacToe_Project.db");
 
         if(!mydb.open()){
             qDebug()<<("none");
@@ -87,6 +87,8 @@ private slots:
     void on_main_menu_clicked();
 
     void saveIntoMemory();
+
+    void update_board();
 
 private:
     Ui::pvai *ui;

@@ -158,26 +158,51 @@ void pvai::move(int r, int c, const QString& turn) {
     update();
 }
 
+void pvai::update_board()
+{
+    if(ui->one->text()   == " ")
+        J00='0';
+    if(ui->two->text()   == "  ")
+        J01='0';
+    if(ui->three->text() == "   ")
+        J02='0';
+    if(ui->four->text()  == "    ")
+        J10='0';
+    if(ui->five->text()  == "     ")
+        J11='0';
+    if(ui->six->text()   == "      ")
+        J12='0';
+    if(ui->seven->text() == "       ")
+        J20='0';
+    if(ui->eight->text() == "        ")
+        J21='0';
+    if(ui->nine->text()  == "         ")
+        J22='0';
+}
+
 bool pvai::iswon()
 {
     //checking the win for Simple Rows and Simple Column
     for(int j=0; j<3 ; j++)
         if(((board[j][0] == board[j][1]) && (board[j][0] == board[j][2] ))||
-            ((board[0][j] == board[1][j]) && (board[0][j] == board[2][j])))
-            return true;
+            ((board[0][j] == board[1][j]) && (board[0][j] == board[2][j]))){
+            update_board();
+            return true;}
 
     //checking the win for both diagonal
     if(((board[0][0] == board[2][2]) && (board[1][1] == board[2][2] ))||
-        ((board[0][2] == board[1][1]) && (board[0][2] == board[2][0])))
-        return true;
+        ((board[0][2] == board[1][1]) && (board[0][2] == board[2][0]))){
+        update_board();
+        return true;}
 
     return false;
 }
 
 bool pvai::isdraw()
 {
-    if(!iswon() && l==10)
-        return true;
+    if(!iswon() && l==10){
+        update_board();
+        return true;}
 
     return false;
 }
