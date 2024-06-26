@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+env:
+  SOLUTION_FILE_PATH: ..  # Path to your solution file relative to the project root
+  BUILD_CONFIGURATION: Release  # Configuration type to build (e.g., Debug or Release)
+  
 jobs:
   build:
     runs-on: windows-latest
@@ -17,26 +21,19 @@ jobs:
       uses: jurplel/install-qt-action@v4
       with:
         qt-version: '6.7'
+        cache : true
+        host: windows
+        target: desktop
+        arch: win64_msvc2019_64
+        dir: ${{ runner.temp }}
 
-    - name: Configure Qt environment
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+    - name: Create build folder
+      run: mkdir -p ${{ runner.temp }}\\build
+    - name: Build with MSBuild
+      working-directory: ${{ runner.temp }}\\build
       run: |
-        qmake -config release  # Adjust as needed for your project
-        qmake --version  # Verify Qt version
-        mkdir build  # Create build directory if not exist
-        cd build
-
-    - name: Build project
-      run: |
-        qmake ../Advanced-Tic-Tac-Toe.pro -spec win32-g++ CONFIG+=debug CONFIG+=qml_debug
-        mingw32-make -j4
-
-    - name: Deploy using windeployqt
-      run: |
-        cd ../build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug
-        windeployqt.exe --quick .
-
-    - name: Archive artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: deployed-files
-        path: ./deployed-files  
+        echo "Start building in ${{ runner.temp }}\\build"
+        cd ${{ runner.temp }}\\build
+        msbuild /m /p:Configuration=${{ env.BUILD_CONFIGURATION }} ${{ github.workspace }}\\xxx.sln
