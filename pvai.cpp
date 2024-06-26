@@ -3,26 +3,16 @@
 #include "mainwindow.h"
 #include "mode_selector.h"
 #include <random>
-#include <QMessageBox>
-#include <chrono>
 #include <iostream>
 #include <QTimer>
-#include <windows.h>
-#include <psapi.h>
+#include "messageBox.h"
+#include "performance.h"
 using namespace std;
 
 extern QString currentUsername;
 QString Level;
 QString state;
-QString J00;
-QString J01;
-QString J02;
-QString J10;
-QString J11;
-QString J12;
-QString J20;
-QString J21;
-QString J22;
+QString J00,J01,J02,J10,J11,J12,J20,J21,J22;
 int counter_1=0;
 
 pvai::pvai(QWidget *parent)
@@ -60,58 +50,6 @@ void pvai::updatePerformanceMetrics()
     qDebug() << "CPU Usage: " <<cpuUsage<<"%";
 
 }
-
-size_t pvai::getMemoryUsage() {
-    PROCESS_MEMORY_COUNTERS_EX pmc;
-    GetProcessMemoryInfo(GetCurrentProcess(), (PROCESS_MEMORY_COUNTERS*)&pmc, sizeof(pmc));
-    return pmc.WorkingSetSize;
-}
-
-double pvai::getCpuUsage() {
-    FILETIME idleTime, kernelTime, userTime;
-    ULARGE_INTEGER sysIdleTime, sysKernelTime, sysUserTime;
-
-    #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
-    #pragma GCC diagnostic ignored "-Wmissing-braces"
-    static ULARGE_INTEGER prevIdleTime = {0}, prevKernelTime = {0}, prevUserTime = {0};
-
-    if (!GetSystemTimes(&idleTime, &kernelTime, &userTime)) {
-        // Handle system call failure
-        // For simplicity, returning -1.0 as an error indicator
-        return -1.0;
-    }
-
-    // Convert FILETIME structure to ULARGE_INTEGER to access QuadPart
-    memcpy(&sysIdleTime, &idleTime, sizeof(FILETIME));
-    memcpy(&sysKernelTime, &kernelTime, sizeof(FILETIME));
-    memcpy(&sysUserTime, &userTime, sizeof(FILETIME));
-
-    ULONGLONG idleTimeDiff = sysIdleTime.QuadPart - prevIdleTime.QuadPart;
-    ULONGLONG kernelTimeDiff = sysKernelTime.QuadPart - prevKernelTime.QuadPart;
-    ULONGLONG userTimeDiff = sysUserTime.QuadPart - prevUserTime.QuadPart;
-
-    double cpuUsage = 0.0;
-
-    if (prevIdleTime.QuadPart != 0) {
-        // Ensure non-negative values
-        if (idleTimeDiff >= 0 && kernelTimeDiff >= 0 && userTimeDiff >= 0) {
-            cpuUsage = 100.0 - (
-                           (idleTimeDiff * 100.0) / (kernelTimeDiff + userTimeDiff)
-                           );
-        } else {
-            // Handle unexpected negative values or other anomalies
-            // Example: Return -1.0 as an error indicator
-            cpuUsage = -1.0;
-        }
-    }
-
-    prevIdleTime = sysIdleTime;
-    prevKernelTime = sysKernelTime;
-    prevUserTime = sysUserTime;
-
-    return cpuUsage;
-}
-
 
 
 void pvai::save_state()
@@ -185,17 +123,7 @@ void pvai::init()
     ui->one->setText(" ");              ui->two->setText("  ");              ui->three->setText("   ");
     ui->four->setText("    ");          ui->five->setText("     ");          ui->six->setText("      ");
     ui->seven->setText("       ");      ui->eight->setText("        ");      ui->nine->setText("         ");
-    l=1; m=1;
-    J00='0';
-    J01='0';
-    J02='0';
-    J10='0';
-    J11='0';
-    J12='0';
-    J20='0';
-    J21='0';
-    J22='0';
-    counter_1=0;
+    l=1; m=1; J00='0'; J01='0'; J02='0'; J10='0'; J11='0'; J12='0'; J20='0'; J21='0'; J22='0'; counter_1=0;
 }
 
 void pvai::update()
@@ -266,36 +194,15 @@ void pvai::computer_turn_easy()
     l++;
     if(iswon())
     {
-        QMessageBox msgBox;
-        msgBox.setWindowTitle("Game Over");
-        msgBox.setText(QString("Ai Won!"));
-        msgBox.setIcon(QMessageBox::Information);
-        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                             "QLabel { color: #61B8D3; font-weight: bold; } "
-                             "QPushButton { background-color: #003E54; color: white; } "
-                             "QPushButton:hover { background-color: #004F6A; }");
-        msgBox.exec();
-        loseCount=1; winCount = 0; drawCount = 0;
-        state="lose";
-        save_state();
-        saveIntoMemory();
+        showGameOverMessage("Game Over", "Ai Won!");
+        loseCount=1; winCount = 0; drawCount = 0; state="lose";
+        save_state(); saveIntoMemory();
     }
     else if(isdraw())
     {
-        QMessageBox msgBox;
-        msgBox.setWindowTitle("Game Over");
-        msgBox.setText(QString("Draw!"));
-        msgBox.setIcon(QMessageBox::Information);
-        msgBox.setFixedWidth(500);
-        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                             "QLabel { color: #61B8D3; font-weight: bold; } "
-                             "QPushButton { background-color: #003E54; color: white; } "
-                             "QPushButton:hover { background-color: #004F6A; }");
-        msgBox.exec();
-        loseCount=0; winCount = 0; drawCount = 1;
-         state="draw";
-        save_state();
-        saveIntoMemory();
+        showGameOverMessage("Game Over", "Draw!");
+        loseCount=0; winCount = 0; drawCount = 1; state="draw";
+        save_state(); saveIntoMemory();
     }
 }
 
@@ -311,34 +218,15 @@ void pvai::computer_turn_medium()
                     l++;
                     if(iswon())
                     {
-                        QMessageBox msgBox;
-                        msgBox.setWindowTitle("Game Over");
-                        msgBox.setText(QString("Ai Won!"));
-                        msgBox.setIcon(QMessageBox::Information);
-                        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                                             "QLabel { color: #61B8D3; font-weight: bold; } "
-                                             "QPushButton { background-color: #003E54; color: white; } "
-                                             "QPushButton:hover { background-color: #004F6A; }");
-                        msgBox.exec();
-                        loseCount=1; winCount = 0; drawCount = 0;
-                         state="lose";
+                        showGameOverMessage("Game Over", "Ai Won!");
+                        loseCount=1; winCount = 0; drawCount = 0; state="lose";
                         save_state();
                         saveIntoMemory();
                     }
                     else if(isdraw())
                     {
-                        QMessageBox msgBox;
-                        msgBox.setWindowTitle("Game Over");
-                        msgBox.setText(QString("Draw!"));
-                        msgBox.setIcon(QMessageBox::Information);
-                        msgBox.setFixedWidth(500);
-                        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                                             "QLabel { color: #61B8D3; font-weight: bold; } "
-                                             "QPushButton { background-color: #003E54; color: white; } "
-                                             "QPushButton:hover { background-color: #004F6A; }");
-                        msgBox.exec();
-                        loseCount=0;  winCount = 0; drawCount = 1;
-                         state="draw";
+                        showGameOverMessage("Game Over", "Draw!");
+                        loseCount=0;  winCount = 0; drawCount = 1; state="draw";
                         save_state();
                         saveIntoMemory();
                     }
@@ -359,34 +247,15 @@ void pvai::computer_turn_medium()
                     l++;
                     if(iswon())
                     {
-                        QMessageBox msgBox;
-                        msgBox.setWindowTitle("Game Over");
-                        msgBox.setText(QString("Ai Won!"));
-                        msgBox.setIcon(QMessageBox::Information);
-                        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                                             "QLabel { color: #61B8D3; font-weight: bold; } "
-                                             "QPushButton { background-color: #003E54; color: white; } "
-                                             "QPushButton:hover { background-color: #004F6A; }");
-                        msgBox.exec();
-                        loseCount=1; winCount = 0; drawCount = 0;
-                         state="lose";
+                        showGameOverMessage("Game Over", "Ai Won!");
+                        loseCount=1; winCount = 0; drawCount = 0; state="lose";
                         save_state();
                         saveIntoMemory();
                     }
                     else if(isdraw())
                     {
-                        QMessageBox msgBox;
-                        msgBox.setWindowTitle("Game Over");
-                        msgBox.setText(QString("Draw!"));
-                        msgBox.setIcon(QMessageBox::Information);
-                        msgBox.setFixedWidth(500);
-                        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                                             "QLabel { color: #61B8D3; font-weight: bold; } "
-                                             "QPushButton { background-color: #003E54; color: white; } "
-                                             "QPushButton:hover { background-color: #004F6A; }");
-                        msgBox.exec();
-                        loseCount=0;winCount = 0; drawCount = 1;
-                         state="draw";
+                        showGameOverMessage("Game Over", "Draw!");
+                        loseCount=0;winCount = 0; drawCount = 1; state="draw";
                         save_state();
                         saveIntoMemory();
                     }
@@ -406,34 +275,15 @@ void pvai::computer_turn_medium()
     l++;
     if(iswon())
     {
-        QMessageBox msgBox;
-        msgBox.setWindowTitle("Game Over");
-        msgBox.setText(QString("Ai Won!"));
-        msgBox.setIcon(QMessageBox::Information);
-        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                             "QLabel { color: #61B8D3; font-weight: bold; } "
-                             "QPushButton { background-color: #003E54; color: white; } "
-                             "QPushButton:hover { background-color: #004F6A; }");
-        msgBox.exec();
-        loseCount=1; winCount = 0; drawCount = 0;
-         state="lose";
+        showGameOverMessage("Game Over", "Ai Won!");
+        loseCount=1; winCount = 0; drawCount = 0; state="lose";
         save_state();
         saveIntoMemory();
     }
     else if(isdraw())
     {
-        QMessageBox msgBox;
-        msgBox.setWindowTitle("Game Over");
-        msgBox.setText(QString("Draw!"));
-        msgBox.setIcon(QMessageBox::Information);
-        msgBox.setFixedWidth(500);
-        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                             "QLabel { color: #61B8D3; font-weight: bold; } "
-                             "QPushButton { background-color: #003E54; color: white; } "
-                             "QPushButton:hover { background-color: #004F6A; }");
-        msgBox.exec();
-        loseCount=0; winCount = 0; drawCount = 1;
-         state="draw";
+        showGameOverMessage("Game Over", "Draw!");
+        loseCount=0; winCount = 0; drawCount = 1; state="draw";
         save_state();
         saveIntoMemory();
     }
@@ -634,27 +484,11 @@ void pvai::handleButtonClick(QPushButton* button)
 {
     if(iswon() || isdraw())
     {
-        QMessageBox msgBox;
-        msgBox.setWindowTitle("Invalid Move");
-        msgBox.setText(QString("Game is already finished."));
-        msgBox.setIcon(QMessageBox::Warning);
-        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                             "QLabel { color: #61B8D3; font-weight: bold; } "
-                             "QPushButton { background-color: #003E54; color: white; } "
-                             "QPushButton:hover { background-color: #004F6A; }");
-        msgBox.exec();
+        showGameOverMessage("Invalid Move", "Game is already finished.");
     }
     else if (button->text() == "X" || button->text() == "O")
     {
-        QMessageBox msgBox;
-        msgBox.setWindowTitle("Invalid Move");
-        msgBox.setText(QString("Already occupied. Please, choose another Box."));
-        msgBox.setIcon(QMessageBox::Warning);
-        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                             "QLabel { color: #61B8D3; font-weight: bold; } "
-                             "QPushButton { background-color: #003E54; color: white; } "
-                             "QPushButton:hover { background-color: #004F6A; }");
-        msgBox.exec();
+        showGameOverMessage("Invalid Move", "Already occupied. Please, choose another Box.");
     }
     else
     {
@@ -680,50 +514,24 @@ void pvai::handleButtonClick(QPushButton* button)
         cout << "Player move response time: " << elapsed.count()*1000 << " ms" << endl;
         if(iswon())
         {
-            QMessageBox msgBox;
-            msgBox.setWindowTitle("Game Over");
-            msgBox.setText(QString("You Won!"));
-            msgBox.setIcon(QMessageBox::Information);
-            msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                                 "QLabel { color: #61B8D3; font-weight: bold; } "
-                                 "QPushButton { background-color: #003E54; color: white; } "
-                                 "QPushButton:hover { background-color: #004F6A; }");
-            msgBox.exec();
-            loseCount=0; winCount = 1; drawCount = 0;
-            state="win";
+            showGameOverMessage("Game Over", "You Won!");
+            loseCount=0; winCount = 1; drawCount = 0; state="win";
             save_state();
             saveIntoMemory();
         }
         else if(isdraw())
         {
-            QMessageBox msgBox;
-            msgBox.setWindowTitle("Game Over");
-            msgBox.setText(QString("Draw"));
-            msgBox.setIcon(QMessageBox::Information);
-            msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                                 "QLabel { color: #61B8D3; font-weight: bold; } "
-                                 "QPushButton { background-color: #003E54; color: white; } "
-                                 "QPushButton:hover { background-color: #004F6A; }");
-            msgBox.exec();
-            loseCount=0; winCount = 0; drawCount = 1;
-            state="draw";
+            showGameOverMessage("Game Over", "Draw");
+            loseCount=0; winCount = 0; drawCount = 1; state="draw";
             save_state();
             saveIntoMemory();
         }
         else if(!iswon() && l!=10 && mode==1 && m%2==0){
-            auto start = chrono::high_resolution_clock::now();
-            computer_turn_easy();
-            auto end = chrono::high_resolution_clock::now();
-            chrono::duration<double> elapsed = end - start;
-            cout << "Easy Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+            response_time([this](){ this->computer_turn_easy(); }, "Easy");
             m++;
         }
         else if(!iswon() && l!=10 && mode==2 && m%2==0){
-            auto start = chrono::high_resolution_clock::now();
-            computer_turn_medium();
-            auto end = chrono::high_resolution_clock::now();
-            chrono::duration<double> elapsed = end - start;
-            cout << "Medium Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+            response_time([this](){ this->computer_turn_medium(); }, "Medium");
             m++;
         }
         else if(!iswon() && l!=10 && mode==3 && m%2==0)
@@ -731,39 +539,23 @@ void pvai::handleButtonClick(QPushButton* button)
             if(l==2 && (board[1][1] == player_turn || board[0][1] == player_turn ||
                            board[1][0] == player_turn))
             {
-                auto start = chrono::high_resolution_clock::now();
-                move(0,0,ai_turn);
-                auto end = chrono::high_resolution_clock::now();
-                chrono::duration<double> elapsed = end - start;
-                cout << "Hard Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+                response_time([this](){ this->move(0,0,ai_turn); }, "Hard");
                 l++; m++;
             }
             else if (l==2 && (board[0][0] == player_turn || board[0][2] == player_turn ||
                                   board[2][0] == player_turn || board[2][2] == player_turn))
             {
-                auto start = chrono::high_resolution_clock::now();
-                move(1,1,ai_turn);
-                auto end = chrono::high_resolution_clock::now();
-                chrono::duration<double> elapsed = end - start;
-                cout << "Hard Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+                response_time([this](){ this->move(1,1,ai_turn); }, "Hard");
                 l++; m++;
             }
             else if (l==2 && board[1][2] == player_turn)
             {
-                auto start = chrono::high_resolution_clock::now();
-                move(0,2,ai_turn);
-                auto end = chrono::high_resolution_clock::now();
-                chrono::duration<double> elapsed = end - start;
-                cout << "Hard Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+                response_time([this](){ this->move(0,2,ai_turn); }, "Hard");
                 l++; m++;
             }
             else if (l==2 && board[2][1] == player_turn)
             {
-                auto start = chrono::high_resolution_clock::now();
-                move(0,1,ai_turn);
-                auto end = chrono::high_resolution_clock::now();
-                chrono::duration<double> elapsed = end - start;
-                cout << "Hard Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
+                response_time([this](){ this->move(0,1,ai_turn); }, "Hard");
                 l++; m++;
             }
             else
@@ -777,34 +569,15 @@ void pvai::handleButtonClick(QPushButton* button)
                 l++;    m++;
                 if(iswon())
                 {
-                    QMessageBox msgBox;
-                    msgBox.setWindowTitle("Game Over");
-                    msgBox.setText(QString("Ai Won!"));
-                    msgBox.setIcon(QMessageBox::Information);
-                    msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                                         "QLabel { color: #61B8D3; font-weight: bold; } "
-                                         "QPushButton { background-color: #003E54; color: white; } "
-                                         "QPushButton:hover { background-color: #004F6A; }");
-                    msgBox.exec();
-                    loseCount=1; winCount = 0; drawCount = 0;
-                    state="lose";
+                    showGameOverMessage("Game Over", "Ai Won!");
+                    loseCount=1; winCount = 0; drawCount = 0; state="lose";
                     save_state();
                     saveIntoMemory();
                 }
                 else if(isdraw())
                 {
-                    QMessageBox msgBox;
-                    msgBox.setWindowTitle("Game Over");
-                    msgBox.setText(QString("Draw!"));
-                    msgBox.setIcon(QMessageBox::Information);
-                    msgBox.setFixedWidth(500);
-                    msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                                         "QLabel { color: #61B8D3; font-weight: bold; } "
-                                         "QPushButton { background-color: #003E54; color: white; } "
-                                         "QPushButton:hover { background-color: #004F6A; }");
-                    msgBox.exec();
-                    loseCount=0; winCount = 0; drawCount = 1;
-                    state="draw";
+                    showGameOverMessage("Game Over", "Draw!");
+                    loseCount=0; winCount = 0; drawCount = 1; state="draw";
                     save_state();
                     saveIntoMemory();
                 }

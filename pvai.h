@@ -88,10 +88,6 @@ private slots:
 
     void saveIntoMemory();
 
-    size_t getMemoryUsage();
-
-    double getCpuUsage();
-
 private:
     Ui::pvai *ui;
 };

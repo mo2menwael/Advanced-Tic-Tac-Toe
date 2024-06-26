@@ -69,10 +69,6 @@ private slots:
 
     void on_main_menu_clicked();
 
-    size_t getMemoryUsage();
-
-    double getCpuUsage();
-
 private:
     Ui::pvp *ui;
 };

@@ -5,14 +5,12 @@
 #include <random>
 #include <QtWidgets>
 #include "mode_selector.h"
-#include <QMessageBox>
 #include <QFontDatabase>
 #include <QString>
 #include <QDate>
 #include <QTimer>
-#include "windows.h"
-#include "psapi.h"
-
+#include "messageBox.h"
+#include "performance.h"
 using namespace std;
 
 extern QString currentUsername;
@@ -20,15 +18,7 @@ extern  QString othertUsername;
 QString playerLevel="local";
 QString result_1;
 QString result_2;
-QString I00;
-QString I01;
-QString I02;
-QString I10;
-QString I11;
-QString I12;
-QString I20;
-QString I21;
-QString I22;
+QString I00,I01,I02,I10,I11,I12,I20,I21,I22;
 int counter=0;
 
 QString movesArray[9]; // Array to hold up to 9 moves
@@ -61,57 +51,6 @@ void pvp::updatePerformanceMetrics()
     qDebug() << "Memory Usage: " << memoryUsage / (1024*1024) << " MB";
     qDebug() << "CPU Usage: " <<cpuUsage<<"%";
 
-}
-
-size_t pvp::getMemoryUsage() {
-    PROCESS_MEMORY_COUNTERS_EX pmc;
-    GetProcessMemoryInfo(GetCurrentProcess(), (PROCESS_MEMORY_COUNTERS*)&pmc, sizeof(pmc));
-    return pmc.WorkingSetSize;
-}
-
-double pvp::getCpuUsage() {
-    FILETIME idleTime, kernelTime, userTime;
-    ULARGE_INTEGER sysIdleTime, sysKernelTime, sysUserTime;
-
-    #pragma GCC diagnostic ignored "-Wmissing-field-initializers"
-    #pragma GCC diagnostic ignored "-Wmissing-braces"
-    static ULARGE_INTEGER prevIdleTime = {0}, prevKernelTime = {0}, prevUserTime = {0};
-
-    if (!GetSystemTimes(&idleTime, &kernelTime, &userTime)) {
-        // Handle system call failure
-        // For simplicity, returning -1.0 as an error indicator
-        return -1.0;
-    }
-
-    // Convert FILETIME structure to ULARGE_INTEGER to access QuadPart
-    memcpy(&sysIdleTime, &idleTime, sizeof(FILETIME));
-    memcpy(&sysKernelTime, &kernelTime, sizeof(FILETIME));
-    memcpy(&sysUserTime, &userTime, sizeof(FILETIME));
-
-    ULONGLONG idleTimeDiff = sysIdleTime.QuadPart - prevIdleTime.QuadPart;
-    ULONGLONG kernelTimeDiff = sysKernelTime.QuadPart - prevKernelTime.QuadPart;
-    ULONGLONG userTimeDiff = sysUserTime.QuadPart - prevUserTime.QuadPart;
-
-    double cpuUsage = 0.0;
-
-    if (prevIdleTime.QuadPart != 0) {
-        // Ensure non-negative values
-        if (idleTimeDiff >= 0 && kernelTimeDiff >= 0 && userTimeDiff >= 0) {
-            cpuUsage = 100.0 - (
-                           (idleTimeDiff * 100.0) / (kernelTimeDiff + userTimeDiff)
-                           );
-        } else {
-            // Handle unexpected negative values or other anomalies
-            // Example: Return -1.0 as an error indicator
-            cpuUsage = -1.0;
-        }
-    }
-
-    prevIdleTime = sysIdleTime;
-    prevKernelTime = sysKernelTime;
-    prevUserTime = sysUserTime;
-
-    return cpuUsage;
 }
 
 pvp::~pvp()
@@ -189,17 +128,7 @@ void pvp::init() {
     ui->one->setText(" ");              ui->two->setText("  ");              ui->three->setText("   ");
     ui->four->setText("    ");          ui->five->setText("     ");          ui->six->setText("      ");
     ui->seven->setText("       ");      ui->eight->setText("        ");      ui->nine->setText("         ");
-    i = 1;
-    I00='0';
-    I01='0';
-    I02='0';
-    I10='0';
-    I11='0';
-    I12='0';
-    I20='0';
-    I21='0';
-    I22='0';
-    counter=0;
+    i = 1; I00='0'; I01='0'; I02='0'; I10='0'; I11='0'; I12='0'; I20='0'; I21='0'; I22='0'; counter = 0;
     // Reset the 3x3 array
     for (int row = 0; row < 3; ++row) {
         for (int col = 0; col < 3; ++col) {
@@ -242,18 +171,12 @@ bool pvp::isdraw()
 void pvp::handleButtonClick(QPushButton* button) {
     if(iswon() || isdraw())
     {
-        QMessageBox msgBox;
-        msgBox.setWindowTitle("Invalid Move");
-        msgBox.setText(QString("Game is already finished."));
-        msgBox.setIcon(QMessageBox::Warning);
-        msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                             "QLabel { color: #61B8D3; font-weight: bold; } "
-                             "QPushButton { background-color: #003E54; color: white; } "
-                             "QPushButton:hover { background-color: #004F6A; }");
-        msgBox.exec();
+        showGameOverMessage("Invalid Move", "Game is already finished.");
     }
     else if (button->text() == "X" || button->text() == "O")
-        QMessageBox::warning(this, " ", "Already occupied. Please choose another box.");
+    {
+        showGameOverMessage("Invalid Move", "Already occupied. Please choose another box.");
+    }
     else
     {
         QString currentPlayer = (i % 2 != 0) ? p1_turn : p2_turn;
@@ -277,15 +200,7 @@ void pvp::handleButtonClick(QPushButton* button) {
         update();
         if (iswon() && (k % 2 != 0)) {
             ui->turntext->hide();
-            QMessageBox msgBox;
-            msgBox.setWindowTitle("Game Over");
-            msgBox.setText(QString("%1 Won").arg(currentUsername));
-            msgBox.setIcon(QMessageBox::Information);
-            msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                                 "QLabel { color: #61B8D3; font-weight: bold; } "
-                                 "QPushButton { background-color: #003E54; color: white; } "
-                                 "QPushButton:hover { background-color: #004F6A; }");
-            msgBox.exec();
+            showGameOverMessage("Game Over", QString("%1 Won").arg(currentUsername));
             winCount_1 = 1;loseCount_1 = 0;drawCount_1 = 0;
             loseCount_2 = 1; winCount_2 = 0; drawCount_2 = 0;
             result_1="win";
@@ -294,15 +209,7 @@ void pvp::handleButtonClick(QPushButton* button) {
             saveIntoMemory();
         } else if (iswon() && (k % 2 == 0)) {
             ui->turntext->hide();
-            QMessageBox msgBox;
-            msgBox.setWindowTitle("Game Over");
-            msgBox.setText(QString("%1 Won").arg(othertUsername));
-            msgBox.setIcon(QMessageBox::Information);
-            msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                                 "QLabel { color: #61B8D3; font-weight: bold; } "
-                                 "QPushButton { background-color: #003E54; color: white; } "
-                                 "QPushButton:hover { background-color: #004F6A; }");
-            msgBox.exec();
+            showGameOverMessage("Game Over", QString("%1 Won").arg(othertUsername));
             winCount_1 = 0; loseCount_1 = 1;drawCount_1 = 0;
             loseCount_2 = 0; winCount_2 = 1; drawCount_2 = 0;
             result_1="lose";
@@ -311,15 +218,7 @@ void pvp::handleButtonClick(QPushButton* button) {
             saveIntoMemory();
         } else if (isdraw()) {
             ui->turntext->hide();
-            QMessageBox msgBox;
-            msgBox.setWindowTitle("Game Over");
-            msgBox.setText(QString("Draw"));
-            msgBox.setIcon(QMessageBox::Information);
-            msgBox.setStyleSheet("QMessageBox { background-color: #002F41; } "
-                                 "QLabel { color: #61B8D3; font-weight: bold; } "
-                                 "QPushButton { background-color: #003E54; color: white; } "
-                                 "QPushButton:hover { background-color: #004F6A; }");
-            msgBox.exec();
+            showGameOverMessage("Game Over", "Draw!");
             winCount_1 = 0;loseCount_1 = 0; drawCount_1 = 1;
             loseCount_2 = 0; winCount_2 = 0;drawCount_2 = 1;
             result_1="draw";

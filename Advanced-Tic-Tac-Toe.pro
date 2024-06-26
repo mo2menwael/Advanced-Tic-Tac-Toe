@@ -13,7 +13,9 @@ SOURCES += \
     history.cpp \
     main.cpp \
     mainwindow.cpp \
+    messageBox.cpp \
     mode_selector.cpp \
+    performance.cpp \
     pvai.cpp \
     pvp.cpp \
     signup.cpp \
@@ -23,7 +25,9 @@ HEADERS += \
     display.h \
     history.h \
     mainwindow.h \
+    messageBox.h \
     mode_selector.h \
+    performance.h \
     pvai.h \
     pvp.h \
     signup.h \
