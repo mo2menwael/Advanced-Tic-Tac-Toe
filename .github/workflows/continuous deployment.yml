@@ -17,8 +17,7 @@ jobs:
         uses: jurplel/install-qt-action@v4
         with:
           version: 6.4.3
-          target: desktop
-          arch: linux
+          host: linux
 
       - name: Configure project
         run: qmake Advanced-Tic-Tac-Toe.pro
