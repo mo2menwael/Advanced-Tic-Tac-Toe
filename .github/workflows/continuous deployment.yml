@@ -1,0 +1,27 @@
+name: Deploy Tic Tac Toe Game
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4.1.7
+
+    - name: Set up Qt environment
+      uses: jurplel/setup-qt@v4
+      with:
+        qt-version: '6.7'
+
+    - name: Build project
+      run: qmake && make
+
+    - name: Deploy using windeployqt
+      run: |
+        cd build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug
+        windeployqt.exe --quick .
