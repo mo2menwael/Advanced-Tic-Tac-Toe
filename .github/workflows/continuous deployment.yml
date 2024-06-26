@@ -18,10 +18,25 @@ jobs:
       with:
         qt-version: '6.7'
 
+    - name: Configure Qt environment
+      run: |
+        qmake -config release  # Adjust as needed for your project
+        qmake --version  # Verify Qt version
+        mkdir build  # Create build directory if not exist
+        cd build
+
     - name: Build project
-      run: qmake && make
+      run: |
+        qmake ../Advanced-Tic-Tac-Toe.pro -spec win32-g++ CONFIG+=debug CONFIG+=qml_debug
+        mingw32-make -j4
 
     - name: Deploy using windeployqt
       run: |
-        cd build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug
+        cd ../build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/debug
         windeployqt.exe --quick .
+
+    - name: Archive artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: deployed-files
+        path: ./deployed-files  
