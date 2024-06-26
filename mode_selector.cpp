@@ -3,7 +3,7 @@
 #include "mainwindow.h"
 #include <qmessagebox.h>
 #include <QtWidgets>
-#include <Qmessagebox>
+#include <QMessageBox>
 #include "history.h"
 
 
