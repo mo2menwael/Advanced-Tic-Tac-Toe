@@ -7,7 +7,7 @@
 #include <qmessagebox.h>
 #include <random>
 #include <QtWidgets>
-#include <Qmessagebox>
+#include <QmessageBox>
 
 
 MainWindow::MainWindow(QWidget *parent)
