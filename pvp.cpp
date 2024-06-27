@@ -76,7 +76,7 @@ string second_player_turn() {
 }
 QString p2_turn = QString::fromStdString(second_player_turn());
 
-int k,i;
+int Moves;
 int winCount_1 = 0;
 int loseCount_1 =0;
 int drawCount_1 = 0;
@@ -128,7 +128,7 @@ void pvp::init() {
     ui->one->setText(" ");              ui->two->setText("  ");              ui->three->setText("   ");
     ui->four->setText("    ");          ui->five->setText("     ");          ui->six->setText("      ");
     ui->seven->setText("       ");      ui->eight->setText("        ");      ui->nine->setText("         ");
-    i = 1; I00='0'; I01='0'; I02='0'; I10='0'; I11='0'; I12='0'; I20='0'; I21='0'; I22='0'; counter = 0;
+    Moves = 1; I00='0'; I01='0'; I02='0'; I10='0'; I11='0'; I12='0'; I20='0'; I21='0'; I22='0'; counter = 0;
     // Reset the 3x3 array
     for (int row = 0; row < 3; ++row) {
         for (int col = 0; col < 3; ++col) {
@@ -162,7 +162,7 @@ bool pvp::iswon()
 
 bool pvp::isdraw()
 {
-    if(!iswon() && i==10)
+    if(!iswon() && Moves==10)
         return true;
 
     return false;
@@ -179,10 +179,10 @@ void pvp::handleButtonClick(QPushButton* button) {
     }
     else
     {
-        QString currentPlayer = (i % 2 != 0) ? p1_turn : p2_turn;
+        QString currentPlayer = (Moves % 2 != 0) ? p1_turn : p2_turn;
         button->setText(currentPlayer);
         button->setStyleSheet("color: #FF4350"); // Set the text color
-        ui->turntext->setText((i % 2 != 0) ? othertUsername + "'s turn" : currentUsername + "'s turn");
+        ui->turntext->setText((Moves % 2 != 0) ? othertUsername + "'s turn" : currentUsername + "'s turn");
 
         // Determine the row and column of the clicked button and update the board state
         if (button == ui->one) { board[0][0] = currentPlayer; I00=QString::number(++counter);}
@@ -195,10 +195,9 @@ void pvp::handleButtonClick(QPushButton* button) {
         else if (button == ui->eight) { board[2][1] = currentPlayer; I21=QString::number(++counter);}
         else if (button == ui->nine) { board[2][2] = currentPlayer; I22=QString::number(++counter);}
 
-        i++;
-        k = i - 1;
+        Moves++;
         update();
-        if (iswon() && (k % 2 != 0)) {
+        if (iswon() && ((Moves-1) % 2 != 0)) {
             ui->turntext->hide();
             showGameOverMessage("Game Over", QString("%1 Won").arg(currentUsername));
             winCount_1 = 1;loseCount_1 = 0;drawCount_1 = 0;
@@ -207,7 +206,7 @@ void pvp::handleButtonClick(QPushButton* button) {
             result_2="lose";
             save_state();
             saveIntoMemory();
-        } else if (iswon() && (k % 2 == 0)) {
+        } else if (iswon() && ((Moves-1) % 2 == 0)) {
             ui->turntext->hide();
             showGameOverMessage("Game Over", QString("%1 Won").arg(othertUsername));
             winCount_1 = 0; loseCount_1 = 1;drawCount_1 = 0;

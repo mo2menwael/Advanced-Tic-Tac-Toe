@@ -34,7 +34,7 @@ pvai::~pvai()
     delete ui;
 }
 
-int l,mode,m;
+int moves,mode,take_turns;
 int winCount = 0;
 int loseCount = 0;
 int drawCount = 0;
@@ -123,7 +123,7 @@ void pvai::init()
     ui->one->setText(" ");              ui->two->setText("  ");              ui->three->setText("   ");
     ui->four->setText("    ");          ui->five->setText("     ");          ui->six->setText("      ");
     ui->seven->setText("       ");      ui->eight->setText("        ");      ui->nine->setText("         ");
-    l=1; m=1; J00='0'; J01='0'; J02='0'; J10='0'; J11='0'; J12='0'; J20='0'; J21='0'; J22='0'; counter_1=0;
+    moves=1; take_turns=1; J00='0'; J01='0'; J02='0'; J10='0'; J11='0'; J12='0'; J20='0'; J21='0'; J22='0'; counter_1=0;
 }
 
 void pvai::update()
@@ -200,7 +200,7 @@ bool pvai::iswon()
 
 bool pvai::isdraw()
 {
-    if(!iswon() && l==10){
+    if(!iswon() && moves==10){
         update_board();
         return true;}
 
@@ -216,7 +216,7 @@ void pvai::computer_turn_easy()
         column = rand() % 3;
     } while (board[row][column] == "X" || board[row][column] == "O");
     move(row,column,ai_turn);
-    l++;
+    moves++;
     if(iswon())
     {
         showGameOverMessage("Game Over", "Ai Won!");
@@ -240,7 +240,7 @@ void pvai::computer_turn_medium()
                 QString temp = board[i][j];
                 move(i,j,ai_turn);
                 if (iswon()) {
-                    l++;
+                    moves++;
                     if(iswon())
                     {
                         showGameOverMessage("Game Over", "Ai Won!");
@@ -269,7 +269,7 @@ void pvai::computer_turn_medium()
                 move(i,j,player_turn);
                 if (iswon()) {
                     move(i,j,ai_turn); // Block the opponent's winning move
-                    l++;
+                    moves++;
                     if(iswon())
                     {
                         showGameOverMessage("Game Over", "Ai Won!");
@@ -297,7 +297,7 @@ void pvai::computer_turn_medium()
         column = rand() % 3;
     } while (board[row][column] == 'X' || board[row][column] == 'O');
     move(row,column,ai_turn);
-    l++;
+    moves++;
     if(iswon())
     {
         showGameOverMessage("Game Over", "Ai Won!");
@@ -520,7 +520,7 @@ void pvai::handleButtonClick(QPushButton* button)
         auto start = chrono::high_resolution_clock::now();
         button->setText(player_turn);
         button->setStyleSheet("color: #FF4350");
-        l++; m++;
+        moves++; take_turns++;
 
         // Determine the row and column of the clicked button and update the board state
         if (button == ui->one) { board[0][0] = currentUsername; J00=QString::number(++counter_1);}
@@ -551,37 +551,37 @@ void pvai::handleButtonClick(QPushButton* button)
             save_state();
             saveIntoMemory();
         }
-        else if(!iswon() && l!=10 && mode==1 && m%2==0){
+        else if(!iswon() && moves!=10 && mode==1 && take_turns%2==0){
             response_time([this](){ this->computer_turn_easy(); }, "Easy");
-            m++;
+            take_turns++;
         }
-        else if(!iswon() && l!=10 && mode==2 && m%2==0){
+        else if(!iswon() && moves!=10 && mode==2 && take_turns%2==0){
             response_time([this](){ this->computer_turn_medium(); }, "Medium");
-            m++;
+            take_turns++;
         }
-        else if(!iswon() && l!=10 && mode==3 && m%2==0)
+        else if(!iswon() && moves!=10 && mode==3 && take_turns%2==0)
         {
-            if(l==2 && (board[1][1] == player_turn || board[0][1] == player_turn ||
+            if(moves==2 && (board[1][1] == player_turn || board[0][1] == player_turn ||
                            board[1][0] == player_turn))
             {
                 response_time([this](){ this->move(0,0,ai_turn); }, "Hard");
-                l++; m++;
+                moves++; take_turns++;
             }
-            else if (l==2 && (board[0][0] == player_turn || board[0][2] == player_turn ||
+            else if (moves==2 && (board[0][0] == player_turn || board[0][2] == player_turn ||
                                   board[2][0] == player_turn || board[2][2] == player_turn))
             {
                 response_time([this](){ this->move(1,1,ai_turn); }, "Hard");
-                l++; m++;
+                moves++; take_turns++;
             }
-            else if (l==2 && board[1][2] == player_turn)
+            else if (moves==2 && board[1][2] == player_turn)
             {
                 response_time([this](){ this->move(0,2,ai_turn); }, "Hard");
-                l++; m++;
+                moves++; take_turns++;
             }
-            else if (l==2 && board[2][1] == player_turn)
+            else if (moves==2 && board[2][1] == player_turn)
             {
                 response_time([this](){ this->move(0,1,ai_turn); }, "Hard");
-                l++; m++;
+                moves++; take_turns++;
             }
             else
             {
@@ -591,7 +591,7 @@ void pvai::handleButtonClick(QPushButton* button)
                 auto end = chrono::high_resolution_clock::now();
                 chrono::duration<double> elapsed = end - start;
                 cout << "Hard Computer move response time: " << elapsed.count()*1000 << " ms" << endl;
-                l++;    m++;
+                moves++;    take_turns++;
                 if(iswon())
                 {
                     showGameOverMessage("Game Over", "Ai Won!");
