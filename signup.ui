@@ -34,13 +34,16 @@
    <property name="font">
     <font>
      <family>Calibri</family>
-     <pointsize>12</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(97, 184, 211);
 border: 2px solid rgb(225, 225, 225);
 border-radius: 5px;</string>
+   </property>
+   <property name="placeholderText">
+    <string>Username</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit_3">
@@ -55,7 +58,7 @@ border-radius: 5px;</string>
    <property name="font">
     <font>
      <family>Calibri</family>
-     <pointsize>12</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -65,6 +68,9 @@ border-radius: 5px;</string>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
+   </property>
+   <property name="placeholderText">
+    <string>Password</string>
    </property>
   </widget>
   <widget class="QLabel" name="Username">
@@ -134,7 +140,7 @@ border-radius: 5px;</string>
    <property name="font">
     <font>
      <family>Calibri</family>
-     <pointsize>12</pointsize>
+     <pointsize>11</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -144,6 +150,9 @@ border-radius: 5px;</string>
    </property>
    <property name="echoMode">
     <enum>QLineEdit::Password</enum>
+   </property>
+   <property name="placeholderText">
+    <string>Confrim Password</string>
    </property>
   </widget>
   <widget class="QLabel" name="confirmpass">
@@ -210,9 +219,9 @@ border-color: rgb(93, 184, 211);
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>150</x>
      <y>80</y>
-     <width>481</width>
+     <width>491</width>
      <height>93</height>
     </rect>
    </property>
@@ -289,6 +298,57 @@ border-color: rgb(93, 184, 211);
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>239</y>
+     <width>31</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: transparent;
+image: url(:/img/Images/users.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="passimg">
+   <property name="geometry">
+    <rect>
+     <x>525</x>
+     <y>302</y>
+     <width>21</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/img/Images/pass.png);
+background: transparent;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="passimg_2">
+   <property name="geometry">
+    <rect>
+     <x>525</x>
+     <y>362</y>
+     <width>21</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/img/Images/pass.png);
+background: transparent;</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

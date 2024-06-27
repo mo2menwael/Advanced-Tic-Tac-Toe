@@ -476,6 +476,12 @@ border-color: rgb(255, 170, 0);
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>doButton</tabstop>
+  <tabstop>undoButton</tabstop>
+  <tabstop>back_to_history</tabstop>
+  <tabstop>main_menu</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

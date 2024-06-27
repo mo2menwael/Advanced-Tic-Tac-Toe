@@ -12,10 +12,10 @@ SOURCES += \
     display.cpp \
     history.cpp \
     main.cpp \
-    mainwindow.cpp \
     messageBox.cpp \
-    mode_selector.cpp \
     performance.cpp \
+    mainwindow.cpp \
+    mode_selector.cpp \
     pvai.cpp \
     pvp.cpp \
     signup.cpp \
@@ -24,10 +24,10 @@ SOURCES += \
 HEADERS += \
     display.h \
     history.h \
-    mainwindow.h \
     messageBox.h \
-    mode_selector.h \
     performance.h \
+    mainwindow.h \
+    mode_selector.h \
     pvai.h \
     pvp.h \
     signup.h \
@@ -53,3 +53,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 # Add Google Test library directory
 #LIBS += -L$$PWD/googletest/build/lib -lgtest -lgtest_main
+
+RESOURCES += \
+    Resources.qrc
+
+RC_ICONS = tic-tac-tactics.ico

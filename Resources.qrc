@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>Images/pass.png</file>
+        <file>Images/people 2.png</file>
+        <file>Images/history-book.png</file>
+        <file>Images/users.png</file>
+        <file>Images/com.png</file>
+        <file>tic-tac-tactics.ico</file>
+    </qresource>
+</RCC>

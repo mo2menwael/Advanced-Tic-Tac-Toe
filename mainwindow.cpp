@@ -65,7 +65,7 @@ void MainWindow::on_SignIn_Button_clicked()
         }
 
         if(count<1)
-            ui->label_6->setText("username and password not found");
+            ui->label_6->setText("Username and Password not found");
     }
 }
 

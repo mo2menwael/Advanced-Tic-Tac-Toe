@@ -518,6 +518,19 @@ border-color: rgb(93, 184, 211);
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>startt</tabstop>
+  <tabstop>main_menu</tabstop>
+  <tabstop>one</tabstop>
+  <tabstop>two</tabstop>
+  <tabstop>three</tabstop>
+  <tabstop>four</tabstop>
+  <tabstop>five</tabstop>
+  <tabstop>six</tabstop>
+  <tabstop>seven</tabstop>
+  <tabstop>eight</tabstop>
+  <tabstop>nine</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
