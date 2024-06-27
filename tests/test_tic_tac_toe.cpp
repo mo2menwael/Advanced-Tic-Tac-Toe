@@ -15,8 +15,8 @@ TEST(TicTacToeTest, InitializeBoard) {
 // Test case for checking a valid move
 TEST(TicTacToeTest, MakeValidMove) {
     TicTacToe game;
-    EXPECT_EQ(game.makeMove(2, 1, 'O'), "Valid move");
-    EXPECT_EQ(game.getBoardValue(2, 1), 'O');
+    EXPECT_EQ(game.makeMove(2, 1, 'X'), "Valid move");
+    EXPECT_EQ(game.getBoardValue(2, 1), 'X');
 }
 
 // Test case for checking a invalid move
