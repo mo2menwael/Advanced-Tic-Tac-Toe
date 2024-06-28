@@ -47,7 +47,7 @@ jobs:
           
     - name: Build using MinGW
       run: |
-        g++ -Igoogletest/googletest/include -Igoogletest/googlemock/include -Lgoogletest/build/lib tests/test_tic_tac_toe.cpp -lgmock -lgtest -lgmock_main -lgtest_main -o test_tic_tac_toe.exe -pthread
+        g++ -Igoogletest/googletest/include -Igoogletest/googlemock/include -Lgoogletest/build/lib GUI_Tic_Tac_Toe/tests/test_tic_tac_toe.cpp -lgmock -lgtest -lgmock_main -lgtest_main -o test_tic_tac_toe.exe -pthread
 
     - name: Run tests
       run: .\test_tic_tac_toe.exe
