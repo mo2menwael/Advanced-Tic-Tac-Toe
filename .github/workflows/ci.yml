@@ -30,7 +30,7 @@ jobs:
       id: cache-gtest
       uses: actions/cache@v4.0.2
       with:
-        path: googletest/build
+        path: GUI_Tic_Tac_Toe/googletest/build
         key: ${{ runner.os }}-gtest
         restore-keys: |
           ${{ runner.os }}-gtest
@@ -38,7 +38,7 @@ jobs:
     - name: Build Google Test
       if: steps.cache-gtest.outputs.cache-hit != 'true'
       run: |
-        cd googletest
+        cd GUI_Tic_Tac_Toe/googletest
         mkdir build
         cd build
         cmake -G "MinGW Makefiles" ..
@@ -47,7 +47,7 @@ jobs:
           
     - name: Build using MinGW
       run: |
-        g++ -Igoogletest/googletest/include -Igoogletest/googlemock/include -Lgoogletest/build/lib GUI_Tic_Tac_Toe/tests/test_tic_tac_toe.cpp -lgmock -lgtest -lgmock_main -lgtest_main -o test_tic_tac_toe.exe -pthread
+        g++ -IGUI_Tic_Tac_Toe/googletest/googletest/include -IGUI_Tic_Tac_Toe/googletest/googlemock/include -LGUI_Tic_Tac_Toe/googletest/build/lib GUI_Tic_Tac_Toe/tests/test_tic_tac_toe.cpp -lgmock -lgtest -lgmock_main -lgtest_main -o test_tic_tac_toe.exe -pthread
 
     - name: Run tests
       run: .\test_tic_tac_toe.exe
