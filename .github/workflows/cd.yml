@@ -26,6 +26,9 @@ jobs:
         choco install mingw --params "/NoPath /InstallationPath:C:\tools\mingw64" -y
         echo "C:\tools\mingw64\bin" >> $GITHUB_PATH
 
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v4
+
     - name: Build using MinGW
       run: |
         g++ GUI_Tic_Tac_Toe/main.cpp -o Advanced-Tic-Tac-Toe.exe
