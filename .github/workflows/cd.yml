@@ -29,14 +29,15 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v4
       with:
+          version: '6.7.0'
           cache: 'true'
           host: 'windows'
-          dir: '${{github.workspace}}/qt/'
+          dir: '${{github.workspace}}/Qt/'
           install-deps: 'true'
 
     - name: Build using MinGW
       run: |
-        g++ GUI_Tic_Tac_Toe/main.cpp -o Advanced-Tic-Tac-Toe.exe
+        g++ -I$GITHUB_WORKSPACE/Qt/6.7.0/mingw_64/include -L$GITHUB_WORKSPACE/Qt/6.7.0/mingw_64/lib GUI_Tic_Tac_Toe/main.cpp -o Advanced-Tic-Tac-Toe.exe
 
     - name: Deploy executable
       run: |
