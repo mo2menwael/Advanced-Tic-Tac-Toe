@@ -28,6 +28,13 @@ jobs:
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v4
+      with:
+          cache: true
+          host: 'windows'
+          target: 'desktop'
+          arch: 'win64_mingw73'
+          dir: '${{github.workspace}}/qt/'
+          install-deps: 'true'
 
     - name: Build using MinGW
       run: |
