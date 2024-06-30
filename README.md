@@ -2,6 +2,7 @@
 
 ## Overview
 This project demonstrates an Advanced Tic Tac Toe game using C++, Qt for GUI, and SQLite for Database. The game has a database for a unique user login and 2 modes of play, Player VS Player or Player VS Ai. The Player VS Ai has 3 difficulty modes: Easy, Medium, and Hard.
+![](https://github.com/mo2menwael/Advanced-Tic-Tac-Toe/game.gif)
   
 ## Key Features
 - **Secure and unique user login functionality:**
