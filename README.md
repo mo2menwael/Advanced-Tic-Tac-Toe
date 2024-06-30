@@ -1,7 +1,7 @@
 # Advanced Tic Tac Toe
 
 ## Overview
-This project demonstrates an Advanced Tic Tac Toe game using C++, Qt for GUI, and SQLite for Database. The game has a database for a unique user login and 2 modes of play, Player VS Player or Player VS Ai. The Player VS Ai has 3 difficulty modes: Easy, Medium, and Hard.
+This project demonstrates an Advanced Tic Tac Toe game using C++, Qt for GUI, and SQLite for Database. The game has a database for unique user login and 2 modes of play, Player vs. Player or Player vs. AI. The Player VS Ai has 3 difficulty modes: Easy, Medium, and Hard.
 
 ![](https://github.com/mo2menwael/Advanced-Tic-Tac-Toe/blob/main/game.gif)
   
@@ -15,25 +15,41 @@ This project demonstrates an Advanced Tic Tac Toe game using C++, Qt for GUI, an
   - Player vs. AI.
 - **Three levels of AI difficulty:**
   - Easy: AI makes random moves.
-  - Medium: AI prioritizes winning, blocking opponent’s winning moves, or makes random moves.
-  - Hard: AI uses the Minimax algorithm for optimal gameplay (Impossible to beat 🙃).
+  - Medium: AI prioritizes winning, blocking opponent’s winning moves, or making random moves.
+  - Hard: AI uses the Minimax algorithm for optimal gameplay (Impossible to Beat 🙃).
 - **Game history page:**
   - View previous games with details such as board states using do and undo moves.
   - Track total matches played, won, lost, and drawn.
 - **Continuous Integration pipeline:**
-  - With each push an automated test runs using googletests to verify that the logic of the game wasn't changed.
+  - With each push an automated test runs using Google Test to verify that the game's logic wasn't changed.
 
 ## Setup and Installation
-- Install Qt Creator (make sure to verify that mingw is installed when installing Qt).
+- Install Qt Creator (make sure that MinGW is installed when installing Qt).
 - Clone this repository: 
   ```bash
   git clone https://github.com/mo2menwael/Advanced-Tic-Tac-Toe.git
   ```
 - Build the project using Qt.
 - Search for Advanced-Tic-Tac-Toe.exe in your project folder, you are gonna find it in build folder, either in debug or release folder.
-- Search in your windows search bar for Qt "your Qt version" (MinGW "your MinGW version" 64-bit) and open it and type those comands:
+- Search in your Windows search bar for Qt "your Qt version" (MinGW "your MinGW version" 64-bit) and open it and type these commands:
   ```
   cd the path where you find Advanced-Tic-Tac-Toe.exe
   windeployqt.exe --quick .
   ```
 - Run the game from the Advanced-Tic-Tac-Toe.exe and Enjoy 😁.
+
+## Setup Google Tests (If you want to run the tests on your PC)
+- Make sure that you have installed CMake and MinGW on your PC (if not, please install them).
+- Clone this repository (if you haven't already cloned it): 
+  ```bash
+  git clone https://github.com/mo2menwael/Advanced-Tic-Tac-Toe.git
+  ```
+- In the googletest folder, create a folder called "build"
+- Open PowerShell and type these commands:
+  ```
+  cd the path where you created build folder
+  cmake -G "MinGW Makefiles" ..
+  make
+  ```
+- Open Qt Creator and open "Advanced-Tic-Tac-Toe.pro" file and remove the hashtag signs '#' commenting code lines only
+- Build & Run the project using Qt.
