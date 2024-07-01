@@ -38,12 +38,12 @@ jobs:
     - name: Set up Qt environment
       run: |
         echo "${{github.workspace}}/Qt/6.7.0/mingw_64/bin" >> $GITHUB_PATH
-        echo "${{github.workspace}}/Qt/6.7.0/mingw_64/include" >> $GITHUB_INCLUDE_PATH
-        echo "${{github.workspace}}/Qt/6.7.0/mingw_64/lib" >> $GITHUB_LIB_PATH
+        echo "INCLUDE=${{github.workspace}}/Qt/6.7.0/mingw_64/include" >> $GITHUB_ENV
+        echo "LIB=${{github.workspace}}/Qt/6.7.0/mingw_64/lib" >> $GITHUB_ENV
 
     - name: Build using MinGW
       run: |
-        g++ -I"${{github.workspace}}/Qt/6.7.0/mingw_64/include" -L"${{github.workspace}}/Qt/6.7.0/mingw_64/lib" GUI_Tic_Tac_Toe/main.cpp -o Advanced-Tic-Tac-Toe.exe -lQt6Widgets -lQt6Core -lQt6Gui
+        g++ -I"${{github.workspace}}/Qt/6.7.0/mingw_64/include" -I"${{github.workspace}}/Qt/6.7.0/mingw_64/include/QtWidgets" -I"${{github.workspace}}/Qt/6.7.0/mingw_64/include/QtCore" -I"${{github.workspace}}/Qt/6.7.0/mingw_64/include/QtGui" -L"${{github.workspace}}/Qt/6.7.0/mingw_64/lib" GUI_Tic_Tac_Toe/main.cpp -o Advanced-Tic-Tac-Toe.exe -lQt6Widgets -lQt6Core -lQt6Gui
 
     - name: Deploy executable
       run: |
