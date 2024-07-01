@@ -32,21 +32,21 @@ jobs:
           version: '6.7.0'
           cache: 'true'
           host: 'windows'
-          dir: '${{github.workspace}}/'
+          dir: '${{github.workspace}}/Qt'
           install-deps: 'true'
 
     - name: Verify Qt installation
       run: |
-        dir "${{github.workspace}}/Qt/6.7.0/{arch}"
-        dir "${{github.workspace}}/Qt/6.7.0/{arch}/include"
-        dir "${{github.workspace}}/Qt/6.7.0/{arch}/lib"
-        dir "${{github.workspace}}/Qt/6.7.0/{arch}/bin"
+        dir "${{github.workspace}}/Qt/Qt/6.7.0/{arch}"
+        dir "${{github.workspace}}/Qt/Qt/6.7.0/{arch}/include"
+        dir "${{github.workspace}}/Qt/Qt/6.7.0/{arch}/lib"
+        dir "${{github.workspace}}/Qt/Qt/6.7.0/{arch}/bin"
 
     - name: Set up Qt environment
       run: |
-        echo "${{github.workspace}}/Qt/6.7.0/{arch}/bin" >> $GITHUB_PATH
-        echo "INCLUDE=${{github.workspace}}/Qt/6.7.0/{arch}/include" >> $GITHUB_ENV
-        echo "LIB=${{github.workspace}}/Qt/6.7.0/{arch}/lib" >> $GITHUB_ENV
+        echo "${{github.workspace}}/Qt/Qt/6.7.0/{arch}/bin" >> $GITHUB_PATH
+        echo "INCLUDE=${{github.workspace}}/Qt/Qt/6.7.0/{arch}/include" >> $GITHUB_ENV
+        echo "LIB=${{github.workspace}}/Qt/Qt/6.7.0/{arch}/lib" >> $GITHUB_ENV
 
     - name: Build using MinGW
       run: |
