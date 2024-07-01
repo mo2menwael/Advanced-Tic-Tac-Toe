@@ -35,6 +35,13 @@ jobs:
           dir: '${{github.workspace}}/Qt/'
           install-deps: 'true'
 
+    - name: Verify Qt installation
+      run: |
+        dir "${{github.workspace}}/Qt/6.7.0/mingw_64"
+        dir "${{github.workspace}}/Qt/6.7.0/mingw_64/include"
+        dir "${{github.workspace}}/Qt/6.7.0/mingw_64/lib"
+        dir "${{github.workspace}}/Qt/6.7.0/mingw_64/bin"
+
     - name: Set up Qt environment
       run: |
         echo "${{github.workspace}}/Qt/6.7.0/mingw_64/bin" >> $GITHUB_PATH
