@@ -38,20 +38,20 @@ jobs:
 
     - name: Verify Qt installation
       run: |
-        dir "${{github.workspace}}/Qt/6.7.0/mingw_64"
-        dir "${{github.workspace}}/Qt/6.7.0/mingw_64/include"
-        dir "${{github.workspace}}/Qt/6.7.0/mingw_64/lib"
-        dir "${{github.workspace}}/Qt/6.7.0/mingw_64/bin"
+        dir "Qt/6.7.0/mingw_64"
+        dir "Qt/6.7.0/mingw_64/include"
+        dir "Qt/6.7.0/mingw_64/lib"
+        dir "Qt/6.7.0/mingw_64/bin"
 
     - name: Set up Qt environment
       run: |
-        echo "${{github.workspace}}/Qt/6.7.0/mingw_64/bin" >> $GITHUB_PATH
-        echo "INCLUDE=${{github.workspace}}/Qt/6.7.0/mingw_64/include" >> $GITHUB_ENV
-        echo "LIB=${{github.workspace}}/Qt/6.7.0/mingw_64/lib" >> $GITHUB_ENV
+        echo "Qt/6.7.0/mingw_64/bin" >> $GITHUB_PATH
+        echo "INCLUDE=Qt/6.7.0/mingw_64/include" >> $GITHUB_ENV
+        echo "LIB=Qt/6.7.0/mingw_64/lib" >> $GITHUB_ENV
 
     - name: Build using MinGW
       run: |
-        g++ -I"${{github.workspace}}/Qt/6.7.0/mingw_64/include" -L"${{github.workspace}}/Qt/6.7.0/mingw_64/lib" GUI_Tic_Tac_Toe/main.cpp -o Advanced-Tic-Tac-Toe.exe
+        g++ -I"Qt/6.7.0/mingw_64/include" -L"Qt/6.7.0/mingw_64/lib" GUI_Tic_Tac_Toe/main.cpp -o Advanced-Tic-Tac-Toe.exe
 
     - name: Deploy executable
       run: |
