@@ -29,6 +29,7 @@ jobs:
     - name: Install Qt
       uses: jurplel/install-qt-action@v4
       with:
+        cache: 'true'
         aqtversion: '==3.1.*'
         version: '6.7.0'
         host: 'windows'
@@ -38,20 +39,20 @@ jobs:
 
     - name: Verify Qt installation
       run: |
-        dir "Qt/6.7.0/mingw_64"
-        dir "Qt/6.7.0/mingw_64/include"
-        dir "Qt/6.7.0/mingw_64/lib"
-        dir "Qt/6.7.0/mingw_64/bin"
+        dir "D:/a/Advanced-Tic-Tac-Toe/Qt/6.7.0/mingw_64/"
+        dir "D:/a/Advanced-Tic-Tac-Toe/Qt/6.7.0/mingw_64/include"
+        dir "D:/a/Advanced-Tic-Tac-Toe/Qt/6.7.0/mingw_64/lib"
+        dir "D:/a/Advanced-Tic-Tac-Toe/Qt/6.7.0/mingw_64/bin"
 
     - name: Set up Qt environment
       run: |
-        echo "Qt/6.7.0/mingw_64/bin" >> $GITHUB_PATH
-        echo "INCLUDE=Qt/6.7.0/mingw_64/include" >> $GITHUB_ENV
-        echo "LIB=Qt/6.7.0/mingw_64/lib" >> $GITHUB_ENV
+        echo "D:/a/Advanced-Tic-Tac-Toe/Qt/6.7.0/mingw_64/bin" >> $GITHUB_PATH
+        echo "INCLUDE=D:/a/Advanced-Tic-Tac-Toe/Qt/6.7.0/mingw_64/include" >> $GITHUB_ENV
+        echo "LIB=D:/a/Advanced-Tic-Tac-Toe/Qt/6.7.0/mingw_64/lib" >> $GITHUB_ENV
 
     - name: Build using MinGW
       run: |
-        g++ -I"Qt/6.7.0/mingw_64/include" -L"Qt/6.7.0/mingw_64/lib" GUI_Tic_Tac_Toe/main.cpp -o Advanced-Tic-Tac-Toe.exe
+        g++ -I"D:/a/Advanced-Tic-Tac-Toe/Qt/6.7.0/mingw_64/include" -L"D:/a/Advanced-Tic-Tac-Toe/Qt/6.7.0/mingw_64/lib" GUI_Tic_Tac_Toe/main.cpp -o Advanced-Tic-Tac-Toe.exe
 
     - name: Deploy executable
       run: |
