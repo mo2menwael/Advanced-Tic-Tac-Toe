@@ -20,8 +20,9 @@ This project demonstrates an Advanced Tic Tac Toe game using C++, Qt for GUI, an
 - **Game history page:**
   - View previous games with details such as board states using do and undo moves.
   - Track total matches played, won, lost, and drawn.
-- **Continuous Integration pipeline:**
+- **Continuous Integration & Continuous Deployment pipeline:**
   - With each push an automated test runs using Google Test to verify that the game logic wasn't changed.
+  - Automatically deploy verified changes to the production environment in .exe extension.
 - **Optimized performance:**
   - Smooth moves with low response time for a flawless gameplay experience.
   - Low memory and CPU usage, ensuring efficient resource management.
