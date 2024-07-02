@@ -36,7 +36,7 @@ This project demonstrates an Advanced Tic Tac Toe game using C++, Qt for GUI, an
   cd the path where you find Advanced-Tic-Tac-Toe.exe
   windeployqt.exe --quick .
   ```
-- Run the game from the Advanced-Tic-Tac-Toe.exe and Enjoy 😁.
+- Run the game from Advanced-Tic-Tac-Toe.exe and Enjoy 😁.
 
 ## Setup Google Tests
 **Note:** Only follow this steps if you want to run the tests on your PC.
@@ -45,12 +45,15 @@ This project demonstrates an Advanced Tic Tac Toe game using C++, Qt for GUI, an
   ```bash
   git clone https://github.com/mo2menwael/Advanced-Tic-Tac-Toe.git
   ```
-- In the googletest folder, create a folder called "build"
+- In the googletest folder, create a folder called "build".
 - Open PowerShell and type these commands:
   ```
   cd the path where you created build folder
   cmake -G "MinGW Makefiles" ..
   make
   ```
-- Open Qt Creator and open "Advanced-Tic-Tac-Toe.pro" file and remove the hashtag signs '#' commenting code lines only
+- Open Qt Creator and open "Advanced-Tic-Tac-Toe.pro" file and remove the hashtag signs '#' commenting code lines only.
 - Build & Run the project using Qt.
+
+## Enough Coding, Let's Play ✖️⭕!
+- Just take the ".exe game files" and open Advanced-Tic-Tac-Toe.exe and Enjoy 😁.
