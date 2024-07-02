@@ -22,6 +22,9 @@ This project demonstrates an Advanced Tic Tac Toe game using C++, Qt for GUI, an
   - Track total matches played, won, lost, and drawn.
 - **Continuous Integration pipeline:**
   - With each push an automated test runs using Google Test to verify that the game logic wasn't changed.
+- **Optimized performance:**
+  - Smooth moves with low response time for a flawless gameplay experience.
+  - Low memory and CPU usage, ensuring efficient resource management.
 
 ## Setup and Installation
 - Install Qt Creator (make sure that MinGW is installed when installing Qt).
