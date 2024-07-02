@@ -1,1 +1,49 @@
+name: Build & Deploy the project
 
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4.1.7
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v4
+      with:
+        cache: 'true'
+        aqtversion: '==3.1.*'
+        version: '6.7.0'
+        host: 'windows'
+        target: 'desktop'
+        arch: 'win64_mingw'
+        tools: 'tools_mingw90'
+        dir: 'C:/'
+        
+    - name: Set up Qt environment
+      run: |
+        echo "C:/Qt/6.7.0/mingw_64/bin" >> $GITHUB_PATH
+        echo "INCLUDE=C:/Qt/6.7.0/mingw_64/include" >> $GITHUB_ENV
+        echo "LIB=C:/Qt/6.7.0/mingw_64/lib" >> $GITHUB_ENV
+      shell: bash
+
+    - name: Build using MinGW
+      run: |
+        cd GUI_Tic_Tac_Toe
+        qmake Advanced-Tic-Tac-Toe.pro
+        make
+    
+    - name: Deploy executable
+      run: |
+        mkdir -p $GITHUB_WORKSPACE/deploy/
+        C:\Windows\System32\cmd.exe /A /Q /K C:\Qt\6.7.0\mingw_64\bin\qtenv2.bat
+        cd GUI_Tic_Tac_Toe/release
+        windeployqt.exe --quick .
+        
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4.3.3
+      with:
+        name: my-executable
+        path: GUI_Tic_Tac_Toe/release/Advanced-Tic-Tac-Toe.exe
