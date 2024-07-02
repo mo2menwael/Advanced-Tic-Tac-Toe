@@ -38,7 +38,8 @@ This project demonstrates an Advanced Tic Tac Toe game using C++, Qt for GUI, an
   ```
 - Run the game from the Advanced-Tic-Tac-Toe.exe and Enjoy 😁.
 
-## Setup Google Tests (If you want to run the tests on your PC)
+## Setup Google Tests
+Note: Only follow this steps if you want to run the tests on your PC.
 - Make sure that you have installed CMake and MinGW on your PC (if not, please install them).
 - Clone this repository (if you haven't already cloned it): 
   ```bash
