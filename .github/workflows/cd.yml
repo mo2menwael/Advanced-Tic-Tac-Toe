@@ -39,9 +39,9 @@ jobs:
       run: |
         cd GUI_Tic_Tac_Toe/release
         mkdir -p exegame
-        cp Advanced-Tic-Tac-Toe.exe GUI_Tic_Tac_Toe/release/exegame/
+        cp Advanced-Tic-Tac-Toe.exe exegame/
         C:\Windows\System32\cmd.exe /A /Q /K C:\Qt\6.7.0\mingw_64\bin\qtenv2.bat
-        cd GUI_Tic_Tac_Toe/release/exegame
+        cd exegame
         windeployqt.exe --quick .
         
     - name: Upload artifact
