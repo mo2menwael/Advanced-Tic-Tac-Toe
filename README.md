@@ -16,12 +16,12 @@ This project demonstrates an Advanced Tic Tac Toe game using C++, Qt for GUI, an
 - **Three levels of AI difficulty:**
   - Easy: AI makes random moves.
   - Medium: AI prioritizes winning, blocking opponent’s winning moves, or making random moves.
-  - Hard: AI uses the Minimax algorithm for optimal gameplay (Impossible to Beat 🙃).
+  - Hard: AI uses Minimax algorithm for optimal gameplay (Impossible to Beat 🙃).
 - **Game history page:**
   - View previous games with details such as board states using do and undo moves.
   - Track total matches played, won, lost, and drawn.
 - **Continuous Integration pipeline:**
-  - With each push an automated test runs using Google Test to verify that the game's logic wasn't changed.
+  - With each push an automated test runs using Google Test to verify that the game logic wasn't changed.
 
 ## Setup and Installation
 - Install Qt Creator (make sure that MinGW is installed when installing Qt).
@@ -45,7 +45,7 @@ This project demonstrates an Advanced Tic Tac Toe game using C++, Qt for GUI, an
   ```bash
   git clone https://github.com/mo2menwael/Advanced-Tic-Tac-Toe.git
   ```
-- In the googletest folder, create a folder called "build".
+- In googletest folder, create a folder called "build".
 - Open PowerShell and type these commands:
   ```
   cd the path where you created build folder
@@ -56,4 +56,4 @@ This project demonstrates an Advanced Tic Tac Toe game using C++, Qt for GUI, an
 - Build & Run the project using Qt.
 
 ## Enough Coding, Let's Play ✖️⭕!
-- Just take the ".exe game files" and open Advanced-Tic-Tac-Toe.exe and Enjoy 😁.
+- Just open ".exe game files" folder and open Advanced-Tic-Tac-Toe.exe and Enjoy 😁.
