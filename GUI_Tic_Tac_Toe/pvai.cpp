@@ -133,8 +133,15 @@ void pvai::update()
     board[2][0] = ui->seven->text(); board[2][1] = ui->eight->text(); board[2][2] = ui->nine->text();
 }
 
-void pvai::move(int r, int c, const QString& turn) {
-    QString color = "#FF4350";  // Hex color for every turn
+void pvai::move(int r, int c, const QString& turn, int mode) {
+    // Hex color for every turn
+    QString color;
+    if(mode == 1)
+        color = "#00FF00";
+    else if(mode == 2)
+        color = "#FFAA00";
+    else
+        color = "#FF55FF";
 
     if(r==0 && c==0)
     {ui->one->setText(turn); ui->one->setStyleSheet("color: " + color); J00 = QString::number(++counter_1);}
@@ -215,7 +222,7 @@ void pvai::computer_turn_easy()
         row = rand() % 3;
         column = rand() % 3;
     } while (board[row][column] == "X" || board[row][column] == "O");
-    move(row,column,ai_turn);
+    move(row,column,ai_turn,1);
     moves++;
     if(iswon())
     {
@@ -238,7 +245,7 @@ void pvai::computer_turn_medium()
         for (int j = 0; j < 3; j++) {
             if (board[i][j] != "X" && board[i][j] != "O") {
                 QString temp = board[i][j];
-                move(i,j,ai_turn);
+                move(i,j,ai_turn,2);
                 if (iswon()) {
                     moves++;
                     if(iswon())
@@ -257,7 +264,7 @@ void pvai::computer_turn_medium()
                     }
                     return;
                 }
-                move(i,j,temp); // Undo the move
+                move(i,j,temp,2); // Undo the move
             }
         }
     }
@@ -266,9 +273,9 @@ void pvai::computer_turn_medium()
         for (int j = 0; j < 3; j++) {
             if (board[i][j] != "X" && board[i][j] != "O") {
                 QString temp = board[i][j];
-                move(i,j,player_turn);
+                move(i,j,player_turn,2);
                 if (iswon()) {
-                    move(i,j,ai_turn); // Block the opponent's winning move
+                    move(i,j,ai_turn,2); // Block the opponent's winning move
                     moves++;
                     if(iswon())
                     {
@@ -286,7 +293,7 @@ void pvai::computer_turn_medium()
                     }
                     return;
                 }
-                move(i,j,temp); // Undo the move
+                move(i,j,temp,2); // Undo the move
             }
         }
     }
@@ -296,7 +303,7 @@ void pvai::computer_turn_medium()
         row = rand() % 3;
         column = rand() % 3;
     } while (board[row][column] == 'X' || board[row][column] == 'O');
-    move(row,column,ai_turn);
+    move(row,column,ai_turn,2);
     moves++;
     if(iswon())
     {
@@ -412,13 +419,13 @@ int pvai::minimax(int depth, bool isMax, int alpha, int beta)
             {
                 QString temp = board[i][j];
                 // Make the move
-                this->move(i, j, ai_turn);
+                this->move(i, j, ai_turn,3);
 
                 // Call minimax recursively and choose the maximum value
                 best = max(best, minimax(depth + 1, !isMax, alpha, beta));
 
                 // Undo the move
-                this->move(i, j, temp);
+                this->move(i, j, temp,3);
 
                 alpha = max(alpha, best);
 
@@ -446,13 +453,13 @@ int pvai::minimax(int depth, bool isMax, int alpha, int beta)
             {
                 QString temp = board[i][j];
                 // Make the move
-                this->move(i, j, player_turn);
+                this->move(i, j, player_turn,3);
 
                 // Call minimax recursively and choose the minimum value
                 best = min(best, minimax(depth + 1, !isMax, alpha, beta));
 
                 // Undo the move
-                this->move(i, j, temp);
+                this->move(i, j, temp,3);
 
                 beta = min(beta, best);
 
@@ -485,13 +492,13 @@ pair<int, int> pvai::findBestMove()
         {
             QString temp = board[i][j];
             // Make the move
-            this->move(i, j, ai_turn);
+            this->move(i, j, ai_turn,3);
 
             // Compute evaluation function for this move.
             int moveVal = minimax(0, false, -1000, 1000);
 
             // Undo the move
-            this->move(i, j, temp);
+            this->move(i, j, temp,3);
 
             // If the value of the current move is more than the best value, then update best
             if (moveVal > bestVal)
@@ -564,30 +571,30 @@ void pvai::handleButtonClick(QPushButton* button)
             if(moves==2 && (board[1][1] == player_turn || board[0][1] == player_turn ||
                            board[1][0] == player_turn))
             {
-                response_time([this](){ this->move(0,0,ai_turn); }, "Hard");
+                response_time([this](){ this->move(0,0,ai_turn,3); }, "Hard");
                 moves++; take_turns++;
             }
             else if (moves==2 && (board[0][0] == player_turn || board[0][2] == player_turn ||
                                   board[2][0] == player_turn || board[2][2] == player_turn))
             {
-                response_time([this](){ this->move(1,1,ai_turn); }, "Hard");
+                response_time([this](){ this->move(1,1,ai_turn,3); }, "Hard");
                 moves++; take_turns++;
             }
             else if (moves==2 && board[1][2] == player_turn)
             {
-                response_time([this](){ this->move(0,2,ai_turn); }, "Hard");
+                response_time([this](){ this->move(0,2,ai_turn,3); }, "Hard");
                 moves++; take_turns++;
             }
             else if (moves==2 && board[2][1] == player_turn)
             {
-                response_time([this](){ this->move(0,1,ai_turn); }, "Hard");
+                response_time([this](){ this->move(0,1,ai_turn,3); }, "Hard");
                 moves++; take_turns++;
             }
             else
             {
                 auto start = chrono::high_resolution_clock::now();
                 pair<int, int> bestMove = findBestMove();
-                move(bestMove.first,bestMove.second,ai_turn);
+                move(bestMove.first,bestMove.second,ai_turn,3);
                 auto end = chrono::high_resolution_clock::now();
                 chrono::duration<double> elapsed = end - start;
                 cout << "Hard Computer move response time: " << elapsed.count()*1000 << " ms" << endl;

@@ -72,7 +72,7 @@ private slots:
 
     void computer_turn_medium();
 
-    void move(int r,int c, const QString& turn);
+    void move(int r,int c, const QString& turn, int mode);
 
     bool isMovesLeft();
 
