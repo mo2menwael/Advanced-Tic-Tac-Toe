@@ -6,24 +6,24 @@ This project demonstrates an Advanced Tic Tac Toe game using C++, Qt for GUI, an
 ![](https://github.com/mo2menwael/Advanced-Tic-Tac-Toe/blob/main/game.gif)
   
 ## Key Features
-- **Secure and unique user login functionality:**
+- **🔒 Secure and unique user login functionality:**
   - Passwords are hashed for enhanced security.
   - Each username must be unique, preventing duplicate accounts.
   - Both username and password must be at least 4 characters long.
-- **Two gameplay modes:**
+- **🎮 Two gameplay modes:**
   - Player vs. Player.
   - Player vs. AI.
-- **Three levels of AI difficulty:**
+- **🏆 Three levels of AI difficulty:**
   - Easy: AI makes random moves.
   - Medium: AI prioritizes winning, blocking opponent’s winning moves, or making random moves.
   - Hard: AI uses Minimax algorithm for optimal gameplay (Impossible to Beat 🙃).
-- **Game history page:**
+- **📜 Game history page:**
   - View previous games with details such as board states using do and undo moves.
   - Track total matches played, won, lost, and drawn.
-- **Continuous Integration & Continuous Deployment pipeline:**
+- **🔄 CI/CD Pipeline:**
   - With each push an automated test runs using Google Test to verify that the game logic wasn't changed.
   - Automatically deploy verified changes to the production environment in .exe extension.
-- **Optimized performance:**
+- **⚡ Optimized performance:**
   - Smooth moves with low response time for a flawless gameplay experience.
   - Low memory and CPU usage, ensuring efficient resource management.
 
