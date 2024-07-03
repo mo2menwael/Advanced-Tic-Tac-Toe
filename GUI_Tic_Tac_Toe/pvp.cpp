@@ -181,16 +181,7 @@ void pvp::handleButtonClick(QPushButton* button) {
     {
         QString currentPlayer = (Moves % 2 != 0) ? p1_turn : p2_turn;
         button->setText(currentPlayer);
-        if(currentPlayer == p1_turn)
-        {
-            button->setStyleSheet("color: #FF4350"); // Set the text color
-            ui->turntext->setStyleSheet("color: #00FF00");
-        }
-        else
-        {
-            button->setStyleSheet("color: #00FF00"); // Set the text color
-            ui->turntext->setStyleSheet("color: #FF4350");
-        }
+        button->setStyleSheet("color: #FF4350"); // Set the text color
         ui->turntext->setText((Moves % 2 != 0) ? othertUsername + "'s turn" : currentUsername + "'s turn");
 
         // Determine the row and column of the clicked button and update the board state
