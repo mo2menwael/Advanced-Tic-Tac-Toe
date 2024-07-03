@@ -630,6 +630,9 @@ void pvai::on_easy_clicked()
     Level = "AI_Easy";
     mode=1;
     ui->diff->setText("Ai (Easy)");
+    ui->easy->setStyleSheet("background-color: rgb(0, 255, 0); color:rgb(0, 33, 45); border: 3px solid; border-radius: 5px; border-color: rgb(0, 255, 0);");
+    ui->medium->setStyleSheet("color: rgb(255, 170, 0); background-color: rgb(0, 33, 45); border: 3px solid; border-radius: 5px; border-color: rgb(0, 33, 45);");
+    ui->hard->setStyleSheet("color: rgb(225, 0, 0); background-color: rgb(0, 33, 45); border: 3px solid; border-radius: 5px; border-color: rgb(0, 33, 45);");
     ui->one->show();    ui->two->show();    ui->three->show();
     ui->four->show();   ui->five->show();   ui->six->show();
     ui->seven->show();  ui->eight->show();  ui->nine->show();
@@ -643,6 +646,9 @@ void pvai::on_medium_clicked()
     Level = "AI_Medium";
     mode=2;
     ui->diff->setText("Ai (Medium)");
+    ui->easy->setStyleSheet("color: rgb(0, 255, 0); background-color:rgb(0, 33, 45); border: 3px solid; border-radius: 5px; border-color: rgb(0, 33, 45);");
+    ui->medium->setStyleSheet("color:rgb(0, 33, 45); background-color: rgb(255, 170, 0); border: 3px solid; border-radius: 5px; border-color: rgb(255, 170, 0);");
+    ui->hard->setStyleSheet("color: rgb(225, 0, 0); background-color: rgb(0, 33, 45); border: 3px solid; border-radius: 5px; border-color: rgb(0, 33, 45);");
     ui->one->show();    ui->two->show();    ui->three->show();
     ui->four->show();   ui->five->show();   ui->six->show();
     ui->seven->show();  ui->eight->show();  ui->nine->show();
@@ -656,6 +662,9 @@ void pvai::on_hard_clicked()
     Level = "AI_Hard";
     mode=3;
     ui->diff->setText("Ai (Hard)");
+    ui->easy->setStyleSheet("color: rgb(0, 255, 0); background-color:rgb(0, 33, 45); border: 3px solid; border-radius: 5px; border-color: rgb(0, 33, 45);");
+    ui->medium->setStyleSheet("color: rgb(255, 170, 0); background-color: rgb(0, 33, 45); border: 3px solid; border-radius: 5px; border-color: rgb(0, 33, 45);");
+    ui->hard->setStyleSheet("color:rgb(0, 33, 45); background-color: rgb(225, 0, 0); border: 3px solid; border-radius: 5px; border-color: rgb(225, 0, 0);");
     ui->one->show();    ui->two->show();    ui->three->show();
     ui->four->show();   ui->five->show();   ui->six->show();
     ui->seven->show();  ui->eight->show();  ui->nine->show();
